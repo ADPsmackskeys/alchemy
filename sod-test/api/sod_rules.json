@@ -1,0 +1,20 @@
+[
+  {
+    "sod_id": "SOD001",
+    "entitlement_1": "SAP_VENDOR_CREATE",
+    "entitlement_2": "SAP_PAYMENT_APPROVER",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD002",
+    "entitlement_1": "AD_DOMAIN_ADMIN",
+    "entitlement_2": "RSA_GRC",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD003",
+    "entitlement_1": "SAP_AP_INVOICE",
+    "entitlement_2": "SAP_VENDOR_CREATE",
+    "severity": "High"
+  }
+]

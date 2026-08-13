@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# ==========================
+# CONFIGURATION
+# ==========================
+export PROJECT_ID="KPMG-Lighthouse-MCP-Alchemy"
+export REGION="asia-south2"
+export REPOSITORY="kalchemy"
+export IMAGE_NAME="new-joiners"
+export IMAGE_TAG="v1"
+
+# ==========================
+# LOGIN TO GCP - Only once
+# ==========================
+gcloud auth login
+
+# Set active project
+gcloud config set project ${PROJECT_ID}
+
+# Verify project
+gcloud config get-value project
+
+# ==========================
+# ENABLE ARTIFACT REGISTRY API
+# (One-time only)
+# ==========================
+gcloud services enable artifactregistry.googleapis.com
+
+# ==========================
+# CREATE REPOSITORY
+# (One-time only)
+# Skip if already exists
+# ==========================
+gcloud artifacts repositories create ${REPOSITORY} \
+    --repository-format=docker \
+    --location=${REGION} \
+    --description="Docker Images Repository"
+
+# ==========================
+# CONFIGURE DOCKER AUTH
+# ==========================
+gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
+
+# ==========================
+# BUILD IMAGE
+# ==========================
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+
+# ==========================
+# TAG IMAGE FOR GCP
+# ==========================
+docker tag ${IMAGE_NAME}:latest \
+${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMAGE_NAME}:${IMAGE_TAG}
+
+# ==========================
+# PUSH IMAGE
+# ==========================
+docker push \
+${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMAGE_NAME}:${IMAGE_TAG}
+
+# ==========================
+# VERIFY PUSH
+# ==========================
+gcloud artifacts docker images list \
+${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${IMAGE_NAME}
+
+echo "Image pushed successfully!"
+
+gcloud container clusters get-credentials kalchemy-gke \
+  --region asia-south2

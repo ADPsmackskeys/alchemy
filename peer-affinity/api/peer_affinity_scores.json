@@ -1,0 +1,106 @@
+[
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_AP_INVOICE",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "FIN_SHAREPOINT",
+    "peer_count": 1,
+    "total_peers": 5,
+    "affinity_score": 20
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 2,
+    "total_peers": 3,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RSA_GRC",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "AUDIT_TOOL",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "POWERBI_AUDIT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SHAREPOINT_AUDIT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  }
+]

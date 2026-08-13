@@ -1,0 +1,44 @@
+[
+  {
+    "policy_id": "POL001",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Financial Analyst -> SAP_FIN_DISPLAY"
+  },
+  {
+    "policy_id": "POL002",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Financial Analyst -> POWERBI_FINANCE"
+  },
+  {
+    "policy_id": "POL003",
+    "policy_name": "Engineering Birthright",
+    "type": "ALLOW",
+    "rule": "Software Engineer -> JIRA_USER"
+  },
+  {
+    "policy_id": "POL004",
+    "policy_name": "Engineering Birthright",
+    "type": "ALLOW",
+    "rule": "Software Engineer -> GITHUB_DEV"
+  },
+  {
+    "policy_id": "POL005",
+    "policy_name": "Risk Review",
+    "type": "HUMAN_APPROVAL",
+    "rule": "risk_score >= 70"
+  },
+  {
+    "policy_id": "POL006",
+    "policy_name": "Critical Access",
+    "type": "HUMAN_APPROVAL",
+    "rule": "risk_score >= 90"
+  },
+  {
+    "policy_id": "POL007",
+    "policy_name": "Affinity Threshold",
+    "type": "ALLOW",
+    "rule": "affinity_score >= 70"
+  }
+]

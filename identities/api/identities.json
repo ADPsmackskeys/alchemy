@@ -1,0 +1,92 @@
+[
+  {
+    "employee_id": "EMP001",
+    "name": "Ramesh",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
+  },
+  {
+    "employee_id": "EMP002",
+    "name": "Sneha",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
+  },
+  {
+    "employee_id": "EMP003",
+    "name": "Ajay",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "SAP_FIN_DISPLAY;POWERBI_FINANCE"
+  },
+  {
+    "employee_id": "EMP004",
+    "name": "Manoj",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
+  },
+  {
+    "employee_id": "EMP005",
+    "name": "Pooja",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE;FIN_SHAREPOINT"
+  },
+  {
+    "employee_id": "EMP006",
+    "name": "Ravi",
+    "department": "Technology",
+    "job_role": "Software Engineer",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "JIRA_USER;GITHUB_DEV;CONFLUENCE_USER"
+  },
+  {
+    "employee_id": "EMP007",
+    "name": "Sonia",
+    "department": "Technology",
+    "job_role": "Software Engineer",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "JIRA_USER;GITHUB_DEV;CONFLUENCE_USER"
+  },
+  {
+    "employee_id": "EMP008",
+    "name": "Akash",
+    "department": "Technology",
+    "job_role": "Software Engineer",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "entitlements": "JIRA_USER;GITHUB_DEV"
+  },
+  {
+    "employee_id": "EMP009",
+    "name": "Meera",
+    "department": "Risk",
+    "job_role": "Risk Analyst",
+    "job_level": "L3",
+    "location": "Bangalore",
+    "entitlements": "RSA_GRC;POWERBI_RISK;RISK_PORTAL"
+  },
+  {
+    "employee_id": "EMP010",
+    "name": "John",
+    "department": "Audit",
+    "job_role": "Internal Auditor",
+    "job_level": "L3",
+    "location": "Mumbai",
+    "entitlements": "AUDIT_TOOL;POWERBI_AUDIT;SHAREPOINT_AUDIT"
+  }
+]

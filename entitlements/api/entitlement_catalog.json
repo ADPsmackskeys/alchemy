@@ -1,0 +1,62 @@
+[
+  {
+    "entitlement_id": "ENT001",
+    "entitlement_name": "SAP_FIN_DISPLAY",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT002",
+    "entitlement_name": "SAP_AP_INVOICE",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT003",
+    "entitlement_name": "POWERBI_FINANCE",
+    "application": "PowerBI",
+    "owner": "BI Team"
+  },
+  {
+    "entitlement_id": "ENT004",
+    "entitlement_name": "FIN_SHAREPOINT",
+    "application": "SharePoint",
+    "owner": "Collaboration Team"
+  },
+  {
+    "entitlement_id": "ENT005",
+    "entitlement_name": "JIRA_USER",
+    "application": "JIRA",
+    "owner": "Engineering IT"
+  },
+  {
+    "entitlement_id": "ENT006",
+    "entitlement_name": "GITHUB_DEV",
+    "application": "GitHub",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT007",
+    "entitlement_name": "CONFLUENCE_USER",
+    "application": "Confluence",
+    "owner": "Engineering IT"
+  },
+  {
+    "entitlement_id": "ENT008",
+    "entitlement_name": "RSA_GRC",
+    "application": "RSA Archer",
+    "owner": "Risk IT"
+  },
+  {
+    "entitlement_id": "ENT009",
+    "entitlement_name": "RISK_PORTAL",
+    "application": "Risk Portal",
+    "owner": "Risk IT"
+  },
+  {
+    "entitlement_id": "ENT010",
+    "entitlement_name": "AUDIT_TOOL",
+    "application": "Audit Platform",
+    "owner": "Audit IT"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "entitlement_name": "SAP_FIN_DISPLAY",
+    "application": "SAP ECC",
+    "risk_score": 15,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "SAP_AP_INVOICE",
+    "application": "SAP ECC",
+    "risk_score": 45,
+    "risk_category": "Medium"
+  },
+  {
+    "entitlement_name": "POWERBI_FINANCE",
+    "application": "PowerBI",
+    "risk_score": 10,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "FIN_SHAREPOINT",
+    "application": "SharePoint",
+    "risk_score": 8,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "JIRA_USER",
+    "application": "JIRA",
+    "risk_score": 5,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "GITHUB_DEV",
+    "application": "GitHub",
+    "risk_score": 35,
+    "risk_category": "Medium"
+  },
+  {
+    "entitlement_name": "CONFLUENCE_USER",
+    "application": "Confluence",
+    "risk_score": 10,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "RSA_GRC",
+    "application": "RSA Archer",
+    "risk_score": 70,
+    "risk_category": "High"
+  },
+  {
+    "entitlement_name": "POWERBI_RISK",
+    "application": "PowerBI",
+    "risk_score": 10,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "RISK_PORTAL",
+    "application": "Risk Portal",
+    "risk_score": 40,
+    "risk_category": "Medium"
+  },
+  {
+    "entitlement_name": "AUDIT_TOOL",
+    "application": "Audit Platform",
+    "risk_score": 75,
+    "risk_category": "High"
+  },
+  {
+    "entitlement_name": "POWERBI_AUDIT",
+    "application": "PowerBI",
+    "risk_score": 10,
+    "risk_category": "Low"
+  },
+  {
+    "entitlement_name": "SAP_PAYMENT_APPROVER",
+    "application": "SAP ECC",
+    "risk_score": 95,
+    "risk_category": "Critical"
+  },
+  {
+    "entitlement_name": "SAP_VENDOR_CREATE",
+    "application": "SAP ECC",
+    "risk_score": 90,
+    "risk_category": "Critical"
+  },
+  {
+    "entitlement_name": "AD_DOMAIN_ADMIN",
+    "application": "Active Directory",
+    "risk_score": 100,
+    "risk_category": "Critical"
+  }
+]

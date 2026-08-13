@@ -1,0 +1,112 @@
+[
+  {
+    "employee_id": "NJ1001",
+    "name": "Rahul Sharma",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "manager_id": "MGR100",
+    "cost_center": "FIN001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1002",
+    "name": "Priya Nair",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "manager_id": "MGR100",
+    "cost_center": "FIN001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1003",
+    "name": "Amit Gupta",
+    "department": "Finance",
+    "job_role": "Financial Analyst",
+    "job_level": "L2",
+    "location": "Hyderabad",
+    "manager_id": "MGR100",
+    "cost_center": "FIN001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1004",
+    "name": "Anjali Rao",
+    "department": "Technology",
+    "job_role": "Software Engineer",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "manager_id": "MGR200",
+    "cost_center": "TECH001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1005",
+    "name": "Karan Mehta",
+    "department": "Technology",
+    "job_role": "Software Engineer",
+    "job_level": "L2",
+    "location": "Pune",
+    "manager_id": "MGR200",
+    "cost_center": "TECH001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1006",
+    "name": "Neha Singh",
+    "department": "Risk",
+    "job_role": "Risk Analyst",
+    "job_level": "L3",
+    "location": "Bangalore",
+    "manager_id": "MGR300",
+    "cost_center": "RISK001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1007",
+    "name": "Suresh Iyer",
+    "department": "Audit",
+    "job_role": "Internal Auditor",
+    "job_level": "L3",
+    "location": "Mumbai",
+    "manager_id": "MGR400",
+    "cost_center": "AUD001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1008",
+    "name": "Deepa Joseph",
+    "department": "HR",
+    "job_role": "HR Specialist",
+    "job_level": "L2",
+    "location": "Bangalore",
+    "manager_id": "MGR500",
+    "cost_center": "HR001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1009",
+    "name": "Vivek Kumar",
+    "department": "Technology",
+    "job_role": "Cloud Engineer",
+    "job_level": "L3",
+    "location": "Hyderabad",
+    "manager_id": "MGR200",
+    "cost_center": "TECH001",
+    "start_date": "2026-08-01"
+  },
+  {
+    "employee_id": "NJ1010",
+    "name": "Arjun Patel",
+    "department": "Finance",
+    "job_role": "Senior Financial Analyst",
+    "job_level": "L3",
+    "location": "Bangalore",
+    "manager_id": "MGR100",
+    "cost_center": "FIN001",
+    "start_date": "2026-08-01"
+  }
+]
