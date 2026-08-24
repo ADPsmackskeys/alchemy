@@ -28,7 +28,11 @@ class Settings(BaseSettings):
     )
 
     host: str = Field(default="127.0.0.1", description="Bind address for `python main.py`")
-    port: int = Field(default=8005, ge=1, le=65535, description="Port for `python main.py`")
+    port: int = Field(default=8000, ge=1, le=65535, description="Port for `python main.py`")
+    root_path: str = Field(
+        default="",
+        description="ASGI root_path, for when the API is served behind a path-prefixing proxy (e.g. /api)",
+    )
 
     @field_validator("sod_rules_file")
     @classmethod

@@ -102,5 +102,61 @@
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "WORKDAY_HR",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_AP_INVOICE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
   }
 ]

@@ -15,10 +15,11 @@ config.py, so NEW_JOINERS_API_URL can be set in the environment or in a
     python mcp_server.py
 
 MCP_TRANSPORT decides how this server listens (default streamable-http on
-MCP_PORT 8100 -- deliberately not the API's 8000). Register it accordingly:
+MCP_PORT 8000 -- the same as the API's 8000, since the two are expected to
+run on separate hosts). Register it accordingly:
 
     # streamable-http (default): server runs on its own, client connects
-    claude mcp add --transport http new-joiners http://127.0.0.1:8100/mcp
+    claude mcp add --transport http new-joiners http://127.0.0.1:8000/mcp
 
     # stdio: the client spawns this process itself
     MCP_TRANSPORT=stdio

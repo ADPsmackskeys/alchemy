@@ -6,6 +6,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "",
     "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
   },
   {
@@ -15,6 +16,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP001",
     "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
   },
   {
@@ -24,6 +26,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP001",
     "entitlements": "SAP_FIN_DISPLAY;POWERBI_FINANCE"
   },
   {
@@ -33,6 +36,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP001",
     "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE"
   },
   {
@@ -42,6 +46,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP001",
     "entitlements": "SAP_FIN_DISPLAY;SAP_AP_INVOICE;POWERBI_FINANCE;FIN_SHAREPOINT"
   },
   {
@@ -51,6 +56,7 @@
     "job_role": "Software Engineer",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "",
     "entitlements": "JIRA_USER;GITHUB_DEV;CONFLUENCE_USER"
   },
   {
@@ -60,6 +66,7 @@
     "job_role": "Software Engineer",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP006",
     "entitlements": "JIRA_USER;GITHUB_DEV;CONFLUENCE_USER"
   },
   {
@@ -69,6 +76,7 @@
     "job_role": "Software Engineer",
     "job_level": "L2",
     "location": "Bangalore",
+    "manager_id": "EMP006",
     "entitlements": "JIRA_USER;GITHUB_DEV"
   },
   {
@@ -78,6 +86,7 @@
     "job_role": "Risk Analyst",
     "job_level": "L3",
     "location": "Bangalore",
+    "manager_id": "EMP010",
     "entitlements": "RSA_GRC;POWERBI_RISK;RISK_PORTAL"
   },
   {
@@ -87,6 +96,7 @@
     "job_role": "Internal Auditor",
     "job_level": "L3",
     "location": "Mumbai",
+    "manager_id": "",
     "entitlements": "AUDIT_TOOL;POWERBI_AUDIT;SHAREPOINT_AUDIT"
   }
 ]

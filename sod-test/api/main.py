@@ -1,6 +1,6 @@
 """FastAPI CRUD backend over sod_rules.json.
 
-    uvicorn main:app --reload --port 8005
+    uvicorn main:app --reload --port 8000
 """
 
 import json
@@ -122,6 +122,7 @@ app = FastAPI(
     title="SoD Rules API",
     description="CRUD operations backed by sod_rules.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 

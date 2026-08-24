@@ -15,12 +15,12 @@ COPY config.py main.py ./
 # API, so PEER_AFFINITY_API_URL must name a host this container can actually
 # reach. The 127.0.0.1 default would resolve to this container itself:
 #   docker network create peer-affinity
-#   docker run -d --network peer-affinity --name api -p 8003:8003 peer-affinity-api
-#   docker run -d --network peer-affinity --name mcp -p 8103:8103 \
-#     -e PEER_AFFINITY_API_URL=http://api:8003 peer-affinity-mcp
+#   docker run -d --network peer-affinity --name api -p 8000:8000 peer-affinity-api
+#   docker run -d --network peer-affinity --name mcp -p 8000:8000 \
+#     -e PEER_AFFINITY_API_URL=http://api:8000 peer-affinity-mcp
 #
 # Register the running server with a client:
-#   claude mcp add --transport http peer-affinity http://127.0.0.1:8103/mcp
+#   claude mcp add --transport http peer-affinity http://127.0.0.1:8000/mcp
 RUN useradd --create-home --uid 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
@@ -28,9 +28,9 @@ USER appuser
 # defaults to 127.0.0.1, which would only be reachable from within it.
 ENV MCP_TRANSPORT=streamable-http \
     MCP_HOST=0.0.0.0 \
-    MCP_PORT=8103
+    MCP_PORT=8000
 
-EXPOSE 8103
+EXPOSE 8000
 
 # /mcp expects a protocol handshake rather than a plain GET, so health is a
 # TCP connect: the port is either accepting or it is not.

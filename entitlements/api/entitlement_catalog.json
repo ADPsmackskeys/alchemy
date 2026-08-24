@@ -58,5 +58,53 @@
     "entitlement_name": "AUDIT_TOOL",
     "application": "Audit Platform",
     "owner": "Audit IT"
+  },
+  {
+    "entitlement_id": "ENT011",
+    "entitlement_name": "POWERBI_RISK",
+    "application": "PowerBI",
+    "owner": "Risk IT"
+  },
+  {
+    "entitlement_id": "ENT012",
+    "entitlement_name": "POWERBI_AUDIT",
+    "application": "PowerBI",
+    "owner": "Audit IT"
+  },
+  {
+    "entitlement_id": "ENT013",
+    "entitlement_name": "SHAREPOINT_AUDIT",
+    "application": "SharePoint",
+    "owner": "Audit IT"
+  },
+  {
+    "entitlement_id": "ENT014",
+    "entitlement_name": "SAP_PAYMENT_APPROVER",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT015",
+    "entitlement_name": "SAP_VENDOR_CREATE",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT016",
+    "entitlement_name": "AD_DOMAIN_ADMIN",
+    "application": "Active Directory",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT017",
+    "entitlement_name": "WORKDAY_HR",
+    "application": "Workday",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT018",
+    "entitlement_name": "AWS_CONSOLE",
+    "application": "AWS",
+    "owner": "DevOps Team"
   }
 ]
