@@ -25,7 +25,7 @@ class Settings(BaseSettings):
 
     # This server is an HTTP client of the Identities API.
     identities_api_url: str = Field(
-        default="http://127.0.0.1:8002",
+        default="http://127.0.0.1:8000",
         description="Base URL of the running API, for the MCP server to call",
     )
     identities_api_timeout: float = Field(
@@ -37,10 +37,10 @@ class Settings(BaseSettings):
     )
     mcp_host: str = Field(default="127.0.0.1", description="Bind address for the MCP server")
     mcp_port: int = Field(
-        default=8102,
+        default=8000,
         ge=1,
         le=65535,
-        description="Port for the MCP server. Must differ from the API's 8002.",
+        description="Port for the MCP server. Same as the API's 8000; the two are expected to run on separate hosts.",
     )
 
     @field_validator("identities_api_url")

@@ -1,6 +1,6 @@
 """FastAPI CRUD backend over entitlement_catalog.json and entitlement_risk_scores.json.
 
-    uvicorn main:app --reload --port 8001
+    uvicorn main:app --reload --port 8000
 """
 
 import json
@@ -75,7 +75,6 @@ class RiskScore(RiskScoreBase):
         }
     )
 
-
 class RiskScoreUpdate(BaseModel):
     """Every field optional, for PATCH."""
 
@@ -132,6 +131,7 @@ app = FastAPI(
     title="Entitlements API",
     description="CRUD operations backed by entitlement_catalog.json and entitlement_risk_scores.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 

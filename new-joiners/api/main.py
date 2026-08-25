@@ -106,6 +106,7 @@ app = FastAPI(
     title="New Joiners API",
     description="CRUD operations backed by new_joiners.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 

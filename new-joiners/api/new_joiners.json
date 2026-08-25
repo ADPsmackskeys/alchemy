@@ -6,7 +6,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
-    "manager_id": "MGR100",
+    "manager_id": "EMP001",
     "cost_center": "FIN001",
     "start_date": "2026-08-01"
   },
@@ -17,7 +17,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Bangalore",
-    "manager_id": "MGR100",
+    "manager_id": "EMP001",
     "cost_center": "FIN001",
     "start_date": "2026-08-01"
   },
@@ -28,7 +28,7 @@
     "job_role": "Financial Analyst",
     "job_level": "L2",
     "location": "Hyderabad",
-    "manager_id": "MGR100",
+    "manager_id": "EMP001",
     "cost_center": "FIN001",
     "start_date": "2026-08-01"
   },
@@ -39,7 +39,7 @@
     "job_role": "Software Engineer",
     "job_level": "L2",
     "location": "Bangalore",
-    "manager_id": "MGR200",
+    "manager_id": "EMP002",
     "cost_center": "TECH001",
     "start_date": "2026-08-01"
   },
@@ -50,7 +50,7 @@
     "job_role": "Software Engineer",
     "job_level": "L2",
     "location": "Pune",
-    "manager_id": "MGR200",
+    "manager_id": "EMP002",
     "cost_center": "TECH001",
     "start_date": "2026-08-01"
   },
@@ -61,7 +61,7 @@
     "job_role": "Risk Analyst",
     "job_level": "L3",
     "location": "Bangalore",
-    "manager_id": "MGR300",
+    "manager_id": "EMP003",
     "cost_center": "RISK001",
     "start_date": "2026-08-01"
   },
@@ -72,7 +72,7 @@
     "job_role": "Internal Auditor",
     "job_level": "L3",
     "location": "Mumbai",
-    "manager_id": "MGR400",
+    "manager_id": "EMP004",
     "cost_center": "AUD001",
     "start_date": "2026-08-01"
   },
@@ -83,7 +83,7 @@
     "job_role": "HR Specialist",
     "job_level": "L2",
     "location": "Bangalore",
-    "manager_id": "MGR500",
+    "manager_id": "EMP005",
     "cost_center": "HR001",
     "start_date": "2026-08-01"
   },
@@ -94,7 +94,7 @@
     "job_role": "Cloud Engineer",
     "job_level": "L3",
     "location": "Hyderabad",
-    "manager_id": "MGR200",
+    "manager_id": "EMP002",
     "cost_center": "TECH001",
     "start_date": "2026-08-01"
   },
@@ -105,7 +105,7 @@
     "job_role": "Senior Financial Analyst",
     "job_level": "L3",
     "location": "Bangalore",
-    "manager_id": "MGR100",
+    "manager_id": "EMP001",
     "cost_center": "FIN001",
     "start_date": "2026-08-01"
   }

@@ -15,12 +15,12 @@ COPY config.py main.py ./
 # API, so ENTITLEMENTS_API_URL must name a host this container can actually
 # reach. The 127.0.0.1 default would resolve to this container itself:
 #   docker network create entitlements
-#   docker run -d --network entitlements --name api -p 8001:8001 entitlements-api
-#   docker run -d --network entitlements --name mcp -p 8101:8101 \
-#     -e ENTITLEMENTS_API_URL=http://api:8001 entitlements-mcp
+#   docker run -d --network entitlements --name api -p 8000:8000 entitlements-api
+#   docker run -d --network entitlements --name mcp -p 8000:8000 \
+#     -e ENTITLEMENTS_API_URL=http://api:8000 entitlements-mcp
 #
 # Register the running server with a client:
-#   claude mcp add --transport http entitlements http://127.0.0.1:8101/mcp
+#   claude mcp add --transport http entitlements http://127.0.0.1:8000/mcp
 RUN useradd --create-home --uid 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
@@ -28,9 +28,9 @@ USER appuser
 # defaults to 127.0.0.1, which would only be reachable from within it.
 ENV MCP_TRANSPORT=streamable-http \
     MCP_HOST=0.0.0.0 \
-    MCP_PORT=8101
+    MCP_PORT=8000
 
-EXPOSE 8101
+EXPOSE 8000
 
 # /mcp expects a protocol handshake rather than a plain GET, so health is a
 # TCP connect: the port is either accepting or it is not.

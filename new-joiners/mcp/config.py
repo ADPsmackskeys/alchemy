@@ -40,7 +40,7 @@ class Settings(BaseSettings):
         default=8000,
         ge=1,
         le=65535,
-        description="Port for the MCP server. Must differ from PORT, which the API uses.",
+        description="Port for the MCP server. Same as the API's 8000; the two are expected to run on separate hosts.",
     )
 
     @field_validator("new_joiners_api_url")

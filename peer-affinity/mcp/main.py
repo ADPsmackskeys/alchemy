@@ -12,9 +12,10 @@ Start the API first, then this server:
     python main.py
 
 MCP_TRANSPORT decides how this server listens (default streamable-http on
-MCP_PORT 8103 -- deliberately not the API's 8003):
+MCP_PORT 8000 -- the same as the API's 8000, since the two are expected to
+run on separate hosts):
 
-    claude mcp add --transport http peer-affinity http://127.0.0.1:8103/mcp
+    claude mcp add --transport http peer-affinity http://127.0.0.1:8000/mcp
 
     # or, for a client that spawns the process itself:
     MCP_TRANSPORT=stdio

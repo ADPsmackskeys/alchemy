@@ -12,9 +12,10 @@ Start the API first, then this server:
     python main.py
 
 MCP_TRANSPORT decides how this server listens (default streamable-http on
-MCP_PORT 8102 -- deliberately not the API's 8002):
+MCP_PORT 8000 -- the same as the API's 8000, since the two are expected to
+run on separate hosts):
 
-    claude mcp add --transport http identities http://127.0.0.1:8102/mcp
+    claude mcp add --transport http identities http://127.0.0.1:8000/mcp
 
     # or, for a client that spawns the process itself:
     MCP_TRANSPORT=stdio
@@ -61,6 +62,8 @@ mcp = FastMCP(
         "Access to the workforce identity register: who each employee is, their "
         "department, job role, level and location, plus the entitlements they "
         "currently hold. Records are addressed by employee_id (e.g. 'EMP001'). "
+        "manager_id names the identity's manager -- the approver for their "
+        "access requests -- and is empty when none is on record. "
         "Entitlements are stored as one ';'-separated string; use "
         "get_identity_entitlements for a parsed list, or the entitlement filter "
         "on list_identities to find everyone holding a given entitlement."
@@ -122,6 +125,10 @@ DESTRUCTIVE = ToolAnnotations(
 )
 
 EmployeeId = Annotated[str, Field(description="Employee identifier, e.g. 'EMP001'")]
+ManagerId = Annotated[
+    str,
+    Field(description="Manager's employee_id, e.g. 'EMP001'. Empty when none on record."),
+]
 Entitlements = Annotated[
     str,
     Field(description="Semicolon-separated entitlement names, e.g. 'JIRA_USER;GITHUB_DEV'"),
@@ -142,6 +149,9 @@ async def list_identities(
     location: Annotated[str | None, Field(description="e.g. 'Bangalore'")] = None,
     job_level: Annotated[str | None, Field(description="e.g. 'L2'")] = None,
     job_role: Annotated[str | None, Field(description="e.g. 'Financial Analyst'")] = None,
+    manager_id: Annotated[
+        str | None, Field(description="Only identities reporting to this manager, e.g. 'EMP001'")
+    ] = None,
     entitlement: Annotated[
         str | None, Field(description="Only identities holding this entitlement")
     ] = None,
@@ -154,6 +164,7 @@ async def list_identities(
             "location": location,
             "job_level": job_level,
             "job_role": job_role,
+            "manager_id": manager_id,
             "entitlement": entitlement,
             "limit": limit,
             "offset": offset,
@@ -187,7 +198,8 @@ async def get_identity_entitlements(employee_id: EmployeeId) -> list[str]:
     annotations=WRITE,
     title="Create an identity",
     description=(
-        "Add an identity. Every field is required. Fails if employee_id is "
+        "Add an identity. Every field except manager_id is required; omit "
+        "manager_id when no manager is on record. Fails if employee_id is "
         "already taken -- use update_identity to change an existing record."
     ),
 )
@@ -199,6 +211,7 @@ async def create_identity(
     job_level: str,
     location: str,
     entitlements: Entitlements,
+    manager_id: ManagerId = "",
 ) -> dict[str, Any]:
     return await _request(
         "POST",
@@ -210,6 +223,7 @@ async def create_identity(
             "job_role": job_role,
             "job_level": job_level,
             "location": location,
+            "manager_id": manager_id,
             "entitlements": entitlements,
         },
     )
@@ -232,6 +246,9 @@ async def update_identity(
     job_role: str | None = None,
     job_level: str | None = None,
     location: str | None = None,
+    manager_id: Annotated[
+        str | None, Field(description="Manager's employee_id; pass '' to clear it")
+    ] = None,
     entitlements: Annotated[
         str | None, Field(description="Semicolon-separated; replaces the entire set")
     ] = None,
@@ -243,6 +260,7 @@ async def update_identity(
             "job_role": job_role,
             "job_level": job_level,
             "location": location,
+            "manager_id": manager_id,
             "entitlements": entitlements,
         }
     )
@@ -267,6 +285,7 @@ async def replace_identity(
     job_level: str,
     location: str,
     entitlements: Entitlements,
+    manager_id: ManagerId = "",
 ) -> dict[str, Any]:
     return await _request(
         "PUT",
@@ -277,6 +296,7 @@ async def replace_identity(
             "job_role": job_role,
             "job_level": job_level,
             "location": location,
+            "manager_id": manager_id,
             "entitlements": entitlements,
         },
     )

@@ -5,7 +5,7 @@ A row has no single-column id, so a record is addressed by the
 
     GET /peer-affinity/Financial%20Analyst/SAP_FIN_DISPLAY
 
-    uvicorn main:app --reload --port 8003
+    uvicorn main:app --reload --port 8000
 """
 
 import json
@@ -129,6 +129,7 @@ app = FastAPI(
     title="Peer Affinity API",
     description="CRUD operations backed by peer_affinity_scores.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 

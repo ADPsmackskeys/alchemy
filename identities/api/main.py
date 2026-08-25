@@ -1,6 +1,6 @@
 """FastAPI CRUD backend over identities.json.
 
-    uvicorn main:app --reload --port 8002
+    uvicorn main:app --reload --port 8000
 """
 
 import json
@@ -33,6 +33,10 @@ class IdentityBase(BaseModel):
     job_role: str = Field(min_length=1)
     job_level: str = Field(min_length=1)
     location: str = Field(min_length=1)
+    manager_id: str = Field(
+        default="",
+        description="Manager's employee_id, and the approver for this identity's access requests. Empty when none on record.",
+    )
     entitlements: str = Field(description="Semicolon-separated entitlement names")
 
     @field_validator("entitlements")
@@ -55,6 +59,7 @@ class Identity(IdentityBase):
                 "job_role": "Financial Analyst",
                 "job_level": "L2",
                 "location": "Chennai",
+                "manager_id": "EMP001",
                 "entitlements": "SAP_FIN_DISPLAY;POWERBI_FINANCE",
             }
         }
@@ -69,6 +74,7 @@ class IdentityUpdate(BaseModel):
     job_role: str | None = Field(default=None, min_length=1)
     job_level: str | None = Field(default=None, min_length=1)
     location: str | None = Field(default=None, min_length=1)
+    manager_id: str | None = None
     entitlements: str | None = None
 
     @field_validator("entitlements")
@@ -118,6 +124,7 @@ app = FastAPI(
     title="Identities API",
     description="CRUD operations backed by identities.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 
@@ -127,6 +134,9 @@ def list_identities(
     location: str | None = None,
     job_level: str | None = None,
     job_role: str | None = None,
+    manager_id: Annotated[
+        str | None, Query(description="Only identities reporting to this manager")
+    ] = None,
     entitlement: Annotated[
         str | None, Query(description="Only identities holding this entitlement")
     ] = None,
@@ -142,6 +152,7 @@ def list_identities(
         "location": location,
         "job_level": job_level,
         "job_role": job_role,
+        "manager_id": manager_id,
     }
     for field, value in filters.items():
         if value is not None:

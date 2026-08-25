@@ -1,6 +1,6 @@
 """FastAPI CRUD backend over policy_rules.json.
 
-    uvicorn main:app --reload --port 8004
+    uvicorn main:app --reload --port 8000
 """
 
 import json
@@ -94,6 +94,7 @@ app = FastAPI(
     title="Policy API",
     description="CRUD operations backed by policy_rules.json",
     version="1.0.0",
+    root_path=settings.root_path,
 )
 
 

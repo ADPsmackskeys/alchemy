@@ -40,5 +40,47 @@
     "policy_name": "Affinity Threshold",
     "type": "ALLOW",
     "rule": "affinity_score >= 70"
+  },
+  {
+    "policy_id": "POL008",
+    "policy_name": "HR Birthright",
+    "type": "ALLOW",
+    "rule": "HR Specialist -> WORKDAY_HR"
+  },
+  {
+    "policy_id": "POL009",
+    "policy_name": "Cloud Engineering Birthright",
+    "type": "ALLOW",
+    "rule": "Cloud Engineer -> AWS_CONSOLE"
+  },
+  {
+    "policy_id": "POL010",
+    "policy_name": "Cloud Engineering Birthright",
+    "type": "ALLOW",
+    "rule": "Cloud Engineer -> GITHUB_DEV"
+  },
+  {
+    "policy_id": "POL011",
+    "policy_name": "Senior Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Senior Financial Analyst -> SAP_FIN_DISPLAY"
+  },
+  {
+    "policy_id": "POL012",
+    "policy_name": "Senior Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Senior Financial Analyst -> POWERBI_FINANCE"
+  },
+  {
+    "policy_id": "POL013",
+    "policy_name": "Risk Birthright",
+    "type": "ALLOW",
+    "rule": "Risk Analyst -> RISK_PORTAL"
+  },
+  {
+    "policy_id": "POL014",
+    "policy_name": "Audit Birthright",
+    "type": "ALLOW",
+    "rule": "Internal Auditor -> AUDIT_TOOL"
   }
 ]

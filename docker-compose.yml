@@ -1,0 +1,32 @@
+# Local Postgres instance for the alchemy data. Dev-only credentials below --
+# change them before this ever runs anywhere but a laptop.
+#
+#   docker compose up -d postgres
+#   docker compose exec postgres psql -U alchemy -d alchemy
+#
+# db/init/*.sql run once, in name order, the first time pg_data is empty.
+# To re-seed from scratch: docker compose down -v (drops pg_data), then up again.
+#
+# Host port is 5433, not 5432 -- this machine already runs a system Postgres
+# service bound to 127.0.0.1:5432, and that's left alone.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: alchemy-postgres
+    environment:
+      POSTGRES_USER: alchemy
+      POSTGRES_PASSWORD: alchemy
+      POSTGRES_DB: alchemy
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alchemy -d alchemy"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pg_data:

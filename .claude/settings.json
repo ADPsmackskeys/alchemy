@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('identities/api/identities.json'\\)\\); print\\(len\\(d\\), 'records'\\); print\\(json.dumps\\(d[:2], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('new-joiners/api/new_joiners.json'\\)\\); print\\(len\\(d\\), 'records'\\); print\\(json.dumps\\(d[:2], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('entitlements/api/entitlement_catalog.json'\\)\\); print\\(len\\(d\\), 'records'\\); print\\(json.dumps\\(d[:3], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('policy/api/policy_rules.json'\\)\\); print\\(len\\(d\\), 'records'\\); print\\(json.dumps\\(d[:3], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('sod-test/api/sod_rules.json'\\)\\); print\\(len\\(d\\), 'records'\\); print\\(json.dumps\\(d[:3], indent=2\\)\\)\")",
+      "Bash(docker info *)",
+      "Bash(docker build *)",
+      "Bash(docker network *)",
+      "Bash(docker rm *)",
+      "Bash(docker run *)",
+      "Bash(curl -sf http://127.0.0.1:18000/requests-middleware/health)",
+      "Bash(break)",
+      "Bash(curl -s -X POST http://127.0.0.1:18001/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"probe\",\"version\":\"1\"}}}')",
+      "Bash(docker exec *)"
+    ]
+  }
+}

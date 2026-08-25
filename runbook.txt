@@ -3,7 +3,7 @@
 # ==========================
 # CONFIGURATION
 # ==========================
-export PROJECT_ID="KPMG-Lighthouse-MCP-Alchemy"
+export PROJECT_ID="kpmg-lighthouse-mcp-alchemy"
 export REGION="asia-south2"
 export REPOSITORY="kalchemy"
 export IMAGE_NAME="new-joiners"
@@ -68,3 +68,224 @@ echo "Image pushed successfully!"
 
 gcloud container clusters get-credentials kalchemy-gke \
   --region asia-south2
+
+
+# ============================================================================
+# REQUESTS SERVICE (7th service) -- build, push, deploy, verify
+# ============================================================================
+# The access request tracker: one row per "person X wants entitlement Y",
+# carrying its status from raised -> decided -> granted. Same shape as the
+# other six: an -api (FastAPI over access_requests.json, deployed as
+# requests-middleware) and an -mcp (FastMCP HTTP client of that API).
+#
+# Both images were built and smoke-tested locally before being written up here.
+# Everything below still works from a clean machine.
+#
+# TAG is 1.1, matching gke_version/requests/deployment.yaml and the other six
+# services. If you change it, change the manifest too -- a manifest pointing at
+# a tag that was never pushed is an ImagePullBackOff, not an error you see here.
+
+export PROJECT_ID="kpmg-lighthouse-mcp-alchemy"
+export REGION="asia-south2"
+export REPOSITORY="kalchemy"
+export TAG="1.1"
+export REGISTRY="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}"
+export ALCHEMY_DIR="/home/yuvraj-anand/alchemy"
+export K8S_DIR="/home/yuvraj-anand/Downloads/k8s/k8s/gke_version"
+
+# ---- 0. Auth (skip whichever you have already) ----
+gcloud auth login
+gcloud config set project ${PROJECT_ID}
+gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
+gcloud container clusters get-credentials kalchemy-gke --region ${REGION}
+
+# ---- 1. Build + tag + push both images ----
+# NOTE: unlike the block at the top of this file, this tags the image it just
+# built (:${TAG}) rather than :latest -- the older block builds :v1 but tags
+# from :latest, which pushes a stale or missing image.
+for part in api mcp; do
+  cd ${ALCHEMY_DIR}/requests/${part}
+  docker build -t requests-${part}:${TAG} .
+  docker tag requests-${part}:${TAG} ${REGISTRY}/requests-${part}:${TAG}
+  docker push ${REGISTRY}/requests-${part}:${TAG}
+done
+
+# Verify both landed
+gcloud artifacts docker images list ${REGISTRY}/requests-api
+gcloud artifacts docker images list ${REGISTRY}/requests-mcp
+
+# ---- 2. Apply the Kubernetes manifests ----
+# requests/{deployment,service}.yaml are new. healthcheckpolicies.yaml and
+# httproute-kalchemy-2.yaml are existing files with the requests entries
+# appended -- re-applying them is safe and leaves the other services alone.
+#
+# The route went into httproute-kalchemy-2.yaml, NOT httproute-kalchemy.yaml:
+# HTTPRoute caps at 16 rules on this cluster and the original is already at
+# 13. Route 2 is now at 14 of 16, so one more service pair still fits.
+kubectl apply -f ${K8S_DIR}/requests/
+kubectl apply -f ${K8S_DIR}/healthcheckpolicies.yaml
+kubectl apply -f ${K8S_DIR}/httproute-kalchemy-2.yaml
+
+# ---- 3. Watch it come up ----
+kubectl -n kalchemy rollout status deploy/requests-middleware --timeout=180s
+kubectl -n kalchemy rollout status deploy/requests-mcp --timeout=180s
+kubectl -n kalchemy get pods -l app=requests-middleware
+kubectl -n kalchemy get pods -l app=requests-mcp
+
+# The route must report Accepted=True and ResolvedRefs=True. The GCLB takes
+# a couple of minutes to program the new backends after that.
+kubectl -n kalchemy get httproute kalchemy-routes-2 -o jsonpath='{.status}' | python3 -m json.tool
+
+# If /requests-mcp 404s or 502s for more than ~5 minutes, check the backend
+# health -- a missing HealthCheckPolicy is the usual cause (GCLB's default
+# HTTP probe of "/" marks these UNHEALTHY; that is why step 2 re-applies
+# healthcheckpolicies.yaml, which now carries requests-middleware-svc-hc
+# and requests-mcp-svc-hc).
+kubectl -n kalchemy logs deploy/requests-mcp --tail=40
+kubectl -n kalchemy logs deploy/requests-middleware --tail=40
+
+# ---- 4. Verify through the gateway ----
+export GW="http://34.120.8.80"
+
+# 4a. API health, through the gateway (no rewrite: ROOT_PATH matches the prefix)
+curl -s ${GW}/requests-middleware/health
+
+# 4b. MCP handshake -- should return serverInfo {"name":"requests"}
+curl -s -X POST ${GW}/requests-mcp/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1"}}}'
+
+# 4c. Full round trip through the MCP tools. Capture the session id from the
+# initialize response header, then reuse it on every later call.
+SID=$(curl -s -D - -o /dev/null -X POST ${GW}/requests-mcp/mcp \
+  -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1"}}}' \
+  | tr -d '\r' | awk -F': ' 'tolower($1)=="mcp-session-id"{print $2}')
+echo "session: ${SID}"
+
+curl -s -o /dev/null -X POST ${GW}/requests-mcp/mcp \
+  -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -H "mcp-session-id: ${SID}" \
+  -d '{"jsonrpc":"2.0","method":"notifications/initialized"}'
+
+mcpcall() {  # usage: mcpcall <tool_name> <arguments-json>
+  curl -s -X POST ${GW}/requests-mcp/mcp \
+    -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+    -H "mcp-session-id: ${SID}" \
+    -d "{\"jsonrpc\":\"2.0\",\"id\":9,\"method\":\"tools/call\",\"params\":{\"name\":\"$1\",\"arguments\":$2}}"
+}
+
+# The 7 tools should be listed
+curl -s -X POST ${GW}/requests-mcp/mcp \
+  -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -H "mcp-session-id: ${SID}" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
+
+# EMP002 asks for RSA_GRC, routed to manager EMP001 -> returns REQ0001
+mcpcall create_access_request '{"requester_id":"EMP002","requester_type":"EMPLOYEE","subject_id":"EMP002","subject_type":"IDENTITY","entitlement_id":"ENT008","entitlement_name":"RSA_GRC","application":"RSA Archer","risk_score":85,"risk_category":"Critical","approval_required":true,"policy_basis":"POL005 (Risk Review - risk_score >= 70)","sod_conflicts":"SOD002:AUDIT_TOOL","approver_id":"EMP001","status":"PENDING_APPROVAL","justification":"Needed for the quarterly GRC review"}'
+
+# EMP001's inbox -- should contain REQ0001
+mcpcall list_access_requests '{"approver_id":"EMP001","status":"PENDING_APPROVAL"}'
+
+# Manager approves and it gets provisioned
+mcpcall update_access_request '{"request_id":"REQ0001","status":"GRANTED","decision_note":"Approved for the GRC review window","decided_at":"2026-08-21T10:00:00Z","granted_at":"2026-08-21T10:05:00Z"}'
+
+# EMP002's own history -- should show REQ0001 as GRANTED
+mcpcall list_access_requests '{"requester_id":"EMP002"}'
+
+echo "Requests service deployed and verified!"
+
+# ---- 5. Note on persistence ----
+# access_requests.json lives inside the container, exactly like the other six
+# services' data files, so a pod restart resets it to []. That is fine for a
+# demo and matches the existing pattern. To keep requests across restarts,
+# mount a PVC at /data and set ACCESS_REQUESTS_FILE=/data/access_requests.json
+# (the app anchors relative paths to its module dir, so use an absolute one).
+
+
+# ============================================================================
+# IDENTITIES :1.2 -- ship the manager_id field
+# ============================================================================
+# identities gained a manager_id column: the manager's employee_id, and the
+# approver for that person's access requests. Employee mode needs it -- without
+# it the Access Advisor cannot route a risky self-service request to anyone,
+# and every one of them lands on BLOCKED_NO_APPROVER.
+#
+# Changed: identities/api/main.py       (IdentityBase, IdentityUpdate, the
+#                                        manager_id list filter, the example)
+#          identities/mcp/main.py       (manager_id on list/create/update/replace)
+#          identities/api/identities.json  (populated, see the table below)
+#
+# manager_id defaults to "" rather than being required. A blank manager is a
+# real state the Access Advisor handles (BLOCKED_NO_APPROVER), not a data gap,
+# so the API must accept it.
+#
+#   Manager             Reports
+#   EMP001 Ramesh       EMP002, EMP003, EMP004, EMP005   (Finance)
+#   EMP006 Ravi         EMP007, EMP008                   (Technology)
+#   EMP010 John         EMP009                           (Audit)
+#   (blank)             EMP001, EMP006, EMP010 -- the three function heads
+#
+# Live images are :1.1 and do NOT contain this change, hence the bump to :1.2.
+
+# This section reuses REGISTRY, ALCHEMY_DIR, K8S_DIR and GW from the requests
+# block above. In a fresh shell, re-run those exports first (lines ~88-96).
+export IDENTITIES_TAG="1.2"
+
+# ---- 1. Bump the manifest, then build + push both images ----
+# Do this first: pushing :1.2 while the manifest still says :1.1 changes
+# nothing on the cluster, and the rollout below would silently pass.
+sed -i "s|/identities-api:1.1|/identities-api:${IDENTITIES_TAG}|; \
+        s|/identities-mcp:1.1|/identities-mcp:${IDENTITIES_TAG}|" \
+  ${K8S_DIR}/identities/deployment.yaml
+grep image: ${K8S_DIR}/identities/deployment.yaml   # both should read :1.2
+
+for part in api mcp; do
+  cd ${ALCHEMY_DIR}/identities/${part}
+  docker build -t identities-${part}:${IDENTITIES_TAG} .
+  docker tag identities-${part}:${IDENTITIES_TAG} ${REGISTRY}/identities-${part}:${IDENTITIES_TAG}
+  docker push ${REGISTRY}/identities-${part}:${IDENTITIES_TAG}
+done
+
+# ---- 2. Roll it out ----
+# Services, HTTPRoute and HealthCheckPolicy for identities already exist and are
+# unchanged, so only the deployments need applying.
+kubectl apply -f ${K8S_DIR}/identities/deployment.yaml
+kubectl -n kalchemy rollout status deploy/identities-middleware --timeout=180s
+kubectl -n kalchemy rollout status deploy/identities-mcp --timeout=180s
+
+# ---- 3. Verify the field is actually live ----
+# EMP002 -> EMP001 is the pair the requests demo above uses as requester and
+# approver, so this is the one that has to be right.
+curl -s ${GW}/identities-middleware/identities/EMP002
+
+# The manager's team, i.e. the new filter. Expect EMP002..EMP005.
+curl -s "${GW}/identities-middleware/identities?manager_id=EMP001"
+
+# Same, lowercase -- filters match case-insensitively across every service.
+curl -s "${GW}/identities-middleware/identities?manager_id=emp001"
+
+# A function head: manager_id is "" -> this is the BLOCKED_NO_APPROVER path.
+curl -s ${GW}/identities-middleware/identities/EMP010
+
+echo "identities:${IDENTITIES_TAG} deployed and verified!"
+
+# ---- 4. Data note ----
+# identities.json ships inside the image, so a pod restart resets the manager
+# assignments to what is committed here -- same trade-off as every other
+# service. Re-push the image to change them; do not patch a running pod.
+
+
+# ============================================================================
+# STILL OUTSTANDING (not runbook steps -- other repo)
+# ============================================================================
+# 1. Agents/.env: set MCP_REQUESTS_URL=http://34.120.8.80/requests-mcp/mcp
+#    The config slot (mcp_requests_url) already exists and is registered as
+#    "requests_mcp"; it just has no value, so that agent starts with no tools.
+#
+# 2. Agents/app/services/provisioning_service.py:127 -- create_identity sends
+#    entitlements but no manager_id, so an identity created for a new joiner is
+#    written with a blank manager. It still resolves, because resolve_approver
+#    falls back to the new-joiners row, but the identity row is left incomplete.
+#    One line: pass "manager_id": subject.manager_id.

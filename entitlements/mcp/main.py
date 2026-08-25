@@ -12,9 +12,10 @@ Start the API first, then this server:
     python main.py
 
 MCP_TRANSPORT decides how this server listens (default streamable-http on
-MCP_PORT 8101 -- deliberately not the API's 8001):
+MCP_PORT 8000 -- the same as the API's 8000, since the two are expected to
+run on separate hosts):
 
-    claude mcp add --transport http entitlements http://127.0.0.1:8101/mcp
+    claude mcp add --transport http entitlements http://127.0.0.1:8000/mcp
 
     # or, for a client that spawns the process itself:
     MCP_TRANSPORT=stdio
