@@ -45,7 +45,8 @@ gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
 # BUILD IMAGE
 # ==========================
 docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
-
+access-adviosr-front-end
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
 # ==========================
 # TAG IMAGE FOR GCP
 # ==========================
