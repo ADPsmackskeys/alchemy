@@ -15,7 +15,7 @@ import threading
 from pathlib import Path
 from typing import Annotated
 
-from fastapi import Body, FastAPI, HTTPException, Query, status
+from fastapi import Body, FastAPI, HTTPException, Query, Response, status
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from config import settings
@@ -112,6 +112,35 @@ def find_index(records: list[dict], job_role: str, entitlement: str) -> int:
     )
 
 
+def apply_filters(records: list[dict], filters: dict[str, str | list[str] | None]) -> list[dict]:
+    """Case-insensitive whole-value match: OR within a field, AND across fields.
+
+    A filter is either one value or a list of them, so a caller asking about
+    five records makes one request instead of five. An explicitly empty list
+    means "filter not supplied" and matches everything, which is what a client
+    that built its list dynamically sends when it has nothing to narrow by.
+    """
+    for field, value in filters.items():
+        if value is None:
+            continue
+        wanted = {v.lower() for v in ([value] if isinstance(value, str) else value)}
+        if not wanted:
+            continue
+        records = [r for r in records if str(r.get(field, "")).lower() in wanted]
+    return records
+
+
+def paginate(records: list[dict], limit: int, offset: int, response: Response) -> list[dict]:
+    """Return one page and report the pre-pagination total in the headers.
+
+    Without X-Total-Count the caller cannot tell a complete page from a
+    truncated one, which is what drives blind offset-walking.
+    """
+    page = records[offset : offset + limit]
+    response.headers["X-Total-Count"] = str(len(records))
+    response.headers["X-Returned-Count"] = str(len(page))
+    return page
+
 def serialize(score: PeerAffinity) -> dict:
     # Field order matches the existing rows in the file.
     record = json.loads(score.model_dump_json())
@@ -135,29 +164,39 @@ app = FastAPI(
 
 @app.get("/peer-affinity", response_model=list[PeerAffinity], tags=["peer-affinity"])
 def list_peer_affinity(
-    job_role: Annotated[str | None, Query(description="Case-insensitive exact match")] = None,
-    department: str | None = None,
-    entitlement: str | None = None,
+    response: Response,
+    job_role: Annotated[
+        list[str] | None, Query(description="Case-insensitive exact match; repeatable")
+    ] = None,
+    department: Annotated[list[str] | None, Query(description="Repeatable")] = None,
+    entitlement: Annotated[
+        list[str] | None,
+        Query(description="Score these entitlements; repeatable, so one call covers a set"),
+    ] = None,
     min_score: Annotated[int | None, Query(ge=0, le=100)] = None,
     max_score: Annotated[int | None, Query(ge=0, le=100)] = None,
     limit: Annotated[int, Query(ge=1, le=1000)] = 100,
     offset: Annotated[int, Query(ge=0)] = 0,
 ):
-    """List peer affinity rows, with optional filters and pagination."""
+    """List peer affinity rows, with optional filters and pagination.
+
+    Every filter is repeatable and ORs its own values, so one request covers a
+    whole set of entitlements rather than one per name.
+    """
     with _lock:
         records = read_all()
 
-    filters = {"job_role": job_role, "department": department, "entitlement": entitlement}
-    for field, value in filters.items():
-        if value is not None:
-            records = [r for r in records if str(r.get(field, "")).lower() == value.lower()]
+    records = apply_filters(
+        records,
+        {"job_role": job_role, "department": department, "entitlement": entitlement},
+    )
 
     if min_score is not None:
         records = [r for r in records if r.get("affinity_score", 0) >= min_score]
     if max_score is not None:
         records = [r for r in records if r.get("affinity_score", 0) <= max_score]
 
-    return records[offset : offset + limit]
+    return paginate(records, limit, offset, response)
 
 
 @app.get(

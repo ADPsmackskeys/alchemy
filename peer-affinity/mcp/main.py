@@ -86,7 +86,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -98,9 +98,7 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
@@ -109,8 +107,49 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise ToolError(f"API returned {response.status_code}: {detail}")
 
 
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
 def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
-    return {k: v for k, v in values.items() if v is not None}
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 def _row_path(job_role: str, entitlement: str) -> str:
@@ -136,33 +175,46 @@ EntitlementName = Annotated[str, Field(description="Entitlement name, e.g. 'SAP_
     annotations=READ_ONLY,
     title="List peer affinity rows",
     description=(
-        "List peer affinity rows. All filters are optional and match "
-        "case-insensitively on the whole value. Use max_score to surface "
-        "outlier access (entitlements few peers hold), min_score for the "
-        "entitlements that are standard for a role."
+        "How common an entitlement is among a person's peers, as a percentage. "
+        "Pass every entitlement you are assessing as `entitlements` in one call. "
+        "Use max_score to surface outlier access (entitlements few peers hold), "
+        "min_score for the entitlements that are standard for a role. "
+        "Pass every value you need in ONE call -- do not call this once per value. Filters are "
+        "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
+        "them all to get the whole table, which is small. The result is an envelope: `records` "
+        "holds the rows, `missing` names any requested value with no matching record (treat a non- "
+        "empty `missing` as you would a 404), and `truncated` is true when `limit` cut the result "
+        "short."
     ),
 )
 async def list_peer_affinity(
-    job_role: Annotated[str | None, Field(description="e.g. 'Software Engineer'")] = None,
-    department: Annotated[str | None, Field(description="e.g. 'Technology'")] = None,
-    entitlement: Annotated[str | None, Field(description="e.g. 'GITHUB_DEV'")] = None,
+    entitlements: Annotated[
+        list[str] | None,
+        Field(description="Every entitlement to check at once, e.g. ['GITHUB_DEV', 'JIRA_USER']"),
+    ] = None,
+    job_roles: Annotated[
+        list[str] | None, Field(description="e.g. ['Software Engineer']")
+    ] = None,
+    departments: Annotated[list[str] | None, Field(description="e.g. ['Technology']")] = None,
     min_score: Annotated[int | None, Field(ge=0, le=100, description="Minimum affinity %")] = None,
     max_score: Annotated[int | None, Field(ge=0, le=100, description="Maximum affinity %")] = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
         {
-            "job_role": job_role,
-            "department": department,
-            "entitlement": entitlement,
+            "job_role": job_roles,
+            "department": departments,
+            "entitlement": entitlements,
             "min_score": min_score,
             "max_score": max_score,
             "limit": limit,
             "offset": offset,
         }
     )
-    return await _request("GET", "/peer-affinity", params=params)
+    return await _list_request(
+        "/peer-affinity", params, requested=entitlements, key="entitlement"
+    )
 
 
 @mcp.tool(

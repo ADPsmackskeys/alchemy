@@ -130,6 +130,47 @@ check("delete again -> 404", r.status_code == 404)
 
 check("file back to 3 records", len(json.loads(_copy.read_text())) == 3)
 check("original file untouched", len(json.loads(SOURCE.read_text())) == 3)
+# ---------------------------------------------------- set-level SoD check
+r = client.post("/sod-rules/check", json={"entitlements": ["SAP_VENDOR_CREATE", "SAP_PAYMENT_APPROVER"]})
+d = r.json()
+check(
+    "both sides in the set -> a conflict",
+    d["clear"] is False and [c["sod_id"] for c in d["conflicts"]] == ["SOD001"],
+    d,
+)
+check("highest_severity reported", d["highest_severity"] == "Critical", d)
+
+r = client.post("/sod-rules/check", json={"entitlements": ["SAP_VENDOR_CREATE", "JIRA_USER"]})
+d = r.json()
+check("only one side in the set -> not a conflict", d["clear"] is True and d["conflicts"] == [], d)
+check(
+    "the counterpart is reported as adjacent, not as a conflict",
+    sorted(a["conflicts_with"] for a in d["adjacent"]) == ["SAP_AP_INVOICE", "SAP_PAYMENT_APPROVER"],
+    d["adjacent"],
+)
+
+r = client.post("/sod-rules/check", json={"entitlements": ["JIRA_USER", "CONFLUENCE_USER"]})
+check("a clean set is clear with nothing adjacent", r.json() == {
+    "entitlements": ["JIRA_USER", "CONFLUENCE_USER"],
+    "conflicts": [], "adjacent": [], "clear": True, "highest_severity": None,
+}, r.json())
+
+r = client.post("/sod-rules/check", json={"entitlements": ["sap_vendor_create", "SAP_PAYMENT_APPROVER"]})
+check("the check is case-insensitive", r.json()["clear"] is False, r.json())
+
+r = client.post("/sod-rules/check", json={"entitlements": []})
+check("an empty set -> 422", r.status_code == 422, r.status_code)
+
+# ------------------------------------------------------- batched lookups
+r = client.get("/sod-rules?entitlement=SAP_VENDOR_CREATE")
+check("single filter value still works", len(r.json()) == 2, r.json())
+
+r = client.get("/sod-rules?entitlement=SAP_VENDOR_CREATE&entitlement=AD_DOMAIN_ADMIN")
+check("repeated filter ORs its values", len(r.json()) == 3, r.json())
+
+r = client.get("/sod-rules")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "3", dict(r.headers))
+
 check("health ok", client.get("/health").json()["status"] == "ok")
 
 shutil.rmtree(_tmpdir)

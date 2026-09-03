@@ -87,7 +87,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -99,9 +99,7 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
@@ -110,8 +108,49 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise ToolError(f"API returned {response.status_code}: {detail}")
 
 
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
 def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
-    return {k: v for k, v in values.items() if v is not None}
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 READ_ONLY = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
@@ -136,33 +175,51 @@ EntitlementName = Annotated[str, Field(description="Entitlement name, e.g. 'SAP_
     annotations=READ_ONLY,
     title="List entitlements",
     description=(
-        "List catalog entitlements. All filters are optional and match "
-        "case-insensitively on the whole value. Page with limit/offset."
+        "Look up catalog entitlements -- their application and owning team. "
+        "Pass every value you need in ONE call -- do not call this once per value. Filters are "
+        "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
+        "them all to get the whole table, which is small. The result is an envelope: `records` "
+        "holds the rows, `missing` names any requested value with no matching record (treat a non- "
+        "empty `missing` as you would a 404), and `truncated` is true when `limit` cut the result "
+        "short."
     ),
 )
 async def list_entitlements(
-    application: Annotated[str | None, Field(description="e.g. 'SAP ECC', 'PowerBI'")] = None,
-    owner: Annotated[str | None, Field(description="Owning team, e.g. 'Finance IT'")] = None,
-    entitlement_name: Annotated[str | None, Field(description="e.g. 'SAP_FIN_DISPLAY'")] = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    entitlement_names: Annotated[
+        list[str] | None,
+        Field(description="Every name to look up at once, e.g. ['SAP_FIN_DISPLAY', 'JIRA_USER']"),
+    ] = None,
+    applications: Annotated[
+        list[str] | None, Field(description="e.g. ['SAP ECC', 'PowerBI']")
+    ] = None,
+    owners: Annotated[
+        list[str] | None, Field(description="Owning teams, e.g. ['Finance IT']")
+    ] = None,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
         {
-            "application": application,
-            "owner": owner,
-            "entitlement_name": entitlement_name,
+            "application": applications,
+            "owner": owners,
+            "entitlement_name": entitlement_names,
             "limit": limit,
             "offset": offset,
         }
     )
-    return await _request("GET", "/entitlements", params=params)
+    return await _list_request(
+        "/entitlements", params, requested=entitlement_names, key="entitlement_name"
+    )
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get an entitlement",
-    description="Fetch one catalog entitlement by entitlement_id. Errors if it does not exist.",
+    description=(
+        "Fetch one catalog entitlement by entitlement_id. Errors if it does not "
+        "exist. For several entitlements use list_entitlements with a list of "
+        "names -- one call, not one per entitlement."
+    ),
 )
 async def get_entitlement(entitlement_id: EntitlementId) -> dict[str, Any]:
     return await _request("GET", f"/entitlements/{quote(entitlement_id, safe='')}")
@@ -260,35 +317,54 @@ async def delete_entitlement(entitlement_id: EntitlementId) -> dict[str, Any]:
     annotations=READ_ONLY,
     title="List risk scores",
     description=(
-        "List entitlement risk scores. Filter by application or risk_category, "
-        "and narrow to a numeric band with min_score/max_score (0-100)."
+        "Score entitlements 0-100 with a risk category. To rate a set of "
+        "entitlements, pass them all as entitlement_names in one call rather "
+        "than calling get_risk_score once per name. Pass every value you need in ONE call -- do "
+        "not call this once per value. Filters are repeatable lists: values inside one filter are "
+        "ORed, separate filters are ANDed. Omit them all to get the whole table, which is small. "
+        "The result is an envelope: `records` holds the rows, `missing` names any requested value "
+        "with no matching record (treat a non-empty `missing` as you would a 404), and `truncated` "
+        "is true when `limit` cut the result short."
     ),
 )
 async def list_risk_scores(
-    application: Annotated[str | None, Field(description="e.g. 'SAP ECC'")] = None,
-    risk_category: RiskCategory | None = None,
+    entitlement_names: Annotated[
+        list[str] | None,
+        Field(description="Every name to score at once, e.g. ['JIRA_USER', 'GITHUB_DEV']"),
+    ] = None,
+    applications: Annotated[list[str] | None, Field(description="e.g. ['SAP ECC']")] = None,
+    risk_categories: Annotated[
+        list[RiskCategory] | None, Field(description="e.g. ['High', 'Critical']")
+    ] = None,
     min_score: Annotated[int | None, Field(ge=0, le=100)] = None,
     max_score: Annotated[int | None, Field(ge=0, le=100)] = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
         {
-            "application": application,
-            "risk_category": risk_category,
+            "entitlement_name": entitlement_names,
+            "application": applications,
+            "risk_category": risk_categories,
             "min_score": min_score,
             "max_score": max_score,
             "limit": limit,
             "offset": offset,
         }
     )
-    return await _request("GET", "/risk-scores", params=params)
+    return await _list_request(
+        "/risk-scores", params, requested=entitlement_names, key="entitlement_name"
+    )
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get a risk score",
-    description="Fetch one risk score by entitlement_name. Errors if it does not exist.",
+    description=(
+        "Fetch one risk score by entitlement_name. Errors if it does not exist. "
+        "For several entitlements use list_risk_scores with entitlement_names -- "
+        "one call, not one per entitlement."
+    ),
 )
 async def get_risk_score(entitlement_name: EntitlementName) -> dict[str, Any]:
     return await _request("GET", f"/risk-scores/{quote(entitlement_name, safe='')}")

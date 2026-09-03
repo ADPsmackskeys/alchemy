@@ -290,3 +290,100 @@ echo "identities:${IDENTITIES_TAG} deployed and verified!"
 #    written with a blank manager. It still resolves, because resolve_approver
 #    falls back to the new-joiners row, but the identity row is left incomplete.
 #    One line: pass "manager_id": subject.manager_id.
+
+# ============================================================================
+# BATCH READS -- all 7 services, api + mcp (14 images)
+# ============================================================================
+# What changed and why:
+#   Every list filter used to be a single string, so a worker weighing five
+#   entitlements had no way to say "these five" and made five sequential calls
+#   -- five model turns per data source. Filters are now repeatable, so one
+#   call covers a whole set. Two filters that were missing entirely and forced
+#   the fan-out are new: entitlement_name on /risk-scores, and employee_id on
+#   /identities and /new-joiners.
+#
+# Two things to know before rolling this out:
+#   1. The MCP list tools now return an OBJECT, not a bare array:
+#      {"records": [...], "returned": n, "total_matching": n,
+#       "truncated": bool, "requested": [...], "missing": [...]}
+#      Anything in the Agents repo that iterates the tool result directly must
+#      read result["records"] instead. Roll the agents together with this.
+#   2. The MCP tool parameters are plural-only: entitlement_name is gone in
+#      favour of entitlement_names, entitlement -> entitlements, and so on.
+#      The HTTP APIs still accept a single ?entitlement_name=X, so curl and any
+#      direct API caller are unaffected.
+
+export BATCH_TAG="4.0"        # api images
+export BATCH_MCP_TAG="2.0"    # mcp images
+
+# ---- 1. Build and push all fourteen ----
+for svc in entitlements identities new-joiners peer-affinity policy requests sod-test; do
+  cd ${ALCHEMY_DIR}/${svc}/api
+  docker build -t ${svc}:${BATCH_TAG} .
+  docker tag ${svc}:${BATCH_TAG} ${REGISTRY}/${svc}:${BATCH_TAG}
+  docker push ${REGISTRY}/${svc}:${BATCH_TAG}
+
+  cd ${ALCHEMY_DIR}/${svc}/mcp
+  docker build -t ${svc}-mcp:${BATCH_MCP_TAG} .
+  docker tag ${svc}-mcp:${BATCH_MCP_TAG} ${REGISTRY}/${svc}-mcp:${BATCH_MCP_TAG}
+  docker push ${REGISTRY}/${svc}-mcp:${BATCH_MCP_TAG}
+done
+
+# ---- 2. Point the deployments at the new tags ----
+# Bump the image: lines in each deployment.yaml, then confirm before applying.
+grep -rn "image:" ${K8S_DIR}/*/deployment.yaml
+
+for svc in entitlements identities new-joiners peer-affinity policy requests sod-test; do
+  kubectl apply -f ${K8S_DIR}/${svc}/deployment.yaml
+done
+
+# ---- 3. Roll out ----
+# requests-api is deployed as requests-middleware; the rest follow <svc>-middleware.
+for svc in entitlements identities new-joiners peer-affinity policy requests sod-test; do
+  kubectl -n kalchemy rollout status deploy/${svc}-middleware --timeout=180s
+  kubectl -n kalchemy rollout status deploy/${svc}-mcp --timeout=180s
+done
+
+# ---- 4. Verify the batching is actually live ----
+# The whole point: five entitlements, one call. Expect 5 rows.
+curl -s "${GW}/entitlements-middleware/entitlements?entitlement_name=JIRA_USER&entitlement_name=GITHUB_DEV&entitlement_name=CONFLUENCE_USER&entitlement_name=SAP_FIN_DISPLAY&entitlement_name=SAP_VENDOR_CREATE"
+
+# The filter that did not exist before -- this is what forced five
+# get_risk_score calls. Expect 2 rows.
+curl -s "${GW}/entitlements-middleware/risk-scores?entitlement_name=JIRA_USER&entitlement_name=GITHUB_DEV"
+
+# A single value must still work, or every existing caller breaks.
+curl -s "${GW}/entitlements-middleware/entitlements?entitlement_name=JIRA_USER"
+
+# The count headers: without these a truncated page looks like a complete one.
+curl -si "${GW}/entitlements-middleware/entitlements?limit=3" | grep -i "x-total-count\|x-returned-count"
+
+# The set-level SoD check, replacing five list_sod_rules calls plus the model
+# doing the pair intersection itself. Expect clear=false, SOD001 as a conflict,
+# and SAP_AP_INVOICE reported under "adjacent" rather than as a conflict.
+curl -s -X POST ${GW}/sod-test-middleware/sod-rules/check \
+  -H 'Content-Type: application/json' \
+  -d '{"entitlements":["SAP_VENDOR_CREATE","SAP_PAYMENT_APPROVER","JIRA_USER"]}'
+
+# The same set with only one side present -- must be clear, with the
+# counterparts listed as adjacent, not as conflicts.
+curl -s -X POST ${GW}/sod-test-middleware/sod-rules/check \
+  -H 'Content-Type: application/json' \
+  -d '{"entitlements":["SAP_VENDOR_CREATE","JIRA_USER"]}'
+
+# Batched people lookups, the other filter that did not exist. Expect 3 rows.
+curl -s "${GW}/identities-middleware/identities?employee_id=EMP001&employee_id=EMP002&employee_id=EMP003"
+
+# match=all is the one place OR is not what you want: who holds BOTH.
+curl -s "${GW}/identities-middleware/identities?entitlement=JIRA_USER&entitlement=GITHUB_DEV&match=all"
+
+# One call finding every policy that mentions any of these entitlements.
+curl -s "${GW}/policy-middleware/policies?rule_contains=JIRA_USER&rule_contains=risk_score"
+
+echo "batch reads deployed and verified!"
+
+# ---- 5. Then the agents ----
+# Only after the MCP pods are live: update the Agents repo for the envelope
+# (result["records"]) and the plural parameter names, and re-run the NJ1005
+# recommendation thread. Access Verification should drop from 8 steps to 2,
+# the SoD worker from 6 calls to 1, Policy Evaluation from 3 to 1.

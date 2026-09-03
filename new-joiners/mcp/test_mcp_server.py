@@ -24,7 +24,8 @@ from pathlib import Path
 import httpx
 
 HERE = Path(__file__).parent
-SOURCE = HERE / "new_joiners.json"
+API_DIR = HERE.parent / "api"
+SOURCE = API_DIR / "new_joiners.json"
 
 _tmpdir = tempfile.mkdtemp()
 _copy = Path(_tmpdir) / "new_joiners.json"
@@ -35,11 +36,11 @@ with socket.socket() as s:
     PORT = s.getsockname()[1]
 
 BASE_URL = f"http://127.0.0.1:{PORT}"
-os.environ["NEW_JOINERS_API_URL"] = BASE_URL  # read at import time by mcp_server
+os.environ["NEW_JOINERS_API_URL"] = BASE_URL  # read at import time by main
 
 from fastmcp import Client  # noqa: E402
 
-import server  # noqa: E402
+import main as mcp_server  # noqa: E402
 
 NEW = {
     "employee_id": "NJ9999",
@@ -62,7 +63,7 @@ def check(label, condition, extra=""):
 def start_api():
     proc = subprocess.Popen(
         [sys.executable, "-m", "uvicorn", "main:app", "--port", str(PORT), "--log-level", "warning"],
-        cwd=HERE,
+        cwd=API_DIR,
         env={**os.environ, "NEW_JOINERS_FILE": str(_copy)},
     )
     for _ in range(100):
@@ -132,15 +133,31 @@ async def main():
         check("api_health reaches the API", r.data["status"] == "ok", r.data)
 
         r = await call(client, "list_new_joiners", {})
-        check("list returns 10 seed records", len(r.data) == 10, len(r.data))
+        check("list returns 10 seed records", r.data["returned"] == 10, r.data["returned"])
 
-        r = await call(client, "list_new_joiners", {"department": "finance"})
-        check("filter passes through", len(r.data) == 4, len(r.data))
+        r = await call(client, "list_new_joiners", {"departments": ["finance"]})
+        check("filter passes through", r.data["returned"] == 4, r.data["returned"])
+
+        r = await call(client, "list_new_joiners", {"employee_ids": ["NJ1004", "NJ1005"]})
+        check(
+            "two joiners in ONE call",
+            [x["employee_id"] for x in r.data["records"]] == ["NJ1004", "NJ1005"]
+            and r.data["missing"] == [],
+            r.data,
+        )
+
+        r = await call(client, "list_new_joiners", {"employee_ids": ["NJ1004", "NJ0000"]})
+        check("an unknown id is named", r.data["missing"] == ["NJ0000"], r.data)
 
         r = await call(client, "list_new_joiners", {"limit": 2, "offset": 8})
         check(
             "pagination passes through",
-            [x["employee_id"] for x in r.data] == ["NJ1009", "NJ1010"],
+            [x["employee_id"] for x in r.data["records"]] == ["NJ1009", "NJ1010"],
+            r.data,
+        )
+        check(
+            "a paginated result reports the true total",
+            r.data["truncated"] is True and r.data["total_matching"] == 10,
             r.data,
         )
 

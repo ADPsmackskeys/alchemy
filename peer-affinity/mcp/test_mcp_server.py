@@ -116,13 +116,30 @@ async def main_test():
 
         # READ
         r = await call(client, "list_peer_affinity", {})
-        check("13 seed rows", len(r.data) == 13, len(r.data))
+        check("20 seed rows", r.data["returned"] == 20, r.data["returned"])
 
-        r = await call(client, "list_peer_affinity", {"job_role": "financial analyst"})
-        check("filter by job_role", len(r.data) == 4, len(r.data))
+        r = await call(client, "list_peer_affinity", {"job_roles": ["financial analyst"]})
+        check("filter by job_role", r.data["returned"] == 4, r.data["returned"])
 
         r = await call(client, "list_peer_affinity", {"max_score": 50})
-        check("outlier filter", [x["affinity_score"] for x in r.data] == [20], r.data)
+        check("outlier filter", [x["affinity_score"] for x in r.data["records"]] == [20], r.data)
+
+        r = await call(
+            client, "list_peer_affinity", {"entitlements": ["POWERBI_FINANCE", "GITHUB_DEV"]}
+        )
+        check(
+            "two entitlements in ONE call",
+            {x["entitlement"] for x in r.data["records"]} == {"POWERBI_FINANCE", "GITHUB_DEV"}
+            and r.data["missing"] == [],
+            r.data,
+        )
+
+        r = await call(client, "list_peer_affinity", {"limit": 5})
+        check(
+            "truncation is flagged",
+            r.data["truncated"] is True and r.data["total_matching"] == 20,
+            r.data,
+        )
 
         # the composite key has a space in job_role -- exercises percent-encoding
         r = await call(
@@ -181,7 +198,7 @@ async def main_test():
         )
 
         contents = await client.read_resource("peer-affinity://all")
-        check("resource returns the dataset", len(json.loads(contents[0].text)) == 15, contents[0].text[:60])
+        check("resource returns the dataset", len(json.loads(contents[0].text)) == 22, contents[0].text[:60])
 
         on_disk = json.loads(_copy.read_text())
         check(
@@ -199,7 +216,7 @@ async def main_test():
         r = await call(client, "delete_peer_affinity", {"job_role": "QA Engineer", "entitlement": "JIRA_USER"})
         check("delete again -> 404", r.is_error and "404" in error_text(r))
 
-        check("file back to 13 rows", len(json.loads(_copy.read_text())) == 13)
+        check("file back to 20 rows", len(json.loads(_copy.read_text())) == 20)
 
 
 async def unreachable_api_case():
@@ -222,6 +239,6 @@ finally:
 
 asyncio.run(unreachable_api_case())
 
-check("original file untouched", len(json.loads(SOURCE.read_text())) == 13)
+check("original file untouched", len(json.loads(SOURCE.read_text())) == 20)
 shutil.rmtree(_tmpdir)
 print("\nAll checks passed.")

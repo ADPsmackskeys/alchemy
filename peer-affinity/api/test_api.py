@@ -41,16 +41,16 @@ def check(label, condition, extra=""):
 
 # READ
 r = client.get("/peer-affinity")
-check("list returns 13 seed rows", r.status_code == 200 and len(r.json()) == 13, len(r.json()))
+check("list returns 20 seed rows", r.status_code == 200 and len(r.json()) == 20, len(r.json()))
 
 r = client.get("/peer-affinity", params={"job_role": "financial analyst"})
 check("filter by job_role (case-insensitive)", len(r.json()) == 4, len(r.json()))
 
 r = client.get("/peer-affinity", params={"entitlement": "POWERBI_FINANCE"})
-check("filter by entitlement", len(r.json()) == 1, len(r.json()))
+check("filter by entitlement", len(r.json()) == 2, len(r.json()))
 
 r = client.get("/peer-affinity", params={"min_score": 100})
-check("min_score filter", len(r.json()) == 10, len(r.json()))
+check("min_score filter", len(r.json()) == 17, len(r.json()))
 
 r = client.get("/peer-affinity", params={"max_score": 50})
 check("max_score filter", [x["affinity_score"] for x in r.json()] == [20], r.json())
@@ -126,8 +126,22 @@ check("delete second added row -> 204", r.status_code == 204)
 r = client.delete("/peer-affinity/QA Engineer/JIRA_USER")
 check("delete again -> 404", r.status_code == 404)
 
-check("file back to 13 rows", len(json.loads(_copy.read_text())) == 13)
-check("original file untouched", len(json.loads(SOURCE.read_text())) == 13)
+# ------------------------------------------------------- batched lookups
+r = client.get("/peer-affinity?entitlement=POWERBI_FINANCE")
+check("single filter value still works", len(r.json()) == 2, r.json())
+
+r = client.get("/peer-affinity?entitlement=POWERBI_FINANCE&entitlement=GITHUB_DEV")
+check(
+    "repeated filter ORs its values",
+    {x["entitlement"] for x in r.json()} == {"POWERBI_FINANCE", "GITHUB_DEV"},
+    r.json(),
+)
+
+r = client.get("/peer-affinity")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "20", dict(r.headers))
+
+check("file back to 20 rows", len(json.loads(_copy.read_text())) == 20)
+check("original file untouched", len(json.loads(SOURCE.read_text())) == 20)
 check("health ok", client.get("/health").json()["status"] == "ok")
 
 shutil.rmtree(_tmpdir)

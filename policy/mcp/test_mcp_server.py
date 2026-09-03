@@ -110,18 +110,33 @@ async def main_test():
 
         # READ
         r = await call(client, "list_policies", {})
-        check("7 seed policies", len(r.data) == 7, len(r.data))
+        check("14 seed policies", r.data["returned"] == 14, r.data["returned"])
 
-        r = await call(client, "list_policies", {"type": "ALLOW"})
-        check("filter by type", len(r.data) == 5, len(r.data))
+        r = await call(client, "list_policies", {"types": ["ALLOW"]})
+        check("filter by type", r.data["returned"] == 12, r.data["returned"])
 
-        r = await call(client, "list_policies", {"policy_name": "finance birthright"})
-        check("filter by name", len(r.data) == 2, len(r.data))
+        r = await call(client, "list_policies", {"policy_names": ["finance birthright"]})
+        check("filter by name", r.data["returned"] == 2, r.data["returned"])
 
-        r = await call(client, "list_policies", {"rule_contains": "risk_score"})
-        check("rule substring search", len(r.data) == 2, len(r.data))
+        r = await call(client, "list_policies", {"rule_contains": ["risk_score"]})
+        check("rule substring search", r.data["returned"] == 2, r.data["returned"])
 
-        r = await call(client, "list_policies", {"type": "MAYBE"})
+        r = await call(client, "list_policies", {"rule_contains": ["risk_score", "JIRA_USER"]})
+        check(
+            "several needles in ONE call, ORed",
+            r.data["returned"] >= 2
+            and any("risk_score" in x["rule"].lower() for x in r.data["records"]),
+            [x["policy_id"] for x in r.data["records"]],
+        )
+
+        r = await call(client, "list_policies", {"limit": 4})
+        check(
+            "truncation is flagged instead of walking offsets blind",
+            r.data["truncated"] is True and r.data["total_matching"] == 14,
+            r.data,
+        )
+
+        r = await call(client, "list_policies", {"types": ["MAYBE"]})
         check("bad enum rejected", r.is_error, error_text(r)[:90])
 
         r = await call(client, "get_policy", {"policy_id": "POL005"})
@@ -159,7 +174,7 @@ async def main_test():
         )
 
         contents = await client.read_resource("policy://all")
-        check("resource returns the dataset", len(json.loads(contents[0].text)) == 8, contents[0].text[:60])
+        check("resource returns the dataset", len(json.loads(contents[0].text)) == 15, contents[0].text[:60])
 
         on_disk = json.loads(_copy.read_text())
         check("write reached the data file", any(x["policy_id"] == "POL999" for x in on_disk))
@@ -171,7 +186,7 @@ async def main_test():
         r = await call(client, "delete_policy", {"policy_id": "POL999"})
         check("delete again -> 404", r.is_error and "404" in error_text(r))
 
-        check("file back to 7 records", len(json.loads(_copy.read_text())) == 7)
+        check("file back to 14 records", len(json.loads(_copy.read_text())) == 14)
 
 
 async def unreachable_api_case():
@@ -194,6 +209,6 @@ finally:
 
 asyncio.run(unreachable_api_case())
 
-check("original file untouched", len(json.loads(SOURCE.read_text())) == 7)
+check("original file untouched", len(json.loads(SOURCE.read_text())) == 14)
 shutil.rmtree(_tmpdir)
 print("\nAll checks passed.")

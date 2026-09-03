@@ -10,7 +10,7 @@ import threading
 from pathlib import Path
 from typing import Annotated, Literal
 
-from fastapi import Body, FastAPI, HTTPException, Query, status
+from fastapi import Body, FastAPI, HTTPException, Query, Response, status
 from pydantic import BaseModel, ConfigDict, Field
 
 from config import settings
@@ -120,11 +120,35 @@ def serialize(model: BaseModel, key: str) -> dict:
     return {key: record.pop(key), **record}
 
 
-def apply_filters(records: list[dict], filters: dict[str, str | None]) -> list[dict]:
+def apply_filters(records: list[dict], filters: dict[str, str | list[str] | None]) -> list[dict]:
+    """Case-insensitive whole-value match: OR within a field, AND across fields.
+
+    A filter is either one value or a list of them, so a caller asking about
+    five entitlements makes one request instead of five. An explicitly empty
+    list means "filter not supplied" and matches everything, which is what a
+    client that built its list dynamically will send when it has nothing to
+    narrow by.
+    """
     for field, value in filters.items():
-        if value is not None:
-            records = [r for r in records if str(r.get(field, "")).lower() == value.lower()]
+        if value is None:
+            continue
+        wanted = {v.lower() for v in ([value] if isinstance(value, str) else value)}
+        if not wanted:
+            continue
+        records = [r for r in records if str(r.get(field, "")).lower() in wanted]
     return records
+
+
+def paginate(records: list[dict], limit: int, offset: int, response: Response) -> list[dict]:
+    """Return one page and report the pre-pagination total in the headers.
+
+    Without X-Total-Count the caller cannot tell a complete page from a
+    truncated one, which is what drives blind offset-walking.
+    """
+    page = records[offset : offset + limit]
+    response.headers["X-Total-Count"] = str(len(records))
+    response.headers["X-Returned-Count"] = str(len(page))
+    return page
 
 
 app = FastAPI(
@@ -142,13 +166,21 @@ app = FastAPI(
 
 @app.get("/entitlements", response_model=list[Entitlement], tags=["entitlements"])
 def list_entitlements(
-    application: Annotated[str | None, Query(description="Case-insensitive exact match")] = None,
-    owner: str | None = None,
-    entitlement_name: str | None = None,
+    response: Response,
+    application: Annotated[
+        list[str] | None, Query(description="Case-insensitive exact match; repeatable")
+    ] = None,
+    owner: Annotated[list[str] | None, Query(description="Repeatable")] = None,
+    entitlement_name: Annotated[list[str] | None, Query(description="Repeatable")] = None,
     limit: Annotated[int, Query(ge=1, le=1000)] = 100,
     offset: Annotated[int, Query(ge=0)] = 0,
 ):
-    """List catalog entitlements, with optional filters and pagination."""
+    """List catalog entitlements, with optional filters and pagination.
+
+    Every filter is repeatable -- ?entitlement_name=A&entitlement_name=B --
+    and ORs its own values together while ANDing with the other filters.
+    X-Total-Count reports how many matched before pagination.
+    """
     with _lock:
         records = read_all(CATALOG_FILE)
 
@@ -156,7 +188,7 @@ def list_entitlements(
         records,
         {"application": application, "owner": owner, "entitlement_name": entitlement_name},
     )
-    return records[offset : offset + limit]
+    return paginate(records, limit, offset, response)
 
 
 @app.get("/entitlements/{entitlement_id}", response_model=Entitlement, tags=["entitlements"])
@@ -236,24 +268,42 @@ def delete_entitlement(entitlement_id: str):
 
 @app.get("/risk-scores", response_model=list[RiskScore], tags=["risk-scores"])
 def list_risk_scores(
-    application: Annotated[str | None, Query(description="Case-insensitive exact match")] = None,
-    risk_category: RiskCategory | None = None,
+    response: Response,
+    entitlement_name: Annotated[
+        list[str] | None,
+        Query(description="Score these entitlements; repeatable, so one call covers a whole set"),
+    ] = None,
+    application: Annotated[
+        list[str] | None, Query(description="Case-insensitive exact match; repeatable")
+    ] = None,
+    risk_category: Annotated[list[RiskCategory] | None, Query(description="Repeatable")] = None,
     min_score: Annotated[int | None, Query(ge=0, le=100)] = None,
     max_score: Annotated[int | None, Query(ge=0, le=100)] = None,
     limit: Annotated[int, Query(ge=1, le=1000)] = 100,
     offset: Annotated[int, Query(ge=0)] = 0,
 ):
-    """List risk scores, with optional filters and pagination."""
+    """List risk scores, with optional filters and pagination.
+
+    entitlement_name is the filter that lets one request score a whole set of
+    entitlements; without it the only route was one GET per name.
+    """
     with _lock:
         records = read_all(RISK_SCORES_FILE)
 
-    records = apply_filters(records, {"application": application, "risk_category": risk_category})
+    records = apply_filters(
+        records,
+        {
+            "entitlement_name": entitlement_name,
+            "application": application,
+            "risk_category": risk_category,
+        },
+    )
     if min_score is not None:
         records = [r for r in records if r.get("risk_score", 0) >= min_score]
     if max_score is not None:
         records = [r for r in records if r.get("risk_score", 0) <= max_score]
 
-    return records[offset : offset + limit]
+    return paginate(records, limit, offset, response)
 
 
 @app.get("/risk-scores/{entitlement_name}", response_model=RiskScore, tags=["risk-scores"])

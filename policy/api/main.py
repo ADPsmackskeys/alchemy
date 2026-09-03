@@ -10,7 +10,7 @@ import threading
 from pathlib import Path
 from typing import Annotated, Literal
 
-from fastapi import Body, FastAPI, HTTPException, Query, status
+from fastapi import Body, FastAPI, HTTPException, Query, Response, status
 from pydantic import BaseModel, ConfigDict, Field
 
 from config import settings
@@ -84,6 +84,35 @@ def find_index(records: list[dict], policy_id: str) -> int:
     raise HTTPException(status_code=404, detail=f"No policy with policy_id {policy_id!r}")
 
 
+def apply_filters(records: list[dict], filters: dict[str, str | list[str] | None]) -> list[dict]:
+    """Case-insensitive whole-value match: OR within a field, AND across fields.
+
+    A filter is either one value or a list of them, so a caller asking about
+    five records makes one request instead of five. An explicitly empty list
+    means "filter not supplied" and matches everything, which is what a client
+    that built its list dynamically sends when it has nothing to narrow by.
+    """
+    for field, value in filters.items():
+        if value is None:
+            continue
+        wanted = {v.lower() for v in ([value] if isinstance(value, str) else value)}
+        if not wanted:
+            continue
+        records = [r for r in records if str(r.get(field, "")).lower() in wanted]
+    return records
+
+
+def paginate(records: list[dict], limit: int, offset: int, response: Response) -> list[dict]:
+    """Return one page and report the pre-pagination total in the headers.
+
+    Without X-Total-Count the caller cannot tell a complete page from a
+    truncated one, which is what drives blind offset-walking.
+    """
+    page = records[offset : offset + limit]
+    response.headers["X-Total-Count"] = str(len(records))
+    response.headers["X-Returned-Count"] = str(len(page))
+    return page
+
 def serialize(policy: Policy) -> dict:
     # The reorder keeps policy_id first, matching the existing rows in the file.
     record = json.loads(policy.model_dump_json())
@@ -100,28 +129,35 @@ app = FastAPI(
 
 @app.get("/policies", response_model=list[Policy], tags=["policies"])
 def list_policies(
-    type: Annotated[PolicyType | None, Query(description="Filter by policy type")] = None,
-    policy_name: Annotated[str | None, Query(description="Case-insensitive exact match")] = None,
+    response: Response,
+    type: Annotated[list[PolicyType] | None, Query(description="Repeatable")] = None,
+    policy_name: Annotated[
+        list[str] | None, Query(description="Case-insensitive exact match; repeatable")
+    ] = None,
     rule_contains: Annotated[
-        str | None, Query(description="Case-insensitive substring match on the rule")
+        list[str] | None,
+        Query(description="Substring match on the rule; repeatable, matching any of them"),
     ] = None,
     limit: Annotated[int, Query(ge=1, le=1000)] = 100,
     offset: Annotated[int, Query(ge=0)] = 0,
 ):
-    """List policy rules, with optional filters and pagination."""
+    """List policy rules, with optional filters and pagination.
+
+    Every filter is repeatable. rule_contains ORs its needles, so one request
+    finds the policies mentioning any of a set of entitlements.
+    """
     with _lock:
         records = read_all()
 
-    filters = {"type": type, "policy_name": policy_name}
-    for field, value in filters.items():
-        if value is not None:
-            records = [r for r in records if str(r.get(field, "")).lower() == value.lower()]
+    records = apply_filters(records, {"type": type, "policy_name": policy_name})
 
-    if rule_contains is not None:
-        needle = rule_contains.lower()
-        records = [r for r in records if needle in str(r.get("rule", "")).lower()]
+    if rule_contains:
+        needles = [n.lower() for n in rule_contains]
+        records = [
+            r for r in records if any(n in str(r.get("rule", "")).lower() for n in needles)
+        ]
 
-    return records[offset : offset + limit]
+    return paginate(records, limit, offset, response)
 
 
 @app.get("/policies/{policy_id}", response_model=Policy, tags=["policies"])

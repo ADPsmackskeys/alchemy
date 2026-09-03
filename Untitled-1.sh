@@ -12,7 +12,7 @@ images=(
 for image in "${images[@]}"; do
   cd $image/api
   SOURCE_IMAGE="${image}:latest"
-  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}:3.0"
+  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}:3.1"
 
   echo "Building $SOURCE_IMAGE"
   docker build --tag "$SOURCE_IMAGE" . 

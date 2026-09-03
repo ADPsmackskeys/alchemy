@@ -39,10 +39,10 @@ def check(label, condition, extra=""):
 
 # READ
 r = client.get("/policies")
-check("list returns 7 seed policies", r.status_code == 200 and len(r.json()) == 7, len(r.json()))
+check("list returns 14 seed policies", r.status_code == 200 and len(r.json()) == 14, len(r.json()))
 
 r = client.get("/policies", params={"type": "ALLOW"})
-check("filter by type", len(r.json()) == 5, len(r.json()))
+check("filter by type", len(r.json()) == 12, len(r.json()))
 
 r = client.get("/policies", params={"policy_name": "finance birthright"})
 check("filter by name (case-insensitive)", len(r.json()) == 2, len(r.json()))
@@ -111,8 +111,25 @@ check("delete -> 204", r.status_code == 204)
 r = client.delete("/policies/POL999")
 check("delete again -> 404", r.status_code == 404)
 
-check("file back to 7 records", len(json.loads(_copy.read_text())) == 7)
-check("original file untouched", len(json.loads(SOURCE.read_text())) == 7)
+# ------------------------------------------------------- batched lookups
+r = client.get("/policies?rule_contains=risk_score")
+check("single needle still works", len(r.json()) == 2, r.json())
+
+r = client.get("/policies?rule_contains=JIRA_USER&rule_contains=risk_score")
+check(
+    "repeated rule_contains ORs its needles",
+    len(r.json()) >= 2 and any("risk_score" in x["rule"].lower() for x in r.json()),
+    [x["policy_id"] for x in r.json()],
+)
+
+r = client.get("/policies?type=ALLOW&type=HUMAN_APPROVAL")
+check("repeated type ORs its values", len(r.json()) == 14, len(r.json()))
+
+r = client.get("/policies")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "14", dict(r.headers))
+
+check("file back to 14 records", len(json.loads(_copy.read_text())) == 14)
+check("original file untouched", len(json.loads(SOURCE.read_text())) == 14)
 check("health ok", client.get("/health").json()["status"] == "ok")
 
 shutil.rmtree(_tmpdir)

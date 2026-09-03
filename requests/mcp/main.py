@@ -88,7 +88,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -100,9 +100,7 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
@@ -111,8 +109,49 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise ToolError(f"API returned {response.status_code}: {detail}")
 
 
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
 def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
-    return {k: v for k, v in values.items() if v is not None}
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 READ_ONLY = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
@@ -148,41 +187,59 @@ Timestamp = Annotated[str, Field(description="ISO-8601 timestamp, e.g. '2026-08-
     annotations=READ_ONLY,
     title="List access requests",
     description=(
-        "List access requests, oldest first. All filters are optional and match "
-        "case-insensitively on the whole value. This one tool serves both the "
-        "manager's inbox (approver_id plus status='PENDING_APPROVAL') and a "
-        "requester's own history (requester_id). Note requester_id is who *raised* "
-        "the request and subject_id is who the access is *for* -- they differ when "
-        "HR onboards someone. Page with limit/offset."
+        "List access requests, oldest first. This one tool serves both the "
+        "manager's inbox (approver_ids plus statuses=['PENDING_APPROVAL']) and a "
+        "requester's own history (requester_ids). Note requester_id is who "
+        "*raised* the request and subject_id is who the access is *for* -- they "
+        "differ when HR onboards someone. "
+        "Pass every value you need in ONE call -- do not call this once per value. Filters are "
+        "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
+        "them all to get the whole table, which is small. The result is an envelope: `records` "
+        "holds the rows, `missing` names any requested value with no matching record (treat a non- "
+        "empty `missing` as you would a 404), and `truncated` is true when `limit` cut the result "
+        "short."
     ),
 )
 async def list_access_requests(
-    requester_id: Annotated[str | None, Field(description="Who raised it, e.g. 'EMP002'")] = None,
-    approver_id: Annotated[str | None, Field(description="The manager, e.g. 'EMP001'")] = None,
-    subject_id: Annotated[
-        str | None, Field(description="Who the access is for, e.g. 'NJ1004'")
+    subject_ids: Annotated[
+        list[str] | None,
+        Field(description="Who the access is for, e.g. ['NJ1004', 'NJ1005']"),
     ] = None,
-    status: RequestStatus | None = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    requester_ids: Annotated[
+        list[str] | None, Field(description="Who raised them, e.g. ['EMP002']")
+    ] = None,
+    approver_ids: Annotated[
+        list[str] | None, Field(description="The managers, e.g. ['EMP001']")
+    ] = None,
+    statuses: Annotated[
+        list[RequestStatus] | None, Field(description="e.g. ['PENDING_APPROVAL']")
+    ] = None,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
         {
-            "requester_id": requester_id,
-            "approver_id": approver_id,
-            "subject_id": subject_id,
-            "status": status,
+            "requester_id": requester_ids,
+            "approver_id": approver_ids,
+            "subject_id": subject_ids,
+            "status": statuses,
             "limit": limit,
             "offset": offset,
         }
     )
-    return await _request("GET", "/requests", params=params)
+    return await _list_request(
+        "/requests", params, requested=subject_ids, key="subject_id"
+    )
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get an access request",
-    description="Fetch one access request by request_id. Errors if no such record exists.",
+    description=(
+        "Fetch one access request by request_id. Errors if no such record "
+        "exists. For several requests use list_access_requests -- one call, not "
+        "one per request."
+    ),
 )
 async def get_access_request(request_id: RequestId) -> dict[str, Any]:
     return await _request("GET", f"/requests/{quote(request_id, safe='')}")

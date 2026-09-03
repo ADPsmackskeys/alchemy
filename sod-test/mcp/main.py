@@ -88,7 +88,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -100,9 +100,7 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
@@ -111,8 +109,49 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise ToolError(f"API returned {response.status_code}: {detail}")
 
 
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
 def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
-    return {k: v for k, v in values.items() if v is not None}
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 READ_ONLY = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
@@ -132,29 +171,68 @@ EntitlementName = Annotated[str, Field(description="Entitlement name, e.g. 'SAP_
     annotations=READ_ONLY,
     title="List SoD rules",
     description=(
-        "List separation-of-duties rules. `entitlement` matches rules where that "
-        "entitlement appears on either side of the conflict, which is how you "
-        "check what a given entitlement conflicts with. Page with limit/offset."
+        "Browse the separation-of-duties rulebook. `entitlements` returns rules "
+        "where ANY of the given names appears on either side, in one call -- "
+        "never call this once per entitlement. "
+        "To decide whether one person may hold a SET of entitlements, use "
+        "check_sod_conflicts instead: this tool also returns rules whose other "
+        "side is outside your set, which are not conflicts for that person. "
+        "The result is an envelope: `records` holds the rows, `truncated` is "
+        "true when `limit` cut the result short."
     ),
 )
 async def list_sod_rules(
-    severity: Annotated[Severity | None, Field(description="Low, Medium, High or Critical")] = None,
-    entitlement: Annotated[
-        str | None, Field(description="Rules where this entitlement is on either side")
+    entitlements: Annotated[
+        list[str] | None,
+        Field(description="Rules touching any of these, e.g. ['SAP_VENDOR_CREATE', 'JIRA_USER']"),
     ] = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    severities: Annotated[
+        list[Severity] | None, Field(description="e.g. ['High', 'Critical']")
+    ] = None,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
-        {"severity": severity, "entitlement": entitlement, "limit": limit, "offset": offset}
+        {"severity": severities, "entitlement": entitlements, "limit": limit, "offset": offset}
     )
-    return await _request("GET", "/sod-rules", params=params)
+    return await _list_request("/sod-rules", params)
+
+
+@mcp.tool(
+    annotations=READ_ONLY,
+    title="Check a set of entitlements for SoD conflicts",
+    description=(
+        "THE way to run a separation-of-duties check. Pass every entitlement "
+        "the person would hold and get one verdict back. "
+        "`conflicts` lists rules with BOTH sides inside your set -- these are "
+        "real conflicts and block the request. `adjacent` lists rules with one "
+        "side in the set and its counterpart outside, which are NOT conflicts "
+        "for this person but show what they must not be granted next. "
+        "`clear` is true when there are no conflicts, and `highest_severity` "
+        "is the worst conflict found. "
+        "Do not rebuild this from list_sod_rules: unioning per-entitlement "
+        "lookups mixes adjacent rules in with real conflicts."
+    ),
+)
+async def check_sod_conflicts(
+    entitlements: Annotated[
+        list[str],
+        Field(
+            min_length=1,
+            description="The full set to test together, e.g. ['SAP_VENDOR_CREATE', 'JIRA_USER']",
+        ),
+    ],
+) -> dict[str, Any]:
+    return await _request("POST", "/sod-rules/check", json={"entitlements": entitlements})
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get a SoD rule",
-    description="Fetch one SoD rule by sod_id. Errors if no such rule exists.",
+    description=(
+        "Fetch one SoD rule by sod_id. Errors if no such rule exists. To test "
+        "whether a set of entitlements conflicts, use check_sod_conflicts."
+    ),
 )
 async def get_sod_rule(sod_id: SodId) -> dict[str, Any]:
     return await _request("GET", f"/sod-rules/{quote(sod_id, safe='')}")

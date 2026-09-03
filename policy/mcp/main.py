@@ -88,7 +88,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -100,9 +100,7 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
@@ -111,8 +109,49 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise ToolError(f"API returned {response.status_code}: {detail}")
 
 
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
 def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
-    return {k: v for k, v in values.items() if v is not None}
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 READ_ONLY = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
@@ -135,36 +174,59 @@ RuleText = Annotated[
     annotations=READ_ONLY,
     title="List policies",
     description=(
-        "List policy rules. Filter by type or policy_name (case-insensitive, "
-        "whole value), or search rule text with rule_contains (substring). "
-        "Page with limit/offset."
+        "Find the policy rules that apply to a decision. rule_contains "
+        "searches the rule text and takes a LIST of needles, so one call finds "
+        "every policy mentioning any of the entitlements you are evaluating. "
+        "Pass every value you need in ONE call -- do not call this once per value. Filters are "
+        "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
+        "them all to get the whole table, which is small. The result is an envelope: `records` "
+        "holds the rows, `missing` names any requested value with no matching record (treat a non- "
+        "empty `missing` as you would a 404), and `truncated` is true when `limit` cut the result "
+        "short."
     ),
 )
 async def list_policies(
-    type: Annotated[PolicyType | None, Field(description="ALLOW, DENY or HUMAN_APPROVAL")] = None,
-    policy_name: Annotated[str | None, Field(description="e.g. 'Finance Birthright'")] = None,
     rule_contains: Annotated[
-        str | None, Field(description="Substring of the rule text, e.g. 'risk_score'")
+        list[str] | None,
+        Field(
+            description=(
+                "Substrings of the rule text, matching any of them. Pass every "
+                "entitlement or attribute you care about at once, e.g. "
+                "['JIRA_USER', 'GITHUB_DEV', 'risk_score']"
+            )
+        ),
     ] = None,
-    limit: Annotated[int, Field(ge=1, le=1000)] = 100,
+    policy_names: Annotated[
+        list[str] | None, Field(description="e.g. ['Finance Birthright']")
+    ] = None,
+    types: Annotated[
+        list[PolicyType] | None, Field(description="ALLOW, DENY and/or HUMAN_APPROVAL")
+    ] = None,
+    limit: Annotated[int, Field(ge=1, le=1000)] = 1000,
     offset: Annotated[int, Field(ge=0)] = 0,
-) -> list[dict[str, Any]]:
+) -> dict[str, Any]:
     params = _drop_none(
         {
-            "type": type,
-            "policy_name": policy_name,
+            "type": types,
+            "policy_name": policy_names,
             "rule_contains": rule_contains,
             "limit": limit,
             "offset": offset,
         }
     )
-    return await _request("GET", "/policies", params=params)
+    return await _list_request(
+        "/policies", params, requested=policy_names, key="policy_name"
+    )
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get a policy",
-    description="Fetch one policy rule by policy_id. Errors if no such rule exists.",
+    description=(
+        "Fetch one policy rule by policy_id. Errors if no such rule exists. For "
+        "several policies, or to find which policies mention a set of "
+        "entitlements, use list_policies -- one call, not one per policy."
+    ),
 )
 async def get_policy(policy_id: PolicyId) -> dict[str, Any]:
     return await _request("GET", f"/policies/{quote(policy_id, safe='')}")
