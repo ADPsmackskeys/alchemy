@@ -106,5 +106,569 @@
     "entitlement_name": "AWS_CONSOLE",
     "application": "AWS",
     "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT019",
+    "entitlement_name": "SAP_AR_COLLECTIONS",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT020",
+    "entitlement_name": "SAP_GL_POST",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT021",
+    "entitlement_name": "SAP_JOURNAL_APPROVE",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT022",
+    "entitlement_name": "SAP_PERIOD_CLOSE",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT023",
+    "entitlement_name": "SAP_COST_CENTER_ADMIN",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT024",
+    "entitlement_name": "SAP_VENDOR_APPROVE",
+    "application": "SAP ECC",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT025",
+    "entitlement_name": "SAP_BANK_MASTER",
+    "application": "SAP ECC",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT026",
+    "entitlement_name": "ORACLE_FIN_REPORT",
+    "application": "Oracle Financials",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT027",
+    "entitlement_name": "ORACLE_GL_INQUIRY",
+    "application": "Oracle Financials",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT028",
+    "entitlement_name": "BLACKLINE_RECON",
+    "application": "Blackline",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT029",
+    "entitlement_name": "BLACKLINE_ADMIN",
+    "application": "Blackline",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT030",
+    "entitlement_name": "CONCUR_EXPENSE_USER",
+    "application": "Concur",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT031",
+    "entitlement_name": "CONCUR_EXPENSE_APPROVE",
+    "application": "Concur",
+    "owner": "Finance IT"
+  },
+  {
+    "entitlement_id": "ENT032",
+    "entitlement_name": "COUPA_REQUISITION",
+    "application": "Coupa",
+    "owner": "Procurement IT"
+  },
+  {
+    "entitlement_id": "ENT033",
+    "entitlement_name": "COUPA_PO_APPROVE",
+    "application": "Coupa",
+    "owner": "Procurement IT"
+  },
+  {
+    "entitlement_id": "ENT034",
+    "entitlement_name": "COUPA_SUPPLIER_ADMIN",
+    "application": "Coupa",
+    "owner": "Procurement IT"
+  },
+  {
+    "entitlement_id": "ENT035",
+    "entitlement_name": "VENDOR_PORTAL_VIEW",
+    "application": "Coupa",
+    "owner": "Procurement IT"
+  },
+  {
+    "entitlement_id": "ENT036",
+    "entitlement_name": "KYRIBA_CASH_VIEW",
+    "application": "Kyriba",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT037",
+    "entitlement_name": "KYRIBA_PAYMENT_INIT",
+    "application": "Kyriba",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT038",
+    "entitlement_name": "KYRIBA_PAYMENT_RELEASE",
+    "application": "Kyriba",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT039",
+    "entitlement_name": "MUREX_TRADE_VIEW",
+    "application": "Murex",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT040",
+    "entitlement_name": "FX_TRADING_DESK",
+    "application": "Murex",
+    "owner": "Treasury IT"
+  },
+  {
+    "entitlement_id": "ENT041",
+    "entitlement_name": "JIRA_ADMIN",
+    "application": "JIRA",
+    "owner": "Engineering IT"
+  },
+  {
+    "entitlement_id": "ENT042",
+    "entitlement_name": "CONFLUENCE_ADMIN",
+    "application": "Confluence",
+    "owner": "Engineering IT"
+  },
+  {
+    "entitlement_id": "ENT043",
+    "entitlement_name": "GITHUB_REPO_ADMIN",
+    "application": "GitHub",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT044",
+    "entitlement_name": "GITHUB_ORG_ADMIN",
+    "application": "GitHub",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT045",
+    "entitlement_name": "JENKINS_BUILD",
+    "application": "Jenkins",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT046",
+    "entitlement_name": "JENKINS_ADMIN",
+    "application": "Jenkins",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT047",
+    "entitlement_name": "ARTIFACTORY_DEPLOY",
+    "application": "Artifactory",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT048",
+    "entitlement_name": "AWS_PROD_DEPLOY",
+    "application": "AWS",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT049",
+    "entitlement_name": "AWS_ADMIN",
+    "application": "AWS",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT050",
+    "entitlement_name": "AZURE_CONTRIBUTOR",
+    "application": "Azure",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT051",
+    "entitlement_name": "GCP_VIEWER",
+    "application": "GCP",
+    "owner": "DevOps Team"
+  },
+  {
+    "entitlement_id": "ENT052",
+    "entitlement_name": "KUBERNETES_OPERATOR",
+    "application": "Kubernetes",
+    "owner": "Platform Team"
+  },
+  {
+    "entitlement_id": "ENT053",
+    "entitlement_name": "TERRAFORM_APPLY",
+    "application": "Terraform Cloud",
+    "owner": "Platform Team"
+  },
+  {
+    "entitlement_id": "ENT054",
+    "entitlement_name": "PAGERDUTY_RESPONDER",
+    "application": "PagerDuty",
+    "owner": "Platform Team"
+  },
+  {
+    "entitlement_id": "ENT055",
+    "entitlement_name": "DATADOG_VIEWER",
+    "application": "Datadog",
+    "owner": "Platform Team"
+  },
+  {
+    "entitlement_id": "ENT056",
+    "entitlement_name": "DATADOG_ADMIN",
+    "application": "Datadog",
+    "owner": "Platform Team"
+  },
+  {
+    "entitlement_id": "ENT057",
+    "entitlement_name": "PROD_DB_READ",
+    "application": "Oracle DB",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT058",
+    "entitlement_name": "PROD_DB_WRITE",
+    "application": "Oracle DB",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT059",
+    "entitlement_name": "PROD_SSH_ACCESS",
+    "application": "Linux Estate",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT060",
+    "entitlement_name": "TEST_ENV_ADMIN",
+    "application": "Linux Estate",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT061",
+    "entitlement_name": "AD_USER_READ",
+    "application": "Active Directory",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT062",
+    "entitlement_name": "AD_ACCOUNT_OPERATOR",
+    "application": "Active Directory",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT063",
+    "entitlement_name": "OKTA_HELPDESK",
+    "application": "Okta",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT064",
+    "entitlement_name": "OKTA_ADMIN",
+    "application": "Okta",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT065",
+    "entitlement_name": "CYBERARK_SAFE_USER",
+    "application": "CyberArk",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT066",
+    "entitlement_name": "CYBERARK_VAULT_ADMIN",
+    "application": "CyberArk",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT067",
+    "entitlement_name": "SAILPOINT_REVIEWER",
+    "application": "SailPoint",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT068",
+    "entitlement_name": "SAILPOINT_ADMIN",
+    "application": "SailPoint",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT069",
+    "entitlement_name": "CROWDSTRIKE_ANALYST",
+    "application": "CrowdStrike",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT070",
+    "entitlement_name": "CROWDSTRIKE_ADMIN",
+    "application": "CrowdStrike",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT071",
+    "entitlement_name": "SPLUNK_SEARCH",
+    "application": "Splunk",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT072",
+    "entitlement_name": "SPLUNK_ADMIN",
+    "application": "Splunk",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT073",
+    "entitlement_name": "FIREWALL_ADMIN",
+    "application": "Palo Alto",
+    "owner": "Security IT"
+  },
+  {
+    "entitlement_id": "ENT074",
+    "entitlement_name": "VPN_STANDARD",
+    "application": "VPN Gateway",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT075",
+    "entitlement_name": "VPN_PRIVILEGED",
+    "application": "VPN Gateway",
+    "owner": "Infrastructure IT"
+  },
+  {
+    "entitlement_id": "ENT076",
+    "entitlement_name": "RSA_GRC_ADMIN",
+    "application": "RSA Archer",
+    "owner": "Risk IT"
+  },
+  {
+    "entitlement_id": "ENT077",
+    "entitlement_name": "RISK_MODEL_LIBRARY",
+    "application": "Risk Portal",
+    "owner": "Risk IT"
+  },
+  {
+    "entitlement_id": "ENT078",
+    "entitlement_name": "AUDIT_WORKPAPERS",
+    "application": "Audit Platform",
+    "owner": "Audit IT"
+  },
+  {
+    "entitlement_id": "ENT079",
+    "entitlement_name": "AUDIT_ADMIN",
+    "application": "Audit Platform",
+    "owner": "Audit IT"
+  },
+  {
+    "entitlement_id": "ENT080",
+    "entitlement_name": "COMPLIANCE_CASE_MGMT",
+    "application": "NICE Actimize",
+    "owner": "Compliance IT"
+  },
+  {
+    "entitlement_id": "ENT081",
+    "entitlement_name": "AML_SCREENING",
+    "application": "NICE Actimize",
+    "owner": "Compliance IT"
+  },
+  {
+    "entitlement_id": "ENT082",
+    "entitlement_name": "SANCTIONS_OVERRIDE",
+    "application": "NICE Actimize",
+    "owner": "Compliance IT"
+  },
+  {
+    "entitlement_id": "ENT083",
+    "entitlement_name": "POLICY_REGISTER",
+    "application": "Policy Hub",
+    "owner": "Compliance IT"
+  },
+  {
+    "entitlement_id": "ENT084",
+    "entitlement_name": "POWERBI_HR",
+    "application": "PowerBI",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT085",
+    "entitlement_name": "POWERBI_SALES",
+    "application": "PowerBI",
+    "owner": "BI Team"
+  },
+  {
+    "entitlement_id": "ENT086",
+    "entitlement_name": "POWERBI_ADMIN",
+    "application": "PowerBI",
+    "owner": "BI Team"
+  },
+  {
+    "entitlement_id": "ENT087",
+    "entitlement_name": "TABLEAU_VIEWER",
+    "application": "Tableau",
+    "owner": "BI Team"
+  },
+  {
+    "entitlement_id": "ENT088",
+    "entitlement_name": "TABLEAU_CREATOR",
+    "application": "Tableau",
+    "owner": "BI Team"
+  },
+  {
+    "entitlement_id": "ENT089",
+    "entitlement_name": "SNOWFLAKE_READ",
+    "application": "Snowflake",
+    "owner": "Data Platform"
+  },
+  {
+    "entitlement_id": "ENT090",
+    "entitlement_name": "SNOWFLAKE_WRITE",
+    "application": "Snowflake",
+    "owner": "Data Platform"
+  },
+  {
+    "entitlement_id": "ENT091",
+    "entitlement_name": "SNOWFLAKE_ADMIN",
+    "application": "Snowflake",
+    "owner": "Data Platform"
+  },
+  {
+    "entitlement_id": "ENT092",
+    "entitlement_name": "DATABRICKS_WORKSPACE",
+    "application": "Databricks",
+    "owner": "Data Platform"
+  },
+  {
+    "entitlement_id": "ENT093",
+    "entitlement_name": "DATA_LAKE_PII_READ",
+    "application": "Snowflake",
+    "owner": "Data Platform"
+  },
+  {
+    "entitlement_id": "ENT094",
+    "entitlement_name": "WORKDAY_RECRUITER",
+    "application": "Workday",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT095",
+    "entitlement_name": "WORKDAY_COMP_ADMIN",
+    "application": "Workday",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT096",
+    "entitlement_name": "WORKDAY_PAYROLL_RUN",
+    "application": "Workday",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT097",
+    "entitlement_name": "SUCCESSFACTORS_LMS",
+    "application": "SuccessFactors",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT098",
+    "entitlement_name": "SHAREPOINT_HR",
+    "application": "SharePoint",
+    "owner": "HR IT"
+  },
+  {
+    "entitlement_id": "ENT099",
+    "entitlement_name": "LEGAL_MATTER_MGMT",
+    "application": "Legal Tracker",
+    "owner": "Legal IT"
+  },
+  {
+    "entitlement_id": "ENT100",
+    "entitlement_name": "DOCUSIGN_SENDER",
+    "application": "DocuSign",
+    "owner": "Legal IT"
+  },
+  {
+    "entitlement_id": "ENT101",
+    "entitlement_name": "CONTRACT_ESIGN_ADMIN",
+    "application": "DocuSign",
+    "owner": "Legal IT"
+  },
+  {
+    "entitlement_id": "ENT102",
+    "entitlement_name": "SALESFORCE_USER",
+    "application": "Salesforce",
+    "owner": "CRM Team"
+  },
+  {
+    "entitlement_id": "ENT103",
+    "entitlement_name": "SALESFORCE_PRICING_APPROVE",
+    "application": "Salesforce",
+    "owner": "CRM Team"
+  },
+  {
+    "entitlement_id": "ENT104",
+    "entitlement_name": "SALESFORCE_ADMIN",
+    "application": "Salesforce",
+    "owner": "CRM Team"
+  },
+  {
+    "entitlement_id": "ENT105",
+    "entitlement_name": "MARKETO_CAMPAIGN",
+    "application": "Marketo",
+    "owner": "Marketing IT"
+  },
+  {
+    "entitlement_id": "ENT106",
+    "entitlement_name": "ZENDESK_AGENT",
+    "application": "Zendesk",
+    "owner": "Support IT"
+  },
+  {
+    "entitlement_id": "ENT107",
+    "entitlement_name": "ZENDESK_ADMIN",
+    "application": "Zendesk",
+    "owner": "Support IT"
+  },
+  {
+    "entitlement_id": "ENT108",
+    "entitlement_name": "SERVICENOW_USER",
+    "application": "ServiceNow",
+    "owner": "ITSM Team"
+  },
+  {
+    "entitlement_id": "ENT109",
+    "entitlement_name": "SERVICENOW_APPROVER",
+    "application": "ServiceNow",
+    "owner": "ITSM Team"
+  },
+  {
+    "entitlement_id": "ENT110",
+    "entitlement_name": "SERVICENOW_ADMIN",
+    "application": "ServiceNow",
+    "owner": "ITSM Team"
+  },
+  {
+    "entitlement_id": "ENT111",
+    "entitlement_name": "O365_STANDARD",
+    "application": "Microsoft 365",
+    "owner": "Collaboration Team"
+  },
+  {
+    "entitlement_id": "ENT112",
+    "entitlement_name": "SLACK_USER",
+    "application": "Slack",
+    "owner": "Collaboration Team"
   }
 ]

@@ -186,8 +186,9 @@ Entitlements = Annotated[
         "Pass every value you need in ONE call -- do not call this once per value. Filters are "
         "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
         "them all to get the whole table, which is small. The result is an envelope: `records` "
-        "holds the rows, `missing` names any requested value with no matching record (treat a non- "
-        "empty `missing` as you would a 404), and `truncated` is true when `limit` cut the result "
+        "holds the rows, `missing` names any requested value with no matching record (treat a "
+        "`missing` list that is not empty as you would a 404), and `truncated` is true when "
+        "`limit` cut the result "
         "short."
     ),
 )

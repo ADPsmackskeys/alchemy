@@ -9,78 +9,606 @@
     "policy_id": "POL002",
     "policy_name": "Finance Birthright",
     "type": "ALLOW",
-    "rule": "Financial Analyst -> POWERBI_FINANCE"
+    "rule": "Senior Financial Analyst -> SAP_FIN_DISPLAY"
   },
   {
     "policy_id": "POL003",
-    "policy_name": "Engineering Birthright",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Accounts Payable Clerk -> SAP_AP_INVOICE"
+  },
+  {
+    "policy_id": "POL004",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "General Ledger Accountant -> SAP_GL_POST"
+  },
+  {
+    "policy_id": "POL005",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Accounts Payable Manager -> SAP_PAYMENT_APPROVER"
+  },
+  {
+    "policy_id": "POL006",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Finance Manager -> SAP_JOURNAL_APPROVE"
+  },
+  {
+    "policy_id": "POL007",
+    "policy_name": "Finance Birthright",
+    "type": "ALLOW",
+    "rule": "Financial Controller -> SAP_PERIOD_CLOSE"
+  },
+  {
+    "policy_id": "POL008",
+    "policy_name": "Treasury Birthright",
+    "type": "ALLOW",
+    "rule": "Treasury Analyst -> KYRIBA_CASH_VIEW"
+  },
+  {
+    "policy_id": "POL009",
+    "policy_name": "Treasury Birthright",
+    "type": "ALLOW",
+    "rule": "FX Trader -> FX_TRADING_DESK"
+  },
+  {
+    "policy_id": "POL010",
+    "policy_name": "Treasury Birthright",
+    "type": "ALLOW",
+    "rule": "Treasury Manager -> KYRIBA_PAYMENT_RELEASE"
+  },
+  {
+    "policy_id": "POL011",
+    "policy_name": "Treasury Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Treasury -> KYRIBA_CASH_VIEW"
+  },
+  {
+    "policy_id": "POL012",
+    "policy_name": "Procurement Birthright",
+    "type": "ALLOW",
+    "rule": "Procurement Specialist -> COUPA_REQUISITION"
+  },
+  {
+    "policy_id": "POL013",
+    "policy_name": "Procurement Birthright",
+    "type": "ALLOW",
+    "rule": "Vendor Management Analyst -> VENDOR_PORTAL_VIEW"
+  },
+  {
+    "policy_id": "POL014",
+    "policy_name": "Procurement Birthright",
+    "type": "ALLOW",
+    "rule": "Procurement Manager -> COUPA_PO_APPROVE"
+  },
+  {
+    "policy_id": "POL015",
+    "policy_name": "Procurement Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Procurement -> COUPA_PO_APPROVE"
+  },
+  {
+    "policy_id": "POL016",
+    "policy_name": "Technology Birthright",
     "type": "ALLOW",
     "rule": "Software Engineer -> JIRA_USER"
   },
   {
-    "policy_id": "POL004",
-    "policy_name": "Engineering Birthright",
+    "policy_id": "POL017",
+    "policy_name": "Technology Birthright",
     "type": "ALLOW",
-    "rule": "Software Engineer -> GITHUB_DEV"
+    "rule": "Senior Software Engineer -> JIRA_USER"
   },
   {
-    "policy_id": "POL005",
-    "policy_name": "Risk Review",
-    "type": "HUMAN_APPROVAL",
-    "rule": "risk_score >= 70"
-  },
-  {
-    "policy_id": "POL006",
-    "policy_name": "Critical Access",
-    "type": "HUMAN_APPROVAL",
-    "rule": "risk_score >= 90"
-  },
-  {
-    "policy_id": "POL007",
-    "policy_name": "Affinity Threshold",
+    "policy_id": "POL018",
+    "policy_name": "Technology Birthright",
     "type": "ALLOW",
-    "rule": "affinity_score >= 70"
+    "rule": "QA Engineer -> JIRA_USER"
   },
   {
-    "policy_id": "POL008",
+    "policy_id": "POL019",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "DevOps Engineer -> JENKINS_BUILD"
+  },
+  {
+    "policy_id": "POL020",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Cloud Engineer -> AWS_CONSOLE"
+  },
+  {
+    "policy_id": "POL021",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Site Reliability Engineer -> PAGERDUTY_RESPONDER"
+  },
+  {
+    "policy_id": "POL022",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Database Administrator -> PROD_DB_READ"
+  },
+  {
+    "policy_id": "POL023",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Systems Administrator -> AD_ACCOUNT_OPERATOR"
+  },
+  {
+    "policy_id": "POL024",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "IT Support Analyst -> SERVICENOW_USER"
+  },
+  {
+    "policy_id": "POL025",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "IT Service Manager -> SERVICENOW_ADMIN"
+  },
+  {
+    "policy_id": "POL026",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Engineering Manager -> JIRA_ADMIN"
+  },
+  {
+    "policy_id": "POL027",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Platform Architect -> GITHUB_DEV"
+  },
+  {
+    "policy_id": "POL028",
+    "policy_name": "Technology Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Engineering -> JIRA_ADMIN"
+  },
+  {
+    "policy_id": "POL029",
+    "policy_name": "Data & Analytics Birthright",
+    "type": "ALLOW",
+    "rule": "Data Analyst -> SNOWFLAKE_READ"
+  },
+  {
+    "policy_id": "POL030",
+    "policy_name": "Data & Analytics Birthright",
+    "type": "ALLOW",
+    "rule": "Data Engineer -> SNOWFLAKE_WRITE"
+  },
+  {
+    "policy_id": "POL031",
+    "policy_name": "Data & Analytics Birthright",
+    "type": "ALLOW",
+    "rule": "BI Developer -> TABLEAU_CREATOR"
+  },
+  {
+    "policy_id": "POL032",
+    "policy_name": "Data & Analytics Birthright",
+    "type": "ALLOW",
+    "rule": "Analytics Manager -> POWERBI_ADMIN"
+  },
+  {
+    "policy_id": "POL033",
+    "policy_name": "Data & Analytics Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Data -> SNOWFLAKE_ADMIN"
+  },
+  {
+    "policy_id": "POL034",
+    "policy_name": "Security Birthright",
+    "type": "ALLOW",
+    "rule": "Security Analyst -> SPLUNK_SEARCH"
+  },
+  {
+    "policy_id": "POL035",
+    "policy_name": "Security Birthright",
+    "type": "ALLOW",
+    "rule": "Security Engineer -> CROWDSTRIKE_ADMIN"
+  },
+  {
+    "policy_id": "POL036",
+    "policy_name": "Security Birthright",
+    "type": "ALLOW",
+    "rule": "IAM Engineer -> OKTA_ADMIN"
+  },
+  {
+    "policy_id": "POL037",
+    "policy_name": "Security Birthright",
+    "type": "ALLOW",
+    "rule": "Security Manager -> SPLUNK_ADMIN"
+  },
+  {
+    "policy_id": "POL038",
+    "policy_name": "Security Birthright",
+    "type": "ALLOW",
+    "rule": "Chief Information Security Officer -> RSA_GRC"
+  },
+  {
+    "policy_id": "POL039",
+    "policy_name": "Risk Birthright",
+    "type": "ALLOW",
+    "rule": "Risk Analyst -> RSA_GRC"
+  },
+  {
+    "policy_id": "POL040",
+    "policy_name": "Risk Birthright",
+    "type": "ALLOW",
+    "rule": "Model Risk Analyst -> RISK_MODEL_LIBRARY"
+  },
+  {
+    "policy_id": "POL041",
+    "policy_name": "Risk Birthright",
+    "type": "ALLOW",
+    "rule": "Risk Manager -> RSA_GRC"
+  },
+  {
+    "policy_id": "POL042",
+    "policy_name": "Risk Birthright",
+    "type": "ALLOW",
+    "rule": "Chief Risk Officer -> RSA_GRC_ADMIN"
+  },
+  {
+    "policy_id": "POL043",
+    "policy_name": "Audit Birthright",
+    "type": "ALLOW",
+    "rule": "Internal Auditor -> AUDIT_TOOL"
+  },
+  {
+    "policy_id": "POL044",
+    "policy_name": "Audit Birthright",
+    "type": "ALLOW",
+    "rule": "IT Auditor -> AUDIT_TOOL"
+  },
+  {
+    "policy_id": "POL045",
+    "policy_name": "Audit Birthright",
+    "type": "ALLOW",
+    "rule": "Audit Manager -> AUDIT_ADMIN"
+  },
+  {
+    "policy_id": "POL046",
+    "policy_name": "Audit Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Internal Audit -> AUDIT_ADMIN"
+  },
+  {
+    "policy_id": "POL047",
+    "policy_name": "Compliance Birthright",
+    "type": "ALLOW",
+    "rule": "Compliance Analyst -> COMPLIANCE_CASE_MGMT"
+  },
+  {
+    "policy_id": "POL048",
+    "policy_name": "Compliance Birthright",
+    "type": "ALLOW",
+    "rule": "AML Analyst -> AML_SCREENING"
+  },
+  {
+    "policy_id": "POL049",
+    "policy_name": "Compliance Birthright",
+    "type": "ALLOW",
+    "rule": "Compliance Manager -> COMPLIANCE_CASE_MGMT"
+  },
+  {
+    "policy_id": "POL050",
+    "policy_name": "Compliance Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Compliance -> POLICY_REGISTER"
+  },
+  {
+    "policy_id": "POL051",
     "policy_name": "HR Birthright",
     "type": "ALLOW",
     "rule": "HR Specialist -> WORKDAY_HR"
   },
   {
-    "policy_id": "POL009",
-    "policy_name": "Cloud Engineering Birthright",
+    "policy_id": "POL052",
+    "policy_name": "HR Birthright",
     "type": "ALLOW",
-    "rule": "Cloud Engineer -> AWS_CONSOLE"
+    "rule": "HR Business Partner -> WORKDAY_HR"
   },
   {
-    "policy_id": "POL010",
-    "policy_name": "Cloud Engineering Birthright",
+    "policy_id": "POL053",
+    "policy_name": "HR Birthright",
     "type": "ALLOW",
-    "rule": "Cloud Engineer -> GITHUB_DEV"
+    "rule": "Recruiter -> WORKDAY_RECRUITER"
   },
   {
-    "policy_id": "POL011",
-    "policy_name": "Senior Finance Birthright",
+    "policy_id": "POL054",
+    "policy_name": "HR Birthright",
     "type": "ALLOW",
-    "rule": "Senior Financial Analyst -> SAP_FIN_DISPLAY"
+    "rule": "Payroll Specialist -> WORKDAY_PAYROLL_RUN"
   },
   {
-    "policy_id": "POL012",
-    "policy_name": "Senior Finance Birthright",
+    "policy_id": "POL055",
+    "policy_name": "HR Birthright",
     "type": "ALLOW",
-    "rule": "Senior Financial Analyst -> POWERBI_FINANCE"
+    "rule": "HR Manager -> WORKDAY_COMP_ADMIN"
   },
   {
-    "policy_id": "POL013",
-    "policy_name": "Risk Birthright",
+    "policy_id": "POL056",
+    "policy_name": "HR Birthright",
     "type": "ALLOW",
-    "rule": "Risk Analyst -> RISK_PORTAL"
+    "rule": "Chief People Officer -> POWERBI_HR"
   },
   {
-    "policy_id": "POL014",
-    "policy_name": "Audit Birthright",
+    "policy_id": "POL057",
+    "policy_name": "Legal Birthright",
     "type": "ALLOW",
-    "rule": "Internal Auditor -> AUDIT_TOOL"
+    "rule": "Legal Counsel -> LEGAL_MATTER_MGMT"
+  },
+  {
+    "policy_id": "POL058",
+    "policy_name": "Legal Birthright",
+    "type": "ALLOW",
+    "rule": "Paralegal -> LEGAL_MATTER_MGMT"
+  },
+  {
+    "policy_id": "POL059",
+    "policy_name": "Legal Birthright",
+    "type": "ALLOW",
+    "rule": "Contracts Manager -> CONTRACT_ESIGN_ADMIN"
+  },
+  {
+    "policy_id": "POL060",
+    "policy_name": "Legal Birthright",
+    "type": "ALLOW",
+    "rule": "General Counsel -> LEGAL_MATTER_MGMT"
+  },
+  {
+    "policy_id": "POL061",
+    "policy_name": "Sales Birthright",
+    "type": "ALLOW",
+    "rule": "Account Executive -> SALESFORCE_USER"
+  },
+  {
+    "policy_id": "POL062",
+    "policy_name": "Sales Birthright",
+    "type": "ALLOW",
+    "rule": "Senior Account Executive -> SALESFORCE_USER"
+  },
+  {
+    "policy_id": "POL063",
+    "policy_name": "Sales Birthright",
+    "type": "ALLOW",
+    "rule": "Sales Manager -> SALESFORCE_PRICING_APPROVE"
+  },
+  {
+    "policy_id": "POL064",
+    "policy_name": "Sales Birthright",
+    "type": "ALLOW",
+    "rule": "Sales Operations Analyst -> SALESFORCE_USER"
+  },
+  {
+    "policy_id": "POL065",
+    "policy_name": "Sales Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Sales -> SALESFORCE_PRICING_APPROVE"
+  },
+  {
+    "policy_id": "POL066",
+    "policy_name": "Marketing Birthright",
+    "type": "ALLOW",
+    "rule": "Marketing Specialist -> MARKETO_CAMPAIGN"
+  },
+  {
+    "policy_id": "POL067",
+    "policy_name": "Marketing Birthright",
+    "type": "ALLOW",
+    "rule": "Marketing Analyst -> POWERBI_SALES"
+  },
+  {
+    "policy_id": "POL068",
+    "policy_name": "Marketing Birthright",
+    "type": "ALLOW",
+    "rule": "Campaign Manager -> MARKETO_CAMPAIGN"
+  },
+  {
+    "policy_id": "POL069",
+    "policy_name": "Marketing Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Marketing -> MARKETO_CAMPAIGN"
+  },
+  {
+    "policy_id": "POL070",
+    "policy_name": "Customer Support Birthright",
+    "type": "ALLOW",
+    "rule": "Support Engineer -> ZENDESK_AGENT"
+  },
+  {
+    "policy_id": "POL071",
+    "policy_name": "Customer Support Birthright",
+    "type": "ALLOW",
+    "rule": "Customer Success Manager -> ZENDESK_AGENT"
+  },
+  {
+    "policy_id": "POL072",
+    "policy_name": "Customer Support Birthright",
+    "type": "ALLOW",
+    "rule": "Support Manager -> ZENDESK_ADMIN"
+  },
+  {
+    "policy_id": "POL073",
+    "policy_name": "Customer Support Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Support -> ZENDESK_ADMIN"
+  },
+  {
+    "policy_id": "POL074",
+    "policy_name": "Operations Birthright",
+    "type": "ALLOW",
+    "rule": "Business Operations Analyst -> SERVICENOW_USER"
+  },
+  {
+    "policy_id": "POL075",
+    "policy_name": "Operations Birthright",
+    "type": "ALLOW",
+    "rule": "Process Analyst -> SERVICENOW_USER"
+  },
+  {
+    "policy_id": "POL076",
+    "policy_name": "Operations Birthright",
+    "type": "ALLOW",
+    "rule": "Operations Manager -> SERVICENOW_APPROVER"
+  },
+  {
+    "policy_id": "POL077",
+    "policy_name": "Operations Birthright",
+    "type": "ALLOW",
+    "rule": "Head of Operations -> SERVICENOW_APPROVER"
+  },
+  {
+    "policy_id": "POL078",
+    "policy_name": "Standard Workplace Access",
+    "type": "ALLOW",
+    "rule": "All Employees -> O365_STANDARD"
+  },
+  {
+    "policy_id": "POL079",
+    "policy_name": "Standard Workplace Access",
+    "type": "ALLOW",
+    "rule": "All Employees -> SLACK_USER"
+  },
+  {
+    "policy_id": "POL080",
+    "policy_name": "Affinity Threshold",
+    "type": "ALLOW",
+    "rule": "affinity_score >= 70"
+  },
+  {
+    "policy_id": "POL081",
+    "policy_name": "Low Risk Auto Approve",
+    "type": "ALLOW",
+    "rule": "risk_score <= 25"
+  },
+  {
+    "policy_id": "POL082",
+    "policy_name": "Risk Review",
+    "type": "HUMAN_APPROVAL",
+    "rule": "risk_score >= 70"
+  },
+  {
+    "policy_id": "POL083",
+    "policy_name": "Critical Access",
+    "type": "HUMAN_APPROVAL",
+    "rule": "risk_score >= 90"
+  },
+  {
+    "policy_id": "POL084",
+    "policy_name": "Outlier Access Review",
+    "type": "HUMAN_APPROVAL",
+    "rule": "affinity_score < 30"
+  },
+  {
+    "policy_id": "POL085",
+    "policy_name": "Segregation of Duties Escalation",
+    "type": "HUMAN_APPROVAL",
+    "rule": "sod_conflict == true"
+  },
+  {
+    "policy_id": "POL086",
+    "policy_name": "Cross Department Access",
+    "type": "HUMAN_APPROVAL",
+    "rule": "entitlement_owner_department != requester_department"
+  },
+  {
+    "policy_id": "POL087",
+    "policy_name": "Junior Privileged Access",
+    "type": "HUMAN_APPROVAL",
+    "rule": "risk_score >= 60 AND job_level IN (L1, L2)"
+  },
+  {
+    "policy_id": "POL088",
+    "policy_name": "Software Engineer Restriction",
+    "type": "DENY",
+    "rule": "Software Engineer -> PROD_DB_WRITE"
+  },
+  {
+    "policy_id": "POL089",
+    "policy_name": "Software Engineer Restriction",
+    "type": "DENY",
+    "rule": "Software Engineer -> AWS_ADMIN"
+  },
+  {
+    "policy_id": "POL090",
+    "policy_name": "QA Engineer Restriction",
+    "type": "DENY",
+    "rule": "QA Engineer -> AWS_PROD_DEPLOY"
+  },
+  {
+    "policy_id": "POL091",
+    "policy_name": "Financial Analyst Restriction",
+    "type": "DENY",
+    "rule": "Financial Analyst -> SAP_PAYMENT_APPROVER"
+  },
+  {
+    "policy_id": "POL092",
+    "policy_name": "Accounts Payable Clerk Restriction",
+    "type": "DENY",
+    "rule": "Accounts Payable Clerk -> SAP_VENDOR_CREATE"
+  },
+  {
+    "policy_id": "POL093",
+    "policy_name": "General Ledger Accountant Restriction",
+    "type": "DENY",
+    "rule": "General Ledger Accountant -> SAP_JOURNAL_APPROVE"
+  },
+  {
+    "policy_id": "POL094",
+    "policy_name": "Procurement Specialist Restriction",
+    "type": "DENY",
+    "rule": "Procurement Specialist -> COUPA_PO_APPROVE"
+  },
+  {
+    "policy_id": "POL095",
+    "policy_name": "Internal Auditor Restriction",
+    "type": "DENY",
+    "rule": "Internal Auditor -> SAP_GL_POST"
+  },
+  {
+    "policy_id": "POL096",
+    "policy_name": "IT Auditor Restriction",
+    "type": "DENY",
+    "rule": "IT Auditor -> AD_ACCOUNT_OPERATOR"
+  },
+  {
+    "policy_id": "POL097",
+    "policy_name": "IT Support Analyst Restriction",
+    "type": "DENY",
+    "rule": "IT Support Analyst -> AD_DOMAIN_ADMIN"
+  },
+  {
+    "policy_id": "POL098",
+    "policy_name": "Recruiter Restriction",
+    "type": "DENY",
+    "rule": "Recruiter -> WORKDAY_PAYROLL_RUN"
+  },
+  {
+    "policy_id": "POL099",
+    "policy_name": "HR Specialist Restriction",
+    "type": "DENY",
+    "rule": "HR Specialist -> WORKDAY_COMP_ADMIN"
+  },
+  {
+    "policy_id": "POL100",
+    "policy_name": "Support Engineer Restriction",
+    "type": "DENY",
+    "rule": "Support Engineer -> SALESFORCE_ADMIN"
+  },
+  {
+    "policy_id": "POL101",
+    "policy_name": "Marketing Specialist Restriction",
+    "type": "DENY",
+    "rule": "Marketing Specialist -> DATA_LAKE_PII_READ"
+  },
+  {
+    "policy_id": "POL102",
+    "policy_name": "Data Analyst Restriction",
+    "type": "DENY",
+    "rule": "Data Analyst -> DATA_LAKE_PII_READ"
   }
 ]

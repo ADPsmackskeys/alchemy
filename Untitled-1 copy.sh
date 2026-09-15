@@ -12,7 +12,7 @@ images=(
 for image in "${images[@]}"; do
   cd $image
   
-
+  kubectl delete -f .
   echo "Deploying $image"
   kubectl apply -f .
 
