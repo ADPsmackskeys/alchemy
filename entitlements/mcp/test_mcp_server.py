@@ -47,12 +47,12 @@ import main as mcp_server  # noqa: E402
 
 NEW_ENT = {
     "entitlement_id": "ENT999",
-    "entitlement_name": "SHAREPOINT_AUDIT",
+    "entitlement_name": "ZZ_TEST_ENTITLEMENT",
     "application": "SharePoint",
     "owner": "Audit IT",
 }
 NEW_SCORE = {
-    "entitlement_name": "SHAREPOINT_AUDIT",
+    "entitlement_name": "ZZ_TEST_ENTITLEMENT",
     "application": "SharePoint",
     "risk_score": 20,
     "risk_category": "Low",
@@ -138,10 +138,46 @@ async def main_test():
 
         # --- catalog
         r = await call(client, "list_entitlements", {})
-        check("catalog: 10 seed rows", len(r.data) == 10, len(r.data))
+        check("catalog: 18 seed rows", r.data["returned"] == 18, r.data["returned"])
 
-        r = await call(client, "list_entitlements", {"application": "sap ecc"})
-        check("catalog: filter passes through", len(r.data) == 2, len(r.data))
+        r = await call(client, "list_entitlements", {"applications": ["sap ecc"]})
+        check("catalog: filter passes through", r.data["returned"] == 4, r.data["returned"])
+
+        r = await call(
+            client,
+            "list_entitlements",
+            {"entitlement_names": ["JIRA_USER", "GITHUB_DEV", "CONFLUENCE_USER"]},
+        )
+        check(
+            "catalog: three names in ONE call",
+            sorted(x["entitlement_name"] for x in r.data["records"])
+            == ["CONFLUENCE_USER", "GITHUB_DEV", "JIRA_USER"],
+            r.data["records"],
+        )
+        check("catalog: nothing missing when all exist", r.data["missing"] == [], r.data)
+
+        r = await call(
+            client, "list_entitlements", {"entitlement_names": ["JIRA_USER", "NOT_A_REAL_ENT"]}
+        )
+        check(
+            "catalog: an unknown name is named, not silently dropped",
+            r.data["missing"] == ["NOT_A_REAL_ENT"] and r.data["returned"] == 1,
+            r.data,
+        )
+
+        r = await call(client, "list_entitlements", {"limit": 3})
+        check(
+            "catalog: truncation is flagged",
+            r.data["truncated"] is True and r.data["total_matching"] == 18,
+            r.data,
+        )
+
+        r = await call(client, "list_entitlements", {"entitlement_names": []})
+        check(
+            "catalog: an empty filter list means unfiltered, not empty",
+            r.data["returned"] == 18,
+            r.data["returned"],
+        )
 
         r = await call(client, "get_entitlement", {"entitlement_id": "ENT003"})
         check("catalog: get by id", r.data["entitlement_name"] == "POWERBI_FINANCE", r.data)
@@ -158,7 +194,7 @@ async def main_test():
         r = await call(client, "update_entitlement", {"entitlement_id": "ENT999", "owner": "BI Team"})
         check(
             "catalog: update one field",
-            r.data["owner"] == "BI Team" and r.data["entitlement_name"] == "SHAREPOINT_AUDIT",
+            r.data["owner"] == "BI Team" and r.data["entitlement_name"] == "ZZ_TEST_ENTITLEMENT",
             r.data,
         )
 
@@ -178,15 +214,26 @@ async def main_test():
 
         # --- risk scores
         r = await call(client, "list_risk_scores", {})
-        check("scores: 15 seed rows", len(r.data) == 15, len(r.data))
+        check("scores: 18 seed rows", r.data["returned"] == 18, r.data["returned"])
 
-        r = await call(client, "list_risk_scores", {"risk_category": "Critical"})
-        check("scores: filter by category", len(r.data) == 3, len(r.data))
+        r = await call(client, "list_risk_scores", {"risk_categories": ["Critical"]})
+        check("scores: filter by category", r.data["returned"] == 3, r.data["returned"])
 
         r = await call(client, "list_risk_scores", {"min_score": 70, "max_score": 95})
         check(
             "scores: numeric band",
-            sorted(x["risk_score"] for x in r.data) == [70, 75, 90, 95],
+            sorted(x["risk_score"] for x in r.data["records"]) == [70, 75, 90, 95],
+            r.data["records"],
+        )
+
+        r = await call(
+            client,
+            "list_risk_scores",
+            {"entitlement_names": ["JIRA_USER", "GITHUB_DEV", "CONFLUENCE_USER"]},
+        )
+        check(
+            "scores: a whole set rated in ONE call",
+            r.data["returned"] == 3 and r.data["missing"] == [],
             r.data,
         )
 
@@ -194,7 +241,7 @@ async def main_test():
         check("scores: get by name", r.data["risk_score"] == 100, r.data)
 
         r = await call(client, "create_risk_score", NEW_SCORE)
-        check("scores: create", r.data["entitlement_name"] == "SHAREPOINT_AUDIT", r.data)
+        check("scores: create", r.data["entitlement_name"] == "ZZ_TEST_ENTITLEMENT", r.data)
 
         r = await call(client, "create_risk_score", {**NEW_SCORE, "risk_score": 101})
         check("scores: out-of-range -> error", r.is_error, error_text(r)[:90])
@@ -202,7 +249,7 @@ async def main_test():
         r = await call(
             client,
             "update_risk_score",
-            {"entitlement_name": "SHAREPOINT_AUDIT", "risk_score": 55, "risk_category": "Medium"},
+            {"entitlement_name": "ZZ_TEST_ENTITLEMENT", "risk_score": 55, "risk_category": "Medium"},
         )
         check("scores: update", r.data["risk_score"] == 55, r.data)
 
@@ -215,11 +262,11 @@ async def main_test():
 
         # resources read through the API
         contents = await client.read_resource("entitlements://risk-scores")
-        check("resource returns scores", len(json.loads(contents[0].text)) == 16, contents[0].text[:60])
+        check("resource returns scores", len(json.loads(contents[0].text)) == 19, contents[0].text[:60])
 
         # --- deletes
-        r = await call(client, "delete_risk_score", {"entitlement_name": "SHAREPOINT_AUDIT"})
-        check("scores: delete", r.data == {"deleted": "SHAREPOINT_AUDIT"}, r.data)
+        r = await call(client, "delete_risk_score", {"entitlement_name": "ZZ_TEST_ENTITLEMENT"})
+        check("scores: delete", r.data == {"deleted": "ZZ_TEST_ENTITLEMENT"}, r.data)
 
         r = await call(client, "delete_entitlement", {"entitlement_id": "ENT999"})
         check("catalog: delete", r.data == {"deleted": "ENT999"}, r.data)
@@ -227,8 +274,8 @@ async def main_test():
         r = await call(client, "delete_entitlement", {"entitlement_id": "ENT999"})
         check("catalog: delete again -> 404", r.is_error and "404" in error_text(r))
 
-        check("catalog back to 10", len(json.loads(_catalog.read_text())) == 10)
-        check("scores back to 15", len(json.loads(_scores.read_text())) == 15)
+        check("catalog back to 18", len(json.loads(_catalog.read_text())) == 18)
+        check("scores back to 18", len(json.loads(_scores.read_text())) == 18)
 
 
 async def unreachable_api_case():
@@ -251,7 +298,7 @@ finally:
 
 asyncio.run(unreachable_api_case())
 
-check("originals untouched", len(json.loads(CATALOG_SOURCE.read_text())) == 10)
-check("originals untouched", len(json.loads(SCORES_SOURCE.read_text())) == 15)
+check("originals untouched", len(json.loads(CATALOG_SOURCE.read_text())) == 18)
+check("originals untouched", len(json.loads(SCORES_SOURCE.read_text())) == 18)
 shutil.rmtree(_tmpdir)
 print("\nAll checks passed.")

@@ -2,63 +2,3263 @@
   {
     "job_role": "Financial Analyst",
     "department": "Finance",
-    "entitlement": "SAP_FIN_DISPLAY",
-    "peer_count": 5,
-    "total_peers": 5,
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 63,
+    "total_peers": 63,
     "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 63,
+    "total_peers": 63,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 58,
+    "total_peers": 63,
+    "affinity_score": 92
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 58,
+    "total_peers": 63,
+    "affinity_score": 92
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "CONCUR_EXPENSE_USER",
+    "peer_count": 43,
+    "total_peers": 63,
+    "affinity_score": 68
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "ORACLE_GL_INQUIRY",
+    "peer_count": 42,
+    "total_peers": 63,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "FIN_SHAREPOINT",
+    "peer_count": 35,
+    "total_peers": 63,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 32,
+    "total_peers": 63,
+    "affinity_score": 51
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 32,
+    "total_peers": 63,
+    "affinity_score": 51
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 26,
+    "total_peers": 63,
+    "affinity_score": 41
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "BLACKLINE_RECON",
+    "peer_count": 14,
+    "total_peers": 63,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_AR_COLLECTIONS",
+    "peer_count": 11,
+    "total_peers": 63,
+    "affinity_score": 17
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 6,
+    "total_peers": 63,
+    "affinity_score": 10
   },
   {
     "job_role": "Financial Analyst",
     "department": "Finance",
     "entitlement": "SAP_AP_INVOICE",
     "peer_count": 4,
-    "total_peers": 5,
-    "affinity_score": 80
+    "total_peers": 63,
+    "affinity_score": 6
   },
   {
     "job_role": "Financial Analyst",
     "department": "Finance",
+    "entitlement": "SAP_PAYMENT_APPROVER",
+    "peer_count": 3,
+    "total_peers": 63,
+    "affinity_score": 5
+  },
+  {
+    "job_role": "Financial Analyst",
+    "department": "Finance",
+    "entitlement": "CONCUR_EXPENSE_APPROVE",
+    "peer_count": 2,
+    "total_peers": 63,
+    "affinity_score": 3
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 36,
+    "total_peers": 36,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "ORACLE_FIN_REPORT",
+    "peer_count": 36,
+    "total_peers": 36,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
     "entitlement": "POWERBI_FINANCE",
+    "peer_count": 36,
+    "total_peers": 36,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 36,
+    "total_peers": 36,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 36,
+    "total_peers": 36,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "BLACKLINE_RECON",
+    "peer_count": 26,
+    "total_peers": 36,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 26,
+    "total_peers": 36,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 24,
+    "total_peers": 36,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "FIN_SHAREPOINT",
+    "peer_count": 22,
+    "total_peers": 36,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_AP_INVOICE",
+    "peer_count": 22,
+    "total_peers": 36,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 18,
+    "total_peers": 36,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_COST_CENTER_ADMIN",
+    "peer_count": 6,
+    "total_peers": 36,
+    "affinity_score": 17
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 5,
+    "total_peers": 36,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "Senior Financial Analyst",
+    "department": "Finance",
+    "entitlement": "SAP_VENDOR_CREATE",
+    "peer_count": 1,
+    "total_peers": 36,
+    "affinity_score": 3
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SAP_AP_INVOICE",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "VENDOR_PORTAL_VIEW",
+    "peer_count": 19,
+    "total_peers": 27,
+    "affinity_score": 70
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "FIN_SHAREPOINT",
+    "peer_count": 18,
+    "total_peers": 27,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 18,
+    "total_peers": 27,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "CONCUR_EXPENSE_USER",
+    "peer_count": 17,
+    "total_peers": 27,
+    "affinity_score": 63
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 14,
+    "total_peers": 27,
+    "affinity_score": 52
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 13,
+    "total_peers": 27,
+    "affinity_score": 48
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "SAP_AR_COLLECTIONS",
+    "peer_count": 7,
+    "total_peers": 27,
+    "affinity_score": 26
+  },
+  {
+    "job_role": "Accounts Payable Clerk",
+    "department": "Finance",
+    "entitlement": "ORACLE_GL_INQUIRY",
+    "peer_count": 5,
+    "total_peers": 27,
+    "affinity_score": 19
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "SAP_GL_POST",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "ORACLE_GL_INQUIRY",
+    "peer_count": 19,
+    "total_peers": 25,
+    "affinity_score": 76
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 17,
+    "total_peers": 25,
+    "affinity_score": 68
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "BLACKLINE_RECON",
+    "peer_count": 15,
+    "total_peers": 25,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 12,
+    "total_peers": 25,
+    "affinity_score": 48
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 11,
+    "total_peers": 25,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 2,
+    "total_peers": 25,
+    "affinity_score": 8
+  },
+  {
+    "job_role": "General Ledger Accountant",
+    "department": "Finance",
+    "entitlement": "AUDIT_TOOL",
+    "peer_count": 1,
+    "total_peers": 25,
+    "affinity_score": 4
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "SAP_PAYMENT_APPROVER",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Accounts Payable Manager",
+    "department": "Finance",
+    "entitlement": "CONCUR_EXPENSE_APPROVE",
+    "peer_count": 2,
+    "total_peers": 7,
+    "affinity_score": 29
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SAP_JOURNAL_APPROVE",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SAP_PERIOD_CLOSE",
+    "peer_count": 12,
+    "total_peers": 14,
+    "affinity_score": 86
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "CONCUR_EXPENSE_APPROVE",
+    "peer_count": 10,
+    "total_peers": 14,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 10,
+    "total_peers": 14,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 9,
+    "total_peers": 14,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 7,
+    "total_peers": 14,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "BLACKLINE_ADMIN",
+    "peer_count": 3,
+    "total_peers": 14,
+    "affinity_score": 21
+  },
+  {
+    "job_role": "Finance Manager",
+    "department": "Finance",
+    "entitlement": "SAP_COST_CENTER_ADMIN",
+    "peer_count": 1,
+    "total_peers": 14,
+    "affinity_score": 7
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SAP_PERIOD_CLOSE",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 3,
+    "total_peers": 3,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "ORACLE_FIN_REPORT",
+    "peer_count": 2,
+    "total_peers": 3,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SAP_COST_CENTER_ADMIN",
+    "peer_count": 2,
+    "total_peers": 3,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 3,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Financial Controller",
+    "department": "Finance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 3,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_CASH_VIEW",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "SLACK_USER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 9,
+    "total_peers": 13,
+    "affinity_score": 69
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "MUREX_TRADE_VIEW",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Treasury Analyst",
+    "department": "Treasury",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 6,
+    "total_peers": 13,
+    "affinity_score": 46
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "FX_TRADING_DESK",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "MUREX_TRADE_VIEW",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "SLACK_USER",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_CASH_VIEW",
+    "peer_count": 6,
+    "total_peers": 7,
+    "affinity_score": 86
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_PAYMENT_RELEASE",
+    "peer_count": 2,
+    "total_peers": 7,
+    "affinity_score": 29
+  },
+  {
+    "job_role": "FX Trader",
+    "department": "Treasury",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 1,
+    "total_peers": 7,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_CASH_VIEW",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "MUREX_TRADE_VIEW",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "SAP_BANK_MASTER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_PAYMENT_RELEASE",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Treasury Manager",
+    "department": "Treasury",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "KYRIBA_CASH_VIEW",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "MUREX_TRADE_VIEW",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Treasury",
+    "department": "Treasury",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "COUPA_REQUISITION",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "VENDOR_PORTAL_VIEW",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 16,
+    "total_peers": 18,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "CONCUR_EXPENSE_USER",
+    "peer_count": 14,
+    "total_peers": 18,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "SAP_VENDOR_CREATE",
+    "peer_count": 7,
+    "total_peers": 18,
+    "affinity_score": 39
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 18,
+    "affinity_score": 39
+  },
+  {
+    "job_role": "Procurement Specialist",
+    "department": "Procurement",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 18,
+    "affinity_score": 39
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "SAP_VENDOR_CREATE",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "VENDOR_PORTAL_VIEW",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Vendor Management Analyst",
+    "department": "Procurement",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "COUPA_PO_APPROVE",
     "peer_count": 5,
     "total_peers": 5,
     "affinity_score": 100
   },
   {
-    "job_role": "Financial Analyst",
-    "department": "Finance",
-    "entitlement": "FIN_SHAREPOINT",
-    "peer_count": 1,
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
     "total_peers": 5,
-    "affinity_score": 20
+    "affinity_score": 100
   },
   {
-    "job_role": "Software Engineer",
-    "department": "Technology",
-    "entitlement": "JIRA_USER",
-    "peer_count": 3,
-    "total_peers": 3,
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "VENDOR_PORTAL_VIEW",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "SAP_VENDOR_APPROVE",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Procurement Manager",
+    "department": "Procurement",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "COUPA_PO_APPROVE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Procurement",
+    "department": "Procurement",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
     "affinity_score": 100
   },
   {
     "job_role": "Software Engineer",
     "department": "Technology",
     "entitlement": "GITHUB_DEV",
-    "peer_count": 3,
-    "total_peers": 3,
+    "peer_count": 98,
+    "total_peers": 98,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 98,
+    "total_peers": 98,
     "affinity_score": 100
   },
   {
     "job_role": "Software Engineer",
     "department": "Technology",
     "entitlement": "CONFLUENCE_USER",
+    "peer_count": 97,
+    "total_peers": 98,
+    "affinity_score": 99
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 95,
+    "total_peers": 98,
+    "affinity_score": 97
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 95,
+    "total_peers": 98,
+    "affinity_score": 97
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 79,
+    "total_peers": 98,
+    "affinity_score": 81
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 65,
+    "total_peers": 98,
+    "affinity_score": 66
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "JENKINS_BUILD",
+    "peer_count": 64,
+    "total_peers": 98,
+    "affinity_score": 65
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 58,
+    "total_peers": 98,
+    "affinity_score": 59
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 55,
+    "total_peers": 98,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "GCP_VIEWER",
+    "peer_count": 15,
+    "total_peers": 98,
+    "affinity_score": 15
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 14,
+    "total_peers": 98,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "Software Engineer",
+    "department": "Technology",
+    "entitlement": "TEST_ENV_ADMIN",
+    "peer_count": 14,
+    "total_peers": 98,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 54,
+    "total_peers": 54,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 54,
+    "total_peers": 54,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 54,
+    "total_peers": 54,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 54,
+    "total_peers": 54,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 54,
+    "total_peers": 54,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "JENKINS_BUILD",
+    "peer_count": 43,
+    "total_peers": 54,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 41,
+    "total_peers": 54,
+    "affinity_score": 76
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 34,
+    "total_peers": 54,
+    "affinity_score": 63
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 33,
+    "total_peers": 54,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 31,
+    "total_peers": 54,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 30,
+    "total_peers": 54,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_REPO_ADMIN",
+    "peer_count": 28,
+    "total_peers": 54,
+    "affinity_score": 52
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "ARTIFACTORY_DEPLOY",
+    "peer_count": 10,
+    "total_peers": 54,
+    "affinity_score": 19
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "PAGERDUTY_RESPONDER",
+    "peer_count": 3,
+    "total_peers": 54,
+    "affinity_score": 6
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "PROD_DB_READ",
     "peer_count": 2,
-    "total_peers": 3,
+    "total_peers": 54,
+    "affinity_score": 4
+  },
+  {
+    "job_role": "Senior Software Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_PROD_DEPLOY",
+    "peer_count": 1,
+    "total_peers": 54,
+    "affinity_score": 2
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 31,
+    "total_peers": 31,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 31,
+    "total_peers": 31,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 31,
+    "total_peers": 31,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 31,
+    "total_peers": 31,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "JENKINS_BUILD",
+    "peer_count": 21,
+    "total_peers": 31,
+    "affinity_score": 68
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 21,
+    "total_peers": 31,
+    "affinity_score": 68
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 19,
+    "total_peers": 31,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "TEST_ENV_ADMIN",
+    "peer_count": 18,
+    "total_peers": 31,
+    "affinity_score": 58
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 17,
+    "total_peers": 31,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 16,
+    "total_peers": 31,
+    "affinity_score": 52
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 4,
+    "total_peers": 31,
+    "affinity_score": 13
+  },
+  {
+    "job_role": "QA Engineer",
+    "department": "Technology",
+    "entitlement": "PROD_DB_WRITE",
+    "peer_count": 1,
+    "total_peers": 31,
+    "affinity_score": 3
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "ARTIFACTORY_DEPLOY",
+    "peer_count": 22,
+    "total_peers": 22,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 22,
+    "total_peers": 22,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "JENKINS_BUILD",
+    "peer_count": 22,
+    "total_peers": 22,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 22,
+    "total_peers": 22,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 22,
+    "total_peers": 22,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 17,
+    "total_peers": 22,
+    "affinity_score": 77
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "KUBERNETES_OPERATOR",
+    "peer_count": 16,
+    "total_peers": 22,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 15,
+    "total_peers": 22,
+    "affinity_score": 68
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 13,
+    "total_peers": 22,
+    "affinity_score": 59
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 13,
+    "total_peers": 22,
+    "affinity_score": 59
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 12,
+    "total_peers": 22,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 6,
+    "total_peers": 22,
+    "affinity_score": 27
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_PROD_DEPLOY",
+    "peer_count": 3,
+    "total_peers": 22,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "DevOps Engineer",
+    "department": "Technology",
+    "entitlement": "TERRAFORM_APPLY",
+    "peer_count": 1,
+    "total_peers": 22,
+    "affinity_score": 5
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "GCP_VIEWER",
+    "peer_count": 12,
+    "total_peers": 16,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "TERRAFORM_APPLY",
+    "peer_count": 12,
+    "total_peers": 16,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "AZURE_CONTRIBUTOR",
+    "peer_count": 11,
+    "total_peers": 16,
+    "affinity_score": 69
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 10,
+    "total_peers": 16,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 9,
+    "total_peers": 16,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 6,
+    "total_peers": 16,
+    "affinity_score": 38
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 4,
+    "total_peers": 16,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Cloud Engineer",
+    "department": "Technology",
+    "entitlement": "KUBERNETES_OPERATOR",
+    "peer_count": 2,
+    "total_peers": 16,
+    "affinity_score": 12
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "KUBERNETES_OPERATOR",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "PAGERDUTY_RESPONDER",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 12,
+    "total_peers": 14,
+    "affinity_score": 86
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 12,
+    "total_peers": 14,
+    "affinity_score": 86
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "PROD_SSH_ACCESS",
+    "peer_count": 11,
+    "total_peers": 14,
+    "affinity_score": 79
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 9,
+    "total_peers": 14,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 8,
+    "total_peers": 14,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 14,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 7,
+    "total_peers": 14,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "PROD_DB_READ",
+    "peer_count": 1,
+    "total_peers": 14,
+    "affinity_score": 7
+  },
+  {
+    "job_role": "Site Reliability Engineer",
+    "department": "Technology",
+    "entitlement": "SPLUNK_SEARCH",
+    "peer_count": 1,
+    "total_peers": 14,
+    "affinity_score": 7
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "PROD_DB_READ",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "PROD_DB_WRITE",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 8,
+    "total_peers": 9,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 3,
+    "total_peers": 9,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 2,
+    "total_peers": 9,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Database Administrator",
+    "department": "Technology",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 2,
+    "total_peers": 9,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "AD_ACCOUNT_OPERATOR",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "AD_USER_READ",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "VPN_PRIVILEGED",
+    "peer_count": 9,
+    "total_peers": 11,
+    "affinity_score": 82
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "PROD_SSH_ACCESS",
+    "peer_count": 8,
+    "total_peers": 11,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 11,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 11,
+    "affinity_score": 45
+  },
+  {
+    "job_role": "Systems Administrator",
+    "department": "Technology",
+    "entitlement": "CYBERARK_SAFE_USER",
+    "peer_count": 1,
+    "total_peers": 11,
+    "affinity_score": 9
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "AD_USER_READ",
+    "peer_count": 20,
+    "total_peers": 20,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 20,
+    "total_peers": 20,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 20,
+    "total_peers": 20,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 20,
+    "total_peers": 20,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 14,
+    "total_peers": 20,
+    "affinity_score": 70
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 14,
+    "total_peers": 20,
+    "affinity_score": 70
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "OKTA_HELPDESK",
+    "peer_count": 12,
+    "total_peers": 20,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 12,
+    "total_peers": 20,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 20,
+    "affinity_score": 35
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "VPN_PRIVILEGED",
+    "peer_count": 4,
+    "total_peers": 20,
+    "affinity_score": 20
+  },
+  {
+    "job_role": "IT Support Analyst",
+    "department": "Technology",
+    "entitlement": "AD_DOMAIN_ADMIN",
+    "peer_count": 1,
+    "total_peers": 20,
+    "affinity_score": 5
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "JIRA_ADMIN",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_ADMIN",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "IT Service Manager",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "JIRA_ADMIN",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 13,
+    "total_peers": 18,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 13,
+    "total_peers": 18,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 13,
+    "total_peers": 18,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 10,
+    "total_peers": 18,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "GITHUB_ORG_ADMIN",
+    "peer_count": 6,
+    "total_peers": 18,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Engineering Manager",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 2,
+    "total_peers": 18,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "TERRAFORM_APPLY",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "JIRA_USER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Platform Architect",
+    "department": "Technology",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 2,
+    "total_peers": 2,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "GITHUB_ORG_ADMIN",
+    "peer_count": 2,
+    "total_peers": 2,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "JIRA_ADMIN",
+    "peer_count": 2,
+    "total_peers": 2,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 2,
+    "total_peers": 2,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "SLACK_USER",
+    "peer_count": 2,
+    "total_peers": 2,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 1,
+    "total_peers": 2,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 2,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Head of Engineering",
+    "department": "Technology",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 2,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "SLACK_USER",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 25,
+    "total_peers": 25,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 20,
+    "total_peers": 25,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "DATABRICKS_WORKSPACE",
+    "peer_count": 16,
+    "total_peers": 25,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "JIRA_USER",
+    "peer_count": 16,
+    "total_peers": 25,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 16,
+    "total_peers": 25,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 12,
+    "total_peers": 25,
+    "affinity_score": 48
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 11,
+    "total_peers": 25,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 2,
+    "total_peers": 25,
+    "affinity_score": 8
+  },
+  {
+    "job_role": "Data Analyst",
+    "department": "Data & Analytics",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 1,
+    "total_peers": 25,
+    "affinity_score": 4
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "DATABRICKS_WORKSPACE",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "SNOWFLAKE_WRITE",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "GITHUB_DEV",
+    "peer_count": 13,
+    "total_peers": 18,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 12,
+    "total_peers": 18,
     "affinity_score": 67
   },
   {
-    "job_role": "Risk Analyst",
-    "department": "Risk",
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "JIRA_USER",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 10,
+    "total_peers": 18,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 10,
+    "total_peers": 18,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 6,
+    "total_peers": 18,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "TERRAFORM_APPLY",
+    "peer_count": 3,
+    "total_peers": 18,
+    "affinity_score": 17
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "DATA_LAKE_PII_READ",
+    "peer_count": 1,
+    "total_peers": 18,
+    "affinity_score": 6
+  },
+  {
+    "job_role": "Data Engineer",
+    "department": "Data & Analytics",
+    "entitlement": "WORKDAY_HR",
+    "peer_count": 1,
+    "total_peers": 18,
+    "affinity_score": 6
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "SLACK_USER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "JIRA_USER",
+    "peer_count": 8,
+    "total_peers": 13,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_FINANCE",
+    "peer_count": 8,
+    "total_peers": 13,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 8,
+    "total_peers": 13,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 8,
+    "total_peers": 13,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "BI Developer",
+    "department": "Data & Analytics",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_ADMIN",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "DATA_LAKE_PII_READ",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Analytics Manager",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "POWERBI_ADMIN",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "SNOWFLAKE_ADMIN",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Data",
+    "department": "Data & Analytics",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "CROWDSTRIKE_ANALYST",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "SLACK_USER",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "SPLUNK_SEARCH",
+    "peer_count": 14,
+    "total_peers": 14,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 13,
+    "total_peers": 14,
+    "affinity_score": 93
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "AD_USER_READ",
+    "peer_count": 8,
+    "total_peers": 14,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "JIRA_USER",
+    "peer_count": 8,
+    "total_peers": 14,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 8,
+    "total_peers": 14,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 8,
+    "total_peers": 14,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "VPN_PRIVILEGED",
+    "peer_count": 3,
+    "total_peers": 14,
+    "affinity_score": 21
+  },
+  {
+    "job_role": "Security Analyst",
+    "department": "Security",
+    "entitlement": "SAILPOINT_REVIEWER",
+    "peer_count": 1,
+    "total_peers": 14,
+    "affinity_score": 7
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "SLACK_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "SPLUNK_SEARCH",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "CROWDSTRIKE_ADMIN",
+    "peer_count": 9,
+    "total_peers": 11,
+    "affinity_score": 82
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 8,
+    "total_peers": 11,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 11,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "FIREWALL_ADMIN",
+    "peer_count": 6,
+    "total_peers": 11,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "VPN_PRIVILEGED",
+    "peer_count": 6,
+    "total_peers": 11,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "AWS_CONSOLE",
+    "peer_count": 5,
+    "total_peers": 11,
+    "affinity_score": 45
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 11,
+    "affinity_score": 27
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "PROD_SSH_ACCESS",
+    "peer_count": 2,
+    "total_peers": 11,
+    "affinity_score": 18
+  },
+  {
+    "job_role": "Security Engineer",
+    "department": "Security",
+    "entitlement": "SPLUNK_ADMIN",
+    "peer_count": 2,
+    "total_peers": 11,
+    "affinity_score": 18
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "CYBERARK_SAFE_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "OKTA_ADMIN",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 8,
+    "total_peers": 9,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "AD_USER_READ",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "AD_ACCOUNT_OPERATOR",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "SAILPOINT_ADMIN",
+    "peer_count": 1,
+    "total_peers": 9,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "IAM Engineer",
+    "department": "Security",
+    "entitlement": "SAILPOINT_REVIEWER",
+    "peer_count": 1,
+    "total_peers": 9,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "CROWDSTRIKE_ANALYST",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "SPLUNK_ADMIN",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Security Manager",
+    "department": "Security",
     "entitlement": "RSA_GRC",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "CROWDSTRIKE_ANALYST",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "RSA_GRC",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "SPLUNK_SEARCH",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Information Security Officer",
+    "department": "Security",
+    "entitlement": "VPN_STANDARD",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
@@ -67,14 +3267,326 @@
     "job_role": "Risk Analyst",
     "department": "Risk",
     "entitlement": "POWERBI_RISK",
-    "peer_count": 1,
-    "total_peers": 1,
+    "peer_count": 23,
+    "total_peers": 23,
     "affinity_score": 100
   },
   {
     "job_role": "Risk Analyst",
     "department": "Risk",
     "entitlement": "RISK_PORTAL",
+    "peer_count": 23,
+    "total_peers": 23,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RSA_GRC",
+    "peer_count": 23,
+    "total_peers": 23,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 22,
+    "total_peers": 23,
+    "affinity_score": 96
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SLACK_USER",
+    "peer_count": 22,
+    "total_peers": 23,
+    "affinity_score": 96
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 14,
+    "total_peers": 23,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 14,
+    "total_peers": 23,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 14,
+    "total_peers": 23,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 13,
+    "total_peers": 23,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 12,
+    "total_peers": 23,
+    "affinity_score": 52
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RISK_MODEL_LIBRARY",
+    "peer_count": 3,
+    "total_peers": 23,
+    "affinity_score": 13
+  },
+  {
+    "job_role": "Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 2,
+    "total_peers": 23,
+    "affinity_score": 9
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RISK_MODEL_LIBRARY",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Model Risk Analyst",
+    "department": "Risk",
+    "entitlement": "DATABRICKS_WORKSPACE",
+    "peer_count": 2,
+    "total_peers": 9,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "RSA_GRC",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Risk Manager",
+    "department": "Risk",
+    "entitlement": "AD_DOMAIN_ADMIN",
+    "peer_count": 1,
+    "total_peers": 5,
+    "affinity_score": 20
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "RISK_MODEL_LIBRARY",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "RSA_GRC_ADMIN",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief Risk Officer",
+    "department": "Risk",
+    "entitlement": "SUCCESSFACTORS_LMS",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
@@ -83,20 +3595,308 @@
     "job_role": "Internal Auditor",
     "department": "Audit",
     "entitlement": "AUDIT_TOOL",
-    "peer_count": 1,
-    "total_peers": 1,
+    "peer_count": 18,
+    "total_peers": 18,
     "affinity_score": 100
   },
   {
     "job_role": "Internal Auditor",
     "department": "Audit",
     "entitlement": "POWERBI_AUDIT",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SHAREPOINT_AUDIT",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 17,
+    "total_peers": 18,
+    "affinity_score": 94
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SLACK_USER",
+    "peer_count": 17,
+    "total_peers": 18,
+    "affinity_score": 94
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 12,
+    "total_peers": 18,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "AUDIT_WORKPAPERS",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 5,
+    "total_peers": 18,
+    "affinity_score": 28
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 4,
+    "total_peers": 18,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Internal Auditor",
+    "department": "Audit",
+    "entitlement": "ORACLE_GL_INQUIRY",
+    "peer_count": 1,
+    "total_peers": 18,
+    "affinity_score": 6
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "AUDIT_TOOL",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "AUDIT_WORKPAPERS",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "SLACK_USER",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "POWERBI_AUDIT",
+    "peer_count": 6,
+    "total_peers": 7,
+    "affinity_score": 86
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "SAILPOINT_REVIEWER",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "SPLUNK_SEARCH",
+    "peer_count": 3,
+    "total_peers": 7,
+    "affinity_score": 43
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 7,
+    "affinity_score": 29
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "AD_ACCOUNT_OPERATOR",
+    "peer_count": 1,
+    "total_peers": 7,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "IT Auditor",
+    "department": "Audit",
+    "entitlement": "AD_USER_READ",
+    "peer_count": 1,
+    "total_peers": 7,
+    "affinity_score": 14
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "POWERBI_AUDIT",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "SHAREPOINT_AUDIT",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "AUDIT_ADMIN",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Audit Manager",
+    "department": "Audit",
+    "entitlement": "AUDIT_WORKPAPERS",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "AUDIT_ADMIN",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
   },
   {
-    "job_role": "Internal Auditor",
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Internal Audit",
     "department": "Audit",
     "entitlement": "SHAREPOINT_AUDIT",
     "peer_count": 1,
@@ -104,57 +3904,2289 @@
     "affinity_score": 100
   },
   {
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Internal Audit",
+    "department": "Audit",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "SHAREPOINT_AUDIT",
+    "peer_count": 11,
+    "total_peers": 16,
+    "affinity_score": 69
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 9,
+    "total_peers": 16,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "AML_SCREENING",
+    "peer_count": 4,
+    "total_peers": 16,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Compliance Analyst",
+    "department": "Compliance",
+    "entitlement": "RISK_PORTAL",
+    "peer_count": 2,
+    "total_peers": 16,
+    "affinity_score": 12
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "AML_SCREENING",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 7,
+    "total_peers": 11,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 11,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 6,
+    "total_peers": 11,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 5,
+    "total_peers": 11,
+    "affinity_score": 45
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 5,
+    "total_peers": 11,
+    "affinity_score": 45
+  },
+  {
+    "job_role": "AML Analyst",
+    "department": "Compliance",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 4,
+    "total_peers": 11,
+    "affinity_score": 36
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "POWERBI_RISK",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "RSA_GRC",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Compliance Manager",
+    "department": "Compliance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "RSA_GRC",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Compliance",
+    "department": "Compliance",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
     "job_role": "HR Specialist",
     "department": "HR",
     "entitlement": "WORKDAY_HR",
-    "peer_count": 1,
-    "total_peers": 1,
+    "peer_count": 18,
+    "total_peers": 18,
     "affinity_score": 100
   },
   {
-    "job_role": "Cloud Engineer",
-    "department": "Technology",
-    "entitlement": "AWS_CONSOLE",
-    "peer_count": 1,
-    "total_peers": 1,
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 17,
+    "total_peers": 18,
+    "affinity_score": 94
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 16,
+    "total_peers": 18,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 15,
+    "total_peers": 18,
+    "affinity_score": 83
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "WORKDAY_RECRUITER",
+    "peer_count": 5,
+    "total_peers": 18,
+    "affinity_score": 28
+  },
+  {
+    "job_role": "HR Specialist",
+    "department": "HR",
+    "entitlement": "WORKDAY_COMP_ADMIN",
+    "peer_count": 3,
+    "total_peers": 18,
+    "affinity_score": 17
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 11,
+    "total_peers": 11,
     "affinity_score": 100
   },
   {
-    "job_role": "Cloud Engineer",
-    "department": "Technology",
-    "entitlement": "JIRA_USER",
-    "peer_count": 1,
-    "total_peers": 1,
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 11,
+    "total_peers": 11,
     "affinity_score": 100
   },
   {
-    "job_role": "Cloud Engineer",
-    "department": "Technology",
-    "entitlement": "GITHUB_DEV",
-    "peer_count": 1,
-    "total_peers": 1,
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 11,
+    "total_peers": 11,
     "affinity_score": 100
   },
   {
-    "job_role": "Senior Financial Analyst",
-    "department": "Finance",
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "WORKDAY_HR",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 10,
+    "total_peers": 11,
+    "affinity_score": 91
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 11,
+    "affinity_score": 64
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 6,
+    "total_peers": 11,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 3,
+    "total_peers": 11,
+    "affinity_score": 27
+  },
+  {
+    "job_role": "HR Business Partner",
+    "department": "HR",
+    "entitlement": "WORKDAY_COMP_ADMIN",
+    "peer_count": 1,
+    "total_peers": 11,
+    "affinity_score": 9
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "WORKDAY_RECRUITER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 12,
+    "total_peers": 13,
+    "affinity_score": 92
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 10,
+    "total_peers": 13,
+    "affinity_score": 77
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 9,
+    "total_peers": 13,
+    "affinity_score": 69
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "WORKDAY_HR",
+    "peer_count": 9,
+    "total_peers": 13,
+    "affinity_score": 69
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 3,
+    "total_peers": 13,
+    "affinity_score": 23
+  },
+  {
+    "job_role": "Recruiter",
+    "department": "HR",
+    "entitlement": "WORKDAY_PAYROLL_RUN",
+    "peer_count": 2,
+    "total_peers": 13,
+    "affinity_score": 15
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "WORKDAY_PAYROLL_RUN",
+    "peer_count": 7,
+    "total_peers": 7,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 7,
+    "affinity_score": 71
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 7,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Payroll Specialist",
+    "department": "HR",
     "entitlement": "SAP_FIN_DISPLAY",
+    "peer_count": 3,
+    "total_peers": 7,
+    "affinity_score": 43
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "WORKDAY_COMP_ADMIN",
+    "peer_count": 4,
+    "total_peers": 4,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 4,
+    "affinity_score": 75
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 2,
+    "total_peers": 4,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "HR Manager",
+    "department": "HR",
+    "entitlement": "WORKDAY_RECRUITER",
+    "peer_count": 1,
+    "total_peers": 4,
+    "affinity_score": 25
+  },
+  {
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "O365_STANDARD",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
   },
   {
-    "job_role": "Senior Financial Analyst",
-    "department": "Finance",
-    "entitlement": "SAP_AP_INVOICE",
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "POLICY_REGISTER",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100
   },
   {
-    "job_role": "Senior Financial Analyst",
-    "department": "Finance",
-    "entitlement": "POWERBI_FINANCE",
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "POWERBI_HR",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "SHAREPOINT_HR",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Chief People Officer",
+    "department": "HR",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "LEGAL_MATTER_MGMT",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "SHAREPOINT_AUDIT",
+    "peer_count": 8,
+    "total_peers": 9,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 9,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Legal Counsel",
+    "department": "Legal",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 1,
+    "total_peers": 9,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "LEGAL_MATTER_MGMT",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Paralegal",
+    "department": "Legal",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "CONTRACT_ESIGN_ADMIN",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "LEGAL_MATTER_MGMT",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "VENDOR_PORTAL_VIEW",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "COUPA_PO_APPROVE",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Contracts Manager",
+    "department": "Legal",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "COMPLIANCE_CASE_MGMT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "LEGAL_MATTER_MGMT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "General Counsel",
+    "department": "Legal",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 40,
+    "total_peers": 40,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 40,
+    "total_peers": 40,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 40,
+    "total_peers": 40,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "SLACK_USER",
+    "peer_count": 40,
+    "total_peers": 40,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 24,
+    "total_peers": 40,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 23,
+    "total_peers": 40,
+    "affinity_score": 57
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 22,
+    "total_peers": 40,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 22,
+    "total_peers": 40,
+    "affinity_score": 55
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 21,
+    "total_peers": 40,
+    "affinity_score": 52
+  },
+  {
+    "job_role": "Account Executive",
+    "department": "Sales",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 6,
+    "total_peers": 40,
+    "affinity_score": 15
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 12,
+    "total_peers": 18,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 10,
+    "total_peers": 18,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 10,
+    "total_peers": 18,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Senior Account Executive",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_PRICING_APPROVE",
+    "peer_count": 4,
+    "total_peers": 18,
+    "affinity_score": 22
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_PRICING_APPROVE",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 8,
+    "total_peers": 9,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Sales Manager",
+    "department": "Sales",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 1,
+    "total_peers": 9,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SLACK_USER",
+    "peer_count": 11,
+    "total_peers": 11,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 9,
+    "total_peers": 11,
+    "affinity_score": 82
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 8,
+    "total_peers": 11,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 8,
+    "total_peers": 11,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 8,
+    "total_peers": 11,
+    "affinity_score": 73
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 11,
+    "affinity_score": 45
+  },
+  {
+    "job_role": "Sales Operations Analyst",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_ADMIN",
+    "peer_count": 1,
+    "total_peers": 11,
+    "affinity_score": 9
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_PRICING_APPROVE",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Sales",
+    "department": "Sales",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "MARKETO_CAMPAIGN",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "SLACK_USER",
+    "peer_count": 18,
+    "total_peers": 18,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 14,
+    "total_peers": 18,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 13,
+    "total_peers": 18,
+    "affinity_score": 72
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 12,
+    "total_peers": 18,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 11,
+    "total_peers": 18,
+    "affinity_score": 61
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 9,
+    "total_peers": 18,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 3,
+    "total_peers": 18,
+    "affinity_score": 17
+  },
+  {
+    "job_role": "Marketing Specialist",
+    "department": "Marketing",
+    "entitlement": "DATA_LAKE_PII_READ",
+    "peer_count": 1,
+    "total_peers": 18,
+    "affinity_score": 6
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "MARKETO_CAMPAIGN",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 6,
+    "total_peers": 9,
+    "affinity_score": 67
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 4,
+    "total_peers": 9,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Marketing Analyst",
+    "department": "Marketing",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 3,
+    "total_peers": 9,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "MARKETO_CAMPAIGN",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Campaign Manager",
+    "department": "Marketing",
+    "entitlement": "TABLEAU_CREATOR",
+    "peer_count": 1,
+    "total_peers": 5,
+    "affinity_score": 20
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "MARKETO_CAMPAIGN",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Marketing",
+    "department": "Marketing",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "JIRA_USER",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "SLACK_USER",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 27,
+    "total_peers": 27,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 24,
+    "total_peers": 27,
+    "affinity_score": 89
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 19,
+    "total_peers": 27,
+    "affinity_score": 70
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 17,
+    "total_peers": 27,
+    "affinity_score": 63
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 17,
+    "total_peers": 27,
+    "affinity_score": 63
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 15,
+    "total_peers": 27,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "PROD_DB_READ",
+    "peer_count": 4,
+    "total_peers": 27,
+    "affinity_score": 15
+  },
+  {
+    "job_role": "Support Engineer",
+    "department": "Customer Support",
+    "entitlement": "DATADOG_VIEWER",
+    "peer_count": 3,
+    "total_peers": 27,
+    "affinity_score": 11
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "SLACK_USER",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 13,
+    "total_peers": 13,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 8,
+    "total_peers": 13,
+    "affinity_score": 62
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 13,
+    "affinity_score": 54
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 6,
+    "total_peers": 13,
+    "affinity_score": 46
+  },
+  {
+    "job_role": "Customer Success Manager",
+    "department": "Customer Support",
+    "entitlement": "DOCUSIGN_SENDER",
+    "peer_count": 1,
+    "total_peers": 13,
+    "affinity_score": 8
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_ADMIN",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "JIRA_USER",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "SALESFORCE_USER",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Support Manager",
+    "department": "Customer Support",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 5,
+    "affinity_score": 20
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_ADMIN",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Support",
+    "department": "Customer Support",
+    "entitlement": "ZENDESK_AGENT",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "SLACK_USER",
+    "peer_count": 16,
+    "total_peers": 16,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "COUPA_REQUISITION",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 8,
+    "total_peers": 16,
+    "affinity_score": 50
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "CONCUR_EXPENSE_USER",
+    "peer_count": 7,
+    "total_peers": 16,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "SNOWFLAKE_READ",
+    "peer_count": 7,
+    "total_peers": 16,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Business Operations Analyst",
+    "department": "Operations",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 16,
+    "affinity_score": 44
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "CONFLUENCE_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "SLACK_USER",
+    "peer_count": 9,
+    "total_peers": 9,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "JIRA_USER",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "TABLEAU_VIEWER",
+    "peer_count": 7,
+    "total_peers": 9,
+    "affinity_score": 78
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 5,
+    "total_peers": 9,
+    "affinity_score": 56
+  },
+  {
+    "job_role": "Process Analyst",
+    "department": "Operations",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 3,
+    "total_peers": 9,
+    "affinity_score": 33
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "SLACK_USER",
+    "peer_count": 5,
+    "total_peers": 5,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "CONCUR_EXPENSE_APPROVE",
+    "peer_count": 4,
+    "total_peers": 5,
+    "affinity_score": 80
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 3,
+    "total_peers": 5,
+    "affinity_score": 60
+  },
+  {
+    "job_role": "Operations Manager",
+    "department": "Operations",
+    "entitlement": "VPN_STANDARD",
+    "peer_count": 2,
+    "total_peers": 5,
+    "affinity_score": 40
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "O365_STANDARD",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "POLICY_REGISTER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "POWERBI_SALES",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_APPROVER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "SERVICENOW_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "SLACK_USER",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "SUCCESSFACTORS_LMS",
+    "peer_count": 1,
+    "total_peers": 1,
+    "affinity_score": 100
+  },
+  {
+    "job_role": "Head of Operations",
+    "department": "Operations",
+    "entitlement": "TABLEAU_VIEWER",
     "peer_count": 1,
     "total_peers": 1,
     "affinity_score": 100

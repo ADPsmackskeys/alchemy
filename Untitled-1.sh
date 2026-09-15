@@ -12,7 +12,7 @@ images=(
 for image in "${images[@]}"; do
   cd $image/api
   SOURCE_IMAGE="${image}-api:latest"
-  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}-api:1.2"
+  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}-api:3.2"
 
   echo "Building $SOURCE_IMAGE"
   docker build --tag "$SOURCE_IMAGE" . 
@@ -26,7 +26,7 @@ for image in "${images[@]}"; do
   cd ../mcp
 
   SOURCE_IMAGE="${image}-mcp:latest"
-  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}-mcp:1.2"
+  TARGET_IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${image}-mcp:3.2"
 
   echo "Building $SOURCE_IMAGE"
   docker build --tag "$SOURCE_IMAGE" . 

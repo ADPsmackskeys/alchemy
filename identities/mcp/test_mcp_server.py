@@ -118,21 +118,56 @@ async def main_test():
 
         # READ
         r = await call(client, "list_identities", {})
-        check("10 seed records", len(r.data) == 10, len(r.data))
+        check("10 seed records", r.data["returned"] == 10, r.data["returned"])
 
-        r = await call(client, "list_identities", {"department": "finance"})
-        check("filter by department", len(r.data) == 5, len(r.data))
+        r = await call(client, "list_identities", {"departments": ["finance"]})
+        check("filter by department", r.data["returned"] == 5, r.data["returned"])
 
-        r = await call(client, "list_identities", {"entitlement": "github_dev"})
-        check("filter by entitlement", len(r.data) == 3, len(r.data))
+        r = await call(client, "list_identities", {"entitlements": ["github_dev"]})
+        check("filter by entitlement", r.data["returned"] == 3, r.data["returned"])
 
-        r = await call(client, "list_identities", {"entitlement": "SAP_FIN"})
-        check("entitlement filter is exact, not substring", len(r.data) == 0, len(r.data))
+        r = await call(client, "list_identities", {"entitlements": ["SAP_FIN"]})
+        check("entitlement filter is exact, not substring", r.data["returned"] == 0, r.data)
+
+        r = await call(
+            client, "list_identities", {"employee_ids": ["EMP001", "EMP002", "EMP003"]}
+        )
+        check(
+            "three people in ONE call",
+            [x["employee_id"] for x in r.data["records"]] == ["EMP001", "EMP002", "EMP003"]
+            and r.data["missing"] == [],
+            r.data,
+        )
+
+        r = await call(client, "list_identities", {"employee_ids": ["EMP001", "EMP404"]})
+        check(
+            "an unknown id is named, not silently dropped",
+            r.data["missing"] == ["EMP404"],
+            r.data,
+        )
+
+        any_ = await call(
+            client,
+            "list_identities",
+            {"entitlements": ["JIRA_USER", "SAP_FIN_DISPLAY"], "match": "any"},
+        )
+        all_ = await call(
+            client,
+            "list_identities",
+            {"entitlements": ["JIRA_USER", "SAP_FIN_DISPLAY"], "match": "all"},
+        )
+        check("match=any is a union", any_.data["returned"] == 8, any_.data["returned"])
+        check("match=all needs every entitlement", all_.data["returned"] == 0, all_.data["returned"])
 
         r = await call(client, "list_identities", {"limit": 2, "offset": 8})
         check(
             "pagination passes through",
-            [x["employee_id"] for x in r.data] == ["EMP009", "EMP010"],
+            [x["employee_id"] for x in r.data["records"]] == ["EMP009", "EMP010"],
+            r.data,
+        )
+        check(
+            "a paginated result reports the true total",
+            r.data["truncated"] is True and r.data["total_matching"] == 10,
             r.data,
         )
 

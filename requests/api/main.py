@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from typing import Annotated, Any, Literal
 
 import psycopg
-from fastapi import Body, FastAPI, HTTPException, Query, status as http_status
+from fastapi import Body, FastAPI, HTTPException, Query, Response, status as http_status
 from psycopg.rows import dict_row
 from psycopg_pool import ConnectionPool
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -200,10 +200,13 @@ app = FastAPI(
 
 @app.get("/requests", response_model=list[AccessRequest], tags=["requests"])
 def list_requests(
-    requester_id: Annotated[str | None, Query(description="Case-insensitive exact match")] = None,
-    approver_id: str | None = None,
-    subject_id: str | None = None,
-    status: str | None = None,
+    response: Response,
+    requester_id: Annotated[
+        list[str] | None, Query(description="Case-insensitive exact match; repeatable")
+    ] = None,
+    approver_id: Annotated[list[str] | None, Query(description="Repeatable")] = None,
+    subject_id: Annotated[list[str] | None, Query(description="Repeatable")] = None,
+    status: Annotated[list[str] | None, Query(description="Repeatable")] = None,
     limit: Annotated[int, Query(ge=1, le=1000)] = 100,
     offset: Annotated[int, Query(ge=0)] = 0,
 ):
@@ -211,6 +214,10 @@ def list_requests(
 
     Serves both the approver's inbox (approver_id + status) and a
     requester's own history (requester_id).
+
+    Every filter is repeatable and ORs its own values, so one request can
+    cover a whole cohort of subjects; different filters AND together.
+    X-Total-Count reports how many matched before pagination.
     """
     filters = {
         "requester_id": requester_id,
@@ -221,18 +228,39 @@ def list_requests(
     clauses = []
     params: list[Any] = []
     for field, value in filters.items():
-        if value is not None:
-            clauses.append(f"LOWER({field}) = LOWER(%s)")
-            params.append(value)
+        if value:
+            # = ANY on a lowered array is the OR-within-a-field case; an empty
+            # list means the filter was not supplied, so it is skipped above.
+            clauses.append(f"LOWER({field}) = ANY(%s)")
+            params.append([v.lower() for v in value])
     where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
     params += [limit, offset]
 
     with pool.connection() as conn, conn.cursor() as cur:
+        # COUNT(*) OVER () rides along on the same scan, so the caller can
+        # tell a full page from a truncated one without a second query.
         cur.execute(
-            f"SELECT * FROM access_requests {where} ORDER BY request_id LIMIT %s OFFSET %s",
+            f"SELECT *, COUNT(*) OVER () AS _total FROM access_requests {where} "
+            "ORDER BY request_id LIMIT %s OFFSET %s",
             params,
         )
-        return cur.fetchall()
+        rows = cur.fetchall()
+
+        if rows:
+            total = rows[0]["_total"]
+        else:
+            # An empty page carries no window count, and an offset past the
+            # end must still report the true total rather than zero.
+            cur.execute(
+                f"SELECT COUNT(*) AS total FROM access_requests {where}", params[:-2]
+            )
+            total = cur.fetchone()["total"]
+
+    for row in rows:
+        row.pop("_total", None)
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["X-Returned-Count"] = str(len(rows))
+    return rows
 
 
 @app.get("/requests/{request_id}", response_model=AccessRequest, tags=["requests"])

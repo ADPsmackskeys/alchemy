@@ -89,8 +89,9 @@ async def main_test():
             "all tools exposed",
             set(tools)
             == {
-                "list_sod_rules", "get_sod_rule", "create_sod_rule",
-                "update_sod_rule", "replace_sod_rule", "delete_sod_rule", "api_health",
+                "list_sod_rules", "check_sod_conflicts", "get_sod_rule",
+                "create_sod_rule", "update_sod_rule", "replace_sod_rule",
+                "delete_sod_rule", "api_health",
             },
             sorted(tools),
         )
@@ -110,16 +111,57 @@ async def main_test():
 
         # READ
         r = await call(client, "list_sod_rules", {})
-        check("3 seed rules", len(r.data) == 3, len(r.data))
+        check("3 seed rules", r.data["returned"] == 3, r.data)
 
-        r = await call(client, "list_sod_rules", {"severity": "High"})
-        check("filter by severity", len(r.data) == 2, len(r.data))
+        r = await call(client, "list_sod_rules", {"severities": ["High"]})
+        check("filter by severity", r.data["returned"] == 2, r.data)
 
-        r = await call(client, "list_sod_rules", {"entitlement": "sap_vendor_create"})
-        check("entitlement matches either side", len(r.data) == 2, len(r.data))
+        r = await call(client, "list_sod_rules", {"entitlements": ["sap_vendor_create"]})
+        check("entitlement matches either side", r.data["returned"] == 2, r.data)
 
-        r = await call(client, "list_sod_rules", {"severity": "Catastrophic"})
+        r = await call(
+            client, "list_sod_rules", {"entitlements": ["SAP_VENDOR_CREATE", "AD_DOMAIN_ADMIN"]}
+        )
+        check("one call covers several entitlements", r.data["returned"] == 3, r.data)
+
+        r = await call(client, "list_sod_rules", {"limit": 1})
+        check(
+            "truncation is flagged, not silent",
+            r.data["truncated"] is True and r.data["total_matching"] == 3,
+            r.data,
+        )
+
+        r = await call(client, "list_sod_rules", {"severities": ["Catastrophic"]})
         check("bad enum rejected", r.is_error, error_text(r)[:90])
+
+        # --- the set-level check
+        r = await call(
+            client,
+            "check_sod_conflicts",
+            {"entitlements": ["SAP_VENDOR_CREATE", "SAP_PAYMENT_APPROVER", "JIRA_USER"]},
+        )
+        check(
+            "both sides in the set -> a conflict",
+            r.data["clear"] is False
+            and [c["sod_id"] for c in r.data["conflicts"]] == ["SOD001"]
+            and r.data["highest_severity"] == "Critical",
+            r.data,
+        )
+        check(
+            "a rule whose counterpart is outside the set is adjacent, not a conflict",
+            [a["conflicts_with"] for a in r.data["adjacent"]] == ["SAP_AP_INVOICE"],
+            r.data["adjacent"],
+        )
+
+        r = await call(client, "check_sod_conflicts", {"entitlements": ["JIRA_USER", "GITHUB_DEV"]})
+        check(
+            "a clean set is clear",
+            r.data["clear"] is True and r.data["conflicts"] == [] and r.data["adjacent"] == [],
+            r.data,
+        )
+
+        r = await call(client, "check_sod_conflicts", {"entitlements": []})
+        check("an empty set -> error", r.is_error, error_text(r)[:90])
 
         r = await call(client, "get_sod_rule", {"sod_id": "SOD001"})
         check("get by id", r.data["severity"] == "Critical", r.data)

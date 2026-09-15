@@ -93,7 +93,7 @@ def _format_detail(payload: Any) -> str:
     return str(detail)
 
 
-async def _request(method: str, path: str, **kwargs: Any) -> Any:
+async def _send(method: str, path: str, **kwargs: Any) -> httpx.Response:
     if _client is None:
         raise ToolError("MCP server is not running; no HTTP client available")
     try:
@@ -105,15 +105,58 @@ async def _request(method: str, path: str, **kwargs: Any) -> Any:
         ) from exc
 
     if response.is_success:
-        if response.status_code == 204 or not response.content:
-            return None
-        return response.json()
+        return response
 
     try:
         detail = _format_detail(response.json())
     except ValueError:
         detail = response.text.strip() or "no response body"
     raise ToolError(f"API returned {response.status_code}: {detail}")
+
+
+async def _request(method: str, path: str, **kwargs: Any) -> Any:
+    response = await _send(method, path, **kwargs)
+    if response.status_code == 204 or not response.content:
+        return None
+    return response.json()
+
+
+async def _list_request(
+    path: str,
+    params: dict[str, Any],
+    *,
+    requested: list[str] | None = None,
+    key: str | None = None,
+) -> dict[str, Any]:
+    """Run a list call and wrap the rows in an envelope.
+
+    One batched call has to carry the two signals a per-item fan-out gave for
+    free. `missing` names the requested values that matched no record, the
+    batch replacement for a 404 -- without it, values nobody found just drop
+    out of a short result unnoticed. `truncated` says `limit` cut the result
+    short, which a bare array cannot express and which otherwise leaves the
+    caller walking offsets blind.
+    """
+    response = await _send("GET", path, params=params)
+    records = response.json()
+    total = int(response.headers.get("X-Total-Count", len(records)))
+
+    envelope: dict[str, Any] = {
+        "records": records,
+        "returned": len(records),
+        "total_matching": total,
+        "truncated": total > len(records),
+    }
+    if requested is not None and key is not None:
+        found = {str(r.get(key, "")).lower() for r in records}
+        envelope["requested"] = requested
+        envelope["missing"] = [v for v in requested if v.lower() not in found]
+    return envelope
+
+
+def _drop_none(values: dict[str, Any]) -> dict[str, Any]:
+    """Drop unset filters. An empty list is unset too, not "match nothing"."""
+    return {k: v for k, v in values.items() if v is not None and v != []}
 
 
 READ_ONLY = ToolAnnotations(readOnlyHint=True, openWorldHint=False)
@@ -133,38 +176,55 @@ StartDate = Annotated[str, Field(description="Start date as YYYY-MM-DD")]
     annotations=READ_ONLY,
     title="List new joiners",
     description=(
-        "List new joiners, newest additions last. All filters are optional and "
-        "match case-insensitively on the whole value. Returns at most `limit` "
-        "records; page through larger result sets with `offset`."
+        "Look up new joiners and their role, level, location and manager. "
+        "employee_ids fetches a whole cohort in one call. "
+        "Pass every value you need in ONE call -- do not call this once per value. Filters are "
+        "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
+        "them all to get the whole table, which is small. The result is an envelope: `records` "
+        "holds the rows, `missing` names any requested value with no matching record (treat a "
+        "`missing` list that is not empty as you would a 404), and `truncated` is true when "
+        "`limit` cut the result "
+        "short."
     ),
 )
 async def list_new_joiners(
-    department: Annotated[str | None, Field(description="e.g. 'Finance', 'Technology'")] = None,
-    location: Annotated[str | None, Field(description="e.g. 'Bangalore'")] = None,
-    job_level: Annotated[str | None, Field(description="e.g. 'L2'")] = None,
-    manager_id: Annotated[str | None, Field(description="e.g. 'MGR100'")] = None,
-    limit: Annotated[int, Field(ge=1, le=1000, description="Max records to return")] = 100,
+    employee_ids: Annotated[
+        list[str] | None,
+        Field(description="Fetch these joiners at once, e.g. ['NJ1004', 'NJ1005']"),
+    ] = None,
+    departments: Annotated[
+        list[str] | None, Field(description="e.g. ['Finance', 'Technology']")
+    ] = None,
+    locations: Annotated[list[str] | None, Field(description="e.g. ['Bangalore']")] = None,
+    job_levels: Annotated[list[str] | None, Field(description="e.g. ['L2']")] = None,
+    manager_ids: Annotated[list[str] | None, Field(description="e.g. ['MGR100']")] = None,
+    limit: Annotated[int, Field(ge=1, le=1000, description="Max records to return")] = 1000,
     offset: Annotated[int, Field(ge=0, description="Records to skip")] = 0,
-) -> list[dict[str, Any]]:
-    params = {
-        k: v
-        for k, v in {
-            "department": department,
-            "location": location,
-            "job_level": job_level,
-            "manager_id": manager_id,
+) -> dict[str, Any]:
+    params = _drop_none(
+        {
+            "employee_id": employee_ids,
+            "department": departments,
+            "location": locations,
+            "job_level": job_levels,
+            "manager_id": manager_ids,
             "limit": limit,
             "offset": offset,
-        }.items()
-        if v is not None
-    }
-    return await _request("GET", "/new-joiners", params=params)
+        }
+    )
+    return await _list_request(
+        "/new-joiners", params, requested=employee_ids, key="employee_id"
+    )
 
 
 @mcp.tool(
     annotations=READ_ONLY,
     title="Get a new joiner",
-    description="Fetch one new joiner by employee_id. Errors if no such record exists.",
+    description=(
+        "Fetch one new joiner by employee_id. Errors if no such record exists. "
+        "For several joiners use list_new_joiners with employee_ids -- one call, "
+        "not one per person."
+    ),
 )
 async def get_new_joiner(employee_id: EmployeeId) -> dict[str, Any]:
     return await _request("GET", f"/new-joiners/{employee_id}")

@@ -116,7 +116,13 @@ check("put missing id -> 404", r.status_code == 404)
 # persistence
 on_disk = json.loads(_copy.read_text())
 check("write persisted to disk", any(x["employee_id"] == "EMP999" for x in on_disk))
-check("key order preserved", list(on_disk[-1]) == list(NEW))
+check(
+    "key order preserved",
+    # NEW omits the optional manager_id, which the model still stores.
+    list(on_disk[-1]) == ["employee_id", "name", "department", "job_role", "job_level",
+                          "location", "manager_id", "entitlements"],
+    list(on_disk[-1]),
+)
 
 # DELETE
 r = client.delete("/identities/EMP999")
@@ -130,6 +136,28 @@ check("delete again -> 404", r.status_code == 404)
 
 check("file back to 10 records", len(json.loads(_copy.read_text())) == 10)
 check("original file untouched", len(json.loads(SOURCE.read_text())) == 10)
+# ------------------------------------------------------- batched lookups
+r = client.get("/identities?employee_id=EMP001&employee_id=EMP002&employee_id=EMP003")
+check(
+    "three people in one call",
+    [x["employee_id"] for x in r.json()] == ["EMP001", "EMP002", "EMP003"],
+    r.json(),
+)
+
+r = client.get("/identities?employee_id=EMP001")
+check("single value still works", len(r.json()) == 1, r.json())
+
+any_ = client.get("/identities?entitlement=JIRA_USER&entitlement=SAP_FIN_DISPLAY&match=any").json()
+all_ = client.get("/identities?entitlement=JIRA_USER&entitlement=SAP_FIN_DISPLAY&match=all").json()
+check("match=any is a union", len(any_) == 8, len(any_))
+check("match=all needs every entitlement", all_ == [], all_)
+
+r = client.get("/identities?match=sometimes")
+check("bad match mode -> 422", r.status_code == 422)
+
+r = client.get("/identities")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "10", dict(r.headers))
+
 check("health ok", client.get("/health").json()["status"] == "ok")
 
 shutil.rmtree(_tmpdir)

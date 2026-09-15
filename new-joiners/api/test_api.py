@@ -101,6 +101,18 @@ check("delete -> 204", r.status_code == 204)
 r = client.delete("/new-joiners/NJ9999")
 check("delete again -> 404", r.status_code == 404)
 
+# ------------------------------------------------------- batched lookups
+all_ids = [x["employee_id"] for x in client.get("/new-joiners").json()][:3]
+q = "&".join(f"employee_id={i}" for i in all_ids)
+r = client.get(f"/new-joiners?{q}")
+check("three joiners in one call", [x["employee_id"] for x in r.json()] == all_ids, r.json())
+
+r = client.get(f"/new-joiners?employee_id={all_ids[0]}")
+check("single value still works", len(r.json()) == 1, r.json())
+
+r = client.get("/new-joiners")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "10", dict(r.headers))
+
 check("file back to 10 records", len(json.loads(_copy.read_text())) == 10)
 check("original file untouched", len(json.loads(SOURCE.read_text())) == 10)
 

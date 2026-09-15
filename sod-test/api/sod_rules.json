@@ -7,14 +7,254 @@
   },
   {
     "sod_id": "SOD002",
-    "entitlement_1": "AD_DOMAIN_ADMIN",
-    "entitlement_2": "RSA_GRC",
+    "entitlement_1": "SAP_AP_INVOICE",
+    "entitlement_2": "SAP_VENDOR_CREATE",
     "severity": "High"
   },
   {
     "sod_id": "SOD003",
     "entitlement_1": "SAP_AP_INVOICE",
+    "entitlement_2": "SAP_PAYMENT_APPROVER",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD004",
+    "entitlement_1": "SAP_VENDOR_CREATE",
+    "entitlement_2": "SAP_VENDOR_APPROVE",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD005",
+    "entitlement_1": "SAP_GL_POST",
+    "entitlement_2": "SAP_JOURNAL_APPROVE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD006",
+    "entitlement_1": "SAP_BANK_MASTER",
+    "entitlement_2": "SAP_PAYMENT_APPROVER",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD007",
+    "entitlement_1": "SAP_GL_POST",
+    "entitlement_2": "SAP_PERIOD_CLOSE",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD008",
+    "entitlement_1": "KYRIBA_PAYMENT_INIT",
+    "entitlement_2": "KYRIBA_PAYMENT_RELEASE",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD009",
+    "entitlement_1": "KYRIBA_PAYMENT_RELEASE",
+    "entitlement_2": "SAP_BANK_MASTER",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD010",
+    "entitlement_1": "FX_TRADING_DESK",
+    "entitlement_2": "KYRIBA_PAYMENT_RELEASE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD011",
+    "entitlement_1": "COUPA_REQUISITION",
+    "entitlement_2": "COUPA_PO_APPROVE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD012",
+    "entitlement_1": "COUPA_SUPPLIER_ADMIN",
+    "entitlement_2": "COUPA_PO_APPROVE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD013",
+    "entitlement_1": "COUPA_SUPPLIER_ADMIN",
+    "entitlement_2": "SAP_PAYMENT_APPROVER",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD014",
+    "entitlement_1": "CONCUR_EXPENSE_USER",
+    "entitlement_2": "CONCUR_EXPENSE_APPROVE",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD015",
+    "entitlement_1": "BLACKLINE_RECON",
+    "entitlement_2": "BLACKLINE_ADMIN",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD016",
+    "entitlement_1": "AD_DOMAIN_ADMIN",
+    "entitlement_2": "RSA_GRC",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD017",
+    "entitlement_1": "AD_DOMAIN_ADMIN",
+    "entitlement_2": "AUDIT_TOOL",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD018",
+    "entitlement_1": "AD_ACCOUNT_OPERATOR",
+    "entitlement_2": "SAILPOINT_REVIEWER",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD019",
+    "entitlement_1": "OKTA_ADMIN",
+    "entitlement_2": "SAILPOINT_ADMIN",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD020",
+    "entitlement_1": "AD_DOMAIN_ADMIN",
+    "entitlement_2": "CYBERARK_VAULT_ADMIN",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD021",
+    "entitlement_1": "SAILPOINT_ADMIN",
+    "entitlement_2": "SAILPOINT_REVIEWER",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD022",
+    "entitlement_1": "CYBERARK_VAULT_ADMIN",
+    "entitlement_2": "PROD_SSH_ACCESS",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD023",
+    "entitlement_1": "GITHUB_REPO_ADMIN",
+    "entitlement_2": "AWS_PROD_DEPLOY",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD024",
+    "entitlement_1": "JENKINS_ADMIN",
+    "entitlement_2": "AWS_PROD_DEPLOY",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD025",
+    "entitlement_1": "TERRAFORM_APPLY",
+    "entitlement_2": "AWS_ADMIN",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD026",
+    "entitlement_1": "PROD_DB_WRITE",
+    "entitlement_2": "PROD_SSH_ACCESS",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD027",
+    "entitlement_1": "PROD_DB_WRITE",
+    "entitlement_2": "TEST_ENV_ADMIN",
+    "severity": "Low"
+  },
+  {
+    "sod_id": "SOD028",
+    "entitlement_1": "SPLUNK_ADMIN",
+    "entitlement_2": "CROWDSTRIKE_ADMIN",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD029",
+    "entitlement_1": "AUDIT_TOOL",
+    "entitlement_2": "SAP_GL_POST",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD030",
+    "entitlement_1": "AUDIT_ADMIN",
+    "entitlement_2": "RSA_GRC_ADMIN",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD031",
+    "entitlement_1": "AUDIT_ADMIN",
+    "entitlement_2": "AUDIT_WORKPAPERS",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD032",
+    "entitlement_1": "AML_SCREENING",
+    "entitlement_2": "SANCTIONS_OVERRIDE",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD033",
+    "entitlement_1": "COMPLIANCE_CASE_MGMT",
+    "entitlement_2": "SANCTIONS_OVERRIDE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD034",
+    "entitlement_1": "WORKDAY_HR",
+    "entitlement_2": "WORKDAY_PAYROLL_RUN",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD035",
+    "entitlement_1": "WORKDAY_COMP_ADMIN",
+    "entitlement_2": "WORKDAY_PAYROLL_RUN",
+    "severity": "Critical"
+  },
+  {
+    "sod_id": "SOD036",
+    "entitlement_1": "WORKDAY_RECRUITER",
+    "entitlement_2": "WORKDAY_COMP_ADMIN",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD037",
+    "entitlement_1": "SALESFORCE_ADMIN",
+    "entitlement_2": "SALESFORCE_PRICING_APPROVE",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD038",
+    "entitlement_1": "CONTRACT_ESIGN_ADMIN",
+    "entitlement_2": "COUPA_SUPPLIER_ADMIN",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD039",
+    "entitlement_1": "CONTRACT_ESIGN_ADMIN",
     "entitlement_2": "SAP_VENDOR_CREATE",
     "severity": "High"
+  },
+  {
+    "sod_id": "SOD040",
+    "entitlement_1": "SNOWFLAKE_ADMIN",
+    "entitlement_2": "DATA_LAKE_PII_READ",
+    "severity": "High"
+  },
+  {
+    "sod_id": "SOD041",
+    "entitlement_1": "DATA_LAKE_PII_READ",
+    "entitlement_2": "WORKDAY_HR",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD042",
+    "entitlement_1": "ZENDESK_ADMIN",
+    "entitlement_2": "SALESFORCE_ADMIN",
+    "severity": "Medium"
+  },
+  {
+    "sod_id": "SOD043",
+    "entitlement_1": "SERVICENOW_ADMIN",
+    "entitlement_2": "SERVICENOW_APPROVER",
+    "severity": "Medium"
   }
 ]

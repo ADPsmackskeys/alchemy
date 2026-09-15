@@ -32,13 +32,13 @@ client = TestClient(main.app)
 
 NEW_ENT = {
     "entitlement_id": "ENT999",
-    "entitlement_name": "SHAREPOINT_AUDIT",
+    "entitlement_name": "ZZ_TEST_ENTITLEMENT",
     "application": "SharePoint",
     "owner": "Audit IT",
 }
 
 NEW_SCORE = {
-    "entitlement_name": "SHAREPOINT_AUDIT",
+    "entitlement_name": "ZZ_TEST_ENTITLEMENT",
     "application": "SharePoint",
     "risk_score": 20,
     "risk_category": "Low",
@@ -52,10 +52,10 @@ def check(label, condition, extra=""):
 
 # ---------------------------------------------------------------- catalog
 r = client.get("/entitlements")
-check("list returns 10 seed entitlements", r.status_code == 200 and len(r.json()) == 10, len(r.json()))
+check("list returns 18 seed entitlements", r.status_code == 200 and len(r.json()) == 18, len(r.json()))
 
 r = client.get("/entitlements", params={"application": "sap ecc"})
-check("filter by application (case-insensitive)", len(r.json()) == 2, len(r.json()))
+check("filter by application (case-insensitive)", len(r.json()) == 4, len(r.json()))
 
 r = client.get("/entitlements", params={"limit": 2, "offset": 8})
 check("pagination", [x["entitlement_id"] for x in r.json()] == ["ENT009", "ENT010"], r.json())
@@ -80,7 +80,7 @@ check(
     "patch changes one field only",
     r.status_code == 200
     and r.json()["owner"] == "Collaboration Team"
-    and r.json()["entitlement_name"] == "SHAREPOINT_AUDIT",
+    and r.json()["entitlement_name"] == "ZZ_TEST_ENTITLEMENT",
     r.text,
 )
 
@@ -110,11 +110,11 @@ check("delete -> 204", r.status_code == 204)
 r = client.delete("/entitlements/ENT999")
 check("delete again -> 404", r.status_code == 404)
 
-check("catalog back to 10 records", len(json.loads(_catalog.read_text())) == 10)
+check("catalog back to 18 records", len(json.loads(_catalog.read_text())) == 18)
 
 # ------------------------------------------------------------ risk scores
 r = client.get("/risk-scores")
-check("list returns 15 seed scores", r.status_code == 200 and len(r.json()) == 15, len(r.json()))
+check("list returns 18 seed scores", r.status_code == 200 and len(r.json()) == 18, len(r.json()))
 
 r = client.get("/risk-scores", params={"risk_category": "Critical"})
 check("filter by risk_category", len(r.json()) == 3, len(r.json()))
@@ -140,7 +140,7 @@ check("duplicate create -> 409", r.status_code == 409)
 r = client.post("/risk-scores", json={**NEW_SCORE, "entitlement_name": "OTHER", "risk_score": 101})
 check("risk_score > 100 -> 422", r.status_code == 422)
 
-r = client.patch("/risk-scores/SHAREPOINT_AUDIT", json={"risk_score": 55, "risk_category": "Medium"})
+r = client.patch("/risk-scores/ZZ_TEST_ENTITLEMENT", json={"risk_score": 55, "risk_category": "Medium"})
 check(
     "patch updates score",
     r.status_code == 200 and r.json()["risk_score"] == 55 and r.json()["application"] == "SharePoint",
@@ -148,24 +148,54 @@ check(
 )
 
 score_body = {k: v for k, v in NEW_SCORE.items() if k != "entitlement_name"}
-r = client.put("/risk-scores/SHAREPOINT_AUDIT", json=score_body)
+r = client.put("/risk-scores/ZZ_TEST_ENTITLEMENT", json=score_body)
 check("put replaces record", r.status_code == 200 and r.json()["risk_score"] == 20, r.text)
 
 on_disk = json.loads(_scores.read_text())
-check("write persisted to disk", any(x["entitlement_name"] == "SHAREPOINT_AUDIT" for x in on_disk))
+check("write persisted to disk", any(x["entitlement_name"] == "ZZ_TEST_ENTITLEMENT" for x in on_disk))
 check("key order preserved", list(on_disk[-1]) == list(NEW_SCORE))
 
-r = client.delete("/risk-scores/SHAREPOINT_AUDIT")
+r = client.delete("/risk-scores/ZZ_TEST_ENTITLEMENT")
 check("delete -> 204", r.status_code == 204)
 
-r = client.delete("/risk-scores/SHAREPOINT_AUDIT")
+r = client.delete("/risk-scores/ZZ_TEST_ENTITLEMENT")
 check("delete again -> 404", r.status_code == 404)
 
-check("scores back to 15 records", len(json.loads(_scores.read_text())) == 15)
+check("scores back to 18 records", len(json.loads(_scores.read_text())) == 18)
+
+# ------------------------------------------------------- batched lookups
+r = client.get("/entitlements?entitlement_name=JIRA_USER")
+check("single filter value still works", [x["entitlement_name"] for x in r.json()] == ["JIRA_USER"], r.json())
+
+r = client.get("/entitlements?entitlement_name=JIRA_USER&entitlement_name=GITHUB_DEV")
+check(
+    "repeated filter ORs its values",
+    sorted(x["entitlement_name"] for x in r.json()) == ["GITHUB_DEV", "JIRA_USER"],
+    r.json(),
+)
+
+r = client.get("/risk-scores?entitlement_name=JIRA_USER&entitlement_name=GITHUB_DEV")
+check("risk scores batch by name", len(r.json()) == 2, r.json())
+
+r = client.get("/entitlements?application=SAP%20ECC&owner=Finance%20IT")
+check("different filters AND together", all(x["application"] == "SAP ECC" for x in r.json()), r.json())
+
+r = client.get("/entitlements")
+check("X-Total-Count reports the unpaginated total", r.headers["X-Total-Count"] == "18", dict(r.headers))
+
+r = client.get("/entitlements?limit=2")
+check(
+    "truncation is visible in the headers",
+    r.headers["X-Returned-Count"] == "2" and r.headers["X-Total-Count"] == "18",
+    dict(r.headers),
+)
+
+r = client.get("/entitlements?entitlement_name=NO_SUCH_ENTITLEMENT")
+check("unknown name matches nothing", r.json() == [] and r.headers["X-Total-Count"] == "0", r.json())
 
 # ------------------------------------------------------------------ misc
-check("originals untouched", len(json.loads(CATALOG_SOURCE.read_text())) == 10)
-check("originals untouched", len(json.loads(SCORES_SOURCE.read_text())) == 15)
+check("originals untouched", len(json.loads(CATALOG_SOURCE.read_text())) == 18)
+check("originals untouched", len(json.loads(SCORES_SOURCE.read_text())) == 18)
 check("health ok", client.get("/health").json()["status"] == "ok")
 
 shutil.rmtree(_tmpdir)
