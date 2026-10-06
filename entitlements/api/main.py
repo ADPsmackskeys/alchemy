@@ -29,6 +29,13 @@ class EntitlementBase(BaseModel):
     entitlement_name: str = Field(min_length=1)
     application: str = Field(min_length=1)
     owner: str = Field(min_length=1)
+    # Plain-language account of what the entitlement lets someone do. Declared
+    # here because `response_model` filters every GET down to the fields on
+    # this model: without it the catalog's descriptions never leave the API,
+    # and the agents that use them to talk to non-technical users see only
+    # opaque names like SAP_FIN_DISPLAY. Optional so existing writers that
+    # send no description are still accepted.
+    description: str | None = Field(default=None, min_length=1)
 
 
 class Entitlement(EntitlementBase):
@@ -41,6 +48,10 @@ class Entitlement(EntitlementBase):
                 "entitlement_name": "SHAREPOINT_AUDIT",
                 "application": "SharePoint",
                 "owner": "Audit IT",
+                "description": (
+                    "Lets someone access the Audit team's shared documents and "
+                    "files on SharePoint."
+                ),
             }
         }
     )
@@ -52,6 +63,7 @@ class EntitlementUpdate(BaseModel):
     entitlement_name: str | None = Field(default=None, min_length=1)
     application: str | None = Field(default=None, min_length=1)
     owner: str | None = Field(default=None, min_length=1)
+    description: str | None = Field(default=None, min_length=1)
 
 
 class RiskScoreBase(BaseModel):

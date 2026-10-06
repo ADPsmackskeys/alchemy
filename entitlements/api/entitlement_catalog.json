@@ -3,672 +3,784 @@
     "entitlement_id": "ENT001",
     "entitlement_name": "SAP_FIN_DISPLAY",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone view financial records and reports in SAP. They cannot make any changes."
   },
   {
     "entitlement_id": "ENT002",
     "entitlement_name": "SAP_AP_INVOICE",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone enter and process vendor invoices for payment in SAP."
   },
   {
     "entitlement_id": "ENT003",
     "entitlement_name": "POWERBI_FINANCE",
     "application": "PowerBI",
-    "owner": "BI Team"
+    "owner": "BI Team",
+    "description": "Lets someone view finance dashboards and reports in PowerBI."
   },
   {
     "entitlement_id": "ENT004",
     "entitlement_name": "FIN_SHAREPOINT",
     "application": "SharePoint",
-    "owner": "Collaboration Team"
+    "owner": "Collaboration Team",
+    "description": "Lets someone access the Finance team's shared documents and files on SharePoint."
   },
   {
     "entitlement_id": "ENT005",
     "entitlement_name": "JIRA_USER",
     "application": "JIRA",
-    "owner": "Engineering IT"
+    "owner": "Engineering IT",
+    "description": "Lets someone create and track work items (tickets) in JIRA."
   },
   {
     "entitlement_id": "ENT006",
     "entitlement_name": "GITHUB_DEV",
     "application": "GitHub",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone write and contribute code to the company's software repositories on GitHub."
   },
   {
     "entitlement_id": "ENT007",
     "entitlement_name": "CONFLUENCE_USER",
     "application": "Confluence",
-    "owner": "Engineering IT"
+    "owner": "Engineering IT",
+    "description": "Lets someone view and edit team documentation pages in Confluence."
   },
   {
     "entitlement_id": "ENT008",
     "entitlement_name": "RSA_GRC",
     "application": "RSA Archer",
-    "owner": "Risk IT"
+    "owner": "Risk IT",
+    "description": "Lets someone enter and view risk and compliance records in the RSA Archer system."
   },
   {
     "entitlement_id": "ENT009",
     "entitlement_name": "RISK_PORTAL",
     "application": "Risk Portal",
-    "owner": "Risk IT"
+    "owner": "Risk IT",
+    "description": "Lets someone view and manage risk assessment information in the Risk Portal."
   },
   {
     "entitlement_id": "ENT010",
     "entitlement_name": "AUDIT_TOOL",
     "application": "Audit Platform",
-    "owner": "Audit IT"
+    "owner": "Audit IT",
+    "description": "Lets someone use the audit platform to plan, perform, and document company audits."
   },
   {
     "entitlement_id": "ENT011",
     "entitlement_name": "POWERBI_RISK",
     "application": "PowerBI",
-    "owner": "Risk IT"
+    "owner": "Risk IT",
+    "description": "Lets someone view risk-related dashboards and reports in PowerBI."
   },
   {
     "entitlement_id": "ENT012",
     "entitlement_name": "POWERBI_AUDIT",
     "application": "PowerBI",
-    "owner": "Audit IT"
+    "owner": "Audit IT",
+    "description": "Lets someone view audit-related dashboards and reports in PowerBI."
   },
   {
     "entitlement_id": "ENT013",
     "entitlement_name": "SHAREPOINT_AUDIT",
     "application": "SharePoint",
-    "owner": "Audit IT"
+    "owner": "Audit IT",
+    "description": "Lets someone access the Audit team's shared documents and files on SharePoint."
   },
   {
     "entitlement_id": "ENT014",
     "entitlement_name": "SAP_PAYMENT_APPROVER",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone approve outgoing payments to vendors and suppliers in SAP. This is a sensitive financial control."
   },
   {
     "entitlement_id": "ENT015",
     "entitlement_name": "SAP_VENDOR_CREATE",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone create new vendor records in SAP."
   },
   {
     "entitlement_id": "ENT016",
     "entitlement_name": "AD_DOMAIN_ADMIN",
     "application": "Active Directory",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Gives full administrative control over the company's Active Directory, including every employee account and computer. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT017",
     "entitlement_name": "WORKDAY_HR",
     "application": "Workday",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone view and manage employee HR records in Workday."
   },
   {
     "entitlement_id": "ENT018",
     "entitlement_name": "AWS_CONSOLE",
     "application": "AWS",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone log in and view resources in the company's Amazon Web Services (AWS) cloud account."
   },
   {
     "entitlement_id": "ENT019",
     "entitlement_name": "SAP_AR_COLLECTIONS",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone manage customer billing and collections activity in SAP."
   },
   {
     "entitlement_id": "ENT020",
     "entitlement_name": "SAP_GL_POST",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone post entries to the general ledger, the company's core accounting records, in SAP."
   },
   {
     "entitlement_id": "ENT021",
     "entitlement_name": "SAP_JOURNAL_APPROVE",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone approve journal entries before they are recorded in the company's books."
   },
   {
     "entitlement_id": "ENT022",
     "entitlement_name": "SAP_PERIOD_CLOSE",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone perform month-end and period-end financial closing activities in SAP."
   },
   {
     "entitlement_id": "ENT023",
     "entitlement_name": "SAP_COST_CENTER_ADMIN",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone create and manage cost centers used to track departmental spending in SAP."
   },
   {
     "entitlement_id": "ENT024",
     "entitlement_name": "SAP_VENDOR_APPROVE",
     "application": "SAP ECC",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone approve new or changed vendor records in SAP."
   },
   {
     "entitlement_id": "ENT025",
     "entitlement_name": "SAP_BANK_MASTER",
     "application": "SAP ECC",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone create and maintain the company's bank account records in SAP. This is a sensitive financial control."
   },
   {
     "entitlement_id": "ENT026",
     "entitlement_name": "ORACLE_FIN_REPORT",
     "application": "Oracle Financials",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone run financial reports in Oracle Financials."
   },
   {
     "entitlement_id": "ENT027",
     "entitlement_name": "ORACLE_GL_INQUIRY",
     "application": "Oracle Financials",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone view general ledger balances and transactions in Oracle Financials. View-only, no changes allowed."
   },
   {
     "entitlement_id": "ENT028",
     "entitlement_name": "BLACKLINE_RECON",
     "application": "Blackline",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone perform account reconciliations (matching and checking financial records) in Blackline."
   },
   {
     "entitlement_id": "ENT029",
     "entitlement_name": "BLACKLINE_ADMIN",
     "application": "Blackline",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone administer and configure the Blackline reconciliation system."
   },
   {
     "entitlement_id": "ENT030",
     "entitlement_name": "CONCUR_EXPENSE_USER",
     "application": "Concur",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone submit their own expense reports for reimbursement in Concur."
   },
   {
     "entitlement_id": "ENT031",
     "entitlement_name": "CONCUR_EXPENSE_APPROVE",
     "application": "Concur",
-    "owner": "Finance IT"
+    "owner": "Finance IT",
+    "description": "Lets someone review and approve other employees' expense reports in Concur."
   },
   {
     "entitlement_id": "ENT032",
     "entitlement_name": "COUPA_REQUISITION",
     "application": "Coupa",
-    "owner": "Procurement IT"
+    "owner": "Procurement IT",
+    "description": "Lets someone request the purchase of goods or services (create a requisition) in Coupa."
   },
   {
     "entitlement_id": "ENT033",
     "entitlement_name": "COUPA_PO_APPROVE",
     "application": "Coupa",
-    "owner": "Procurement IT"
+    "owner": "Procurement IT",
+    "description": "Lets someone approve purchase orders in Coupa."
   },
   {
     "entitlement_id": "ENT034",
     "entitlement_name": "COUPA_SUPPLIER_ADMIN",
     "application": "Coupa",
-    "owner": "Procurement IT"
+    "owner": "Procurement IT",
+    "description": "Lets someone add and manage supplier/vendor records in Coupa."
   },
   {
     "entitlement_id": "ENT035",
     "entitlement_name": "VENDOR_PORTAL_VIEW",
     "application": "Coupa",
-    "owner": "Procurement IT"
+    "owner": "Procurement IT",
+    "description": "Lets someone view supplier information in the Coupa vendor portal."
   },
   {
     "entitlement_id": "ENT036",
     "entitlement_name": "KYRIBA_CASH_VIEW",
     "application": "Kyriba",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone view the company's cash balances and positions in Kyriba."
   },
   {
     "entitlement_id": "ENT037",
     "entitlement_name": "KYRIBA_PAYMENT_INIT",
     "application": "Kyriba",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone create (initiate) outgoing payments in the Kyriba treasury system."
   },
   {
     "entitlement_id": "ENT038",
     "entitlement_name": "KYRIBA_PAYMENT_RELEASE",
     "application": "Kyriba",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone give the final approval to release payments in Kyriba. This is a key financial control, kept separate from who creates payments."
   },
   {
     "entitlement_id": "ENT039",
     "entitlement_name": "MUREX_TRADE_VIEW",
     "application": "Murex",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone view financial trading activity recorded in Murex."
   },
   {
     "entitlement_id": "ENT040",
     "entitlement_name": "FX_TRADING_DESK",
     "application": "Murex",
-    "owner": "Treasury IT"
+    "owner": "Treasury IT",
+    "description": "Lets someone execute foreign exchange (currency) trades on the trading desk using Murex."
   },
   {
     "entitlement_id": "ENT041",
     "entitlement_name": "JIRA_ADMIN",
     "application": "JIRA",
-    "owner": "Engineering IT"
+    "owner": "Engineering IT",
+    "description": "Lets someone administer JIRA projects, workflows, and who has access."
   },
   {
     "entitlement_id": "ENT042",
     "entitlement_name": "CONFLUENCE_ADMIN",
     "application": "Confluence",
-    "owner": "Engineering IT"
+    "owner": "Engineering IT",
+    "description": "Lets someone administer Confluence spaces, permissions, and settings."
   },
   {
     "entitlement_id": "ENT043",
     "entitlement_name": "GITHUB_REPO_ADMIN",
     "application": "GitHub",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone administer settings and access for a specific company code repository on GitHub."
   },
   {
     "entitlement_id": "ENT044",
     "entitlement_name": "GITHUB_ORG_ADMIN",
     "application": "GitHub",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Gives administrative control across the company's entire GitHub organization. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT045",
     "entitlement_name": "JENKINS_BUILD",
     "application": "Jenkins",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone trigger and run automated software build jobs in Jenkins."
   },
   {
     "entitlement_id": "ENT046",
     "entitlement_name": "JENKINS_ADMIN",
     "application": "Jenkins",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone administer the Jenkins build automation system."
   },
   {
     "entitlement_id": "ENT047",
     "entitlement_name": "ARTIFACTORY_DEPLOY",
     "application": "Artifactory",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone publish software packages to the company's Artifactory repository."
   },
   {
     "entitlement_id": "ENT048",
     "entitlement_name": "AWS_PROD_DEPLOY",
     "application": "AWS",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone deploy changes to the company's live, customer-facing systems hosted on AWS. Sensitive access since mistakes can affect real users."
   },
   {
     "entitlement_id": "ENT049",
     "entitlement_name": "AWS_ADMIN",
     "application": "AWS",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Gives full administrative control over the company's AWS cloud account. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT050",
     "entitlement_name": "AZURE_CONTRIBUTOR",
     "application": "Azure",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone create and modify resources within the company's Microsoft Azure cloud environment."
   },
   {
     "entitlement_id": "ENT051",
     "entitlement_name": "GCP_VIEWER",
     "application": "GCP",
-    "owner": "DevOps Team"
+    "owner": "DevOps Team",
+    "description": "Lets someone view (read-only) resources in the company's Google Cloud Platform account."
   },
   {
     "entitlement_id": "ENT052",
     "entitlement_name": "KUBERNETES_OPERATOR",
     "application": "Kubernetes",
-    "owner": "Platform Team"
+    "owner": "Platform Team",
+    "description": "Lets someone manage and operate the containerized applications running on the company's Kubernetes clusters."
   },
   {
     "entitlement_id": "ENT053",
     "entitlement_name": "TERRAFORM_APPLY",
     "application": "Terraform Cloud",
-    "owner": "Platform Team"
+    "owner": "Platform Team",
+    "description": "Lets someone apply infrastructure changes, such as creating or deleting cloud resources, through Terraform Cloud."
   },
   {
     "entitlement_id": "ENT054",
     "entitlement_name": "PAGERDUTY_RESPONDER",
     "application": "PagerDuty",
-    "owner": "Platform Team"
+    "owner": "Platform Team",
+    "description": "Lets someone receive and respond to system incident alerts through PagerDuty."
   },
   {
     "entitlement_id": "ENT055",
     "entitlement_name": "DATADOG_VIEWER",
     "application": "Datadog",
-    "owner": "Platform Team"
+    "owner": "Platform Team",
+    "description": "Lets someone view system performance monitoring dashboards in Datadog."
   },
   {
     "entitlement_id": "ENT056",
     "entitlement_name": "DATADOG_ADMIN",
     "application": "Datadog",
-    "owner": "Platform Team"
+    "owner": "Platform Team",
+    "description": "Lets someone administer monitoring configuration and user access in Datadog."
   },
   {
     "entitlement_id": "ENT057",
     "entitlement_name": "PROD_DB_READ",
     "application": "Oracle DB",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone view (read-only) data in the company's live production databases."
   },
   {
     "entitlement_id": "ENT058",
     "entitlement_name": "PROD_DB_WRITE",
     "application": "Oracle DB",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone directly change data in the company's live production databases. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT059",
     "entitlement_name": "PROD_SSH_ACCESS",
     "application": "Linux Estate",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone remotely log in to the company's live production servers. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT060",
     "entitlement_name": "TEST_ENV_ADMIN",
     "application": "Linux Estate",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone administer the company's non-production test and development servers."
   },
   {
     "entitlement_id": "ENT061",
     "entitlement_name": "AD_USER_READ",
     "application": "Active Directory",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone view (read-only) employee account information in Active Directory."
   },
   {
     "entitlement_id": "ENT062",
     "entitlement_name": "AD_ACCOUNT_OPERATOR",
     "application": "Active Directory",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone create and reset employee accounts in Active Directory, for example to support IT helpdesk tasks."
   },
   {
     "entitlement_id": "ENT063",
     "entitlement_name": "OKTA_HELPDESK",
     "application": "Okta",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone perform helpdesk tasks, such as resetting an employee's password, through Okta."
   },
   {
     "entitlement_id": "ENT064",
     "entitlement_name": "OKTA_ADMIN",
     "application": "Okta",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Gives full administrative control over the company's Okta login and identity system. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT065",
     "entitlement_name": "CYBERARK_SAFE_USER",
     "application": "CyberArk",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone retrieve privileged passwords stored in a specific CyberArk safe they've been assigned to."
   },
   {
     "entitlement_id": "ENT066",
     "entitlement_name": "CYBERARK_VAULT_ADMIN",
     "application": "CyberArk",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone administer the CyberArk vault that stores the company's most sensitive passwords. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT067",
     "entitlement_name": "SAILPOINT_REVIEWER",
     "application": "SailPoint",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone review and approve or deny employee access during periodic access reviews."
   },
   {
     "entitlement_id": "ENT068",
     "entitlement_name": "SAILPOINT_ADMIN",
     "application": "SailPoint",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone administer SailPoint, the system that manages who has access to what across the company."
   },
   {
     "entitlement_id": "ENT069",
     "entitlement_name": "CROWDSTRIKE_ANALYST",
     "application": "CrowdStrike",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone investigate security alerts and potential threats in the CrowdStrike platform."
   },
   {
     "entitlement_id": "ENT070",
     "entitlement_name": "CROWDSTRIKE_ADMIN",
     "application": "CrowdStrike",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone administer the CrowdStrike endpoint security platform."
   },
   {
     "entitlement_id": "ENT071",
     "entitlement_name": "SPLUNK_SEARCH",
     "application": "Splunk",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone search and view system log data in Splunk."
   },
   {
     "entitlement_id": "ENT072",
     "entitlement_name": "SPLUNK_ADMIN",
     "application": "Splunk",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone administer the Splunk log management platform."
   },
   {
     "entitlement_id": "ENT073",
     "entitlement_name": "FIREWALL_ADMIN",
     "application": "Palo Alto",
-    "owner": "Security IT"
+    "owner": "Security IT",
+    "description": "Lets someone configure and manage the company's network firewalls. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT074",
     "entitlement_name": "VPN_STANDARD",
     "application": "VPN Gateway",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone connect remotely to the company network through the standard VPN."
   },
   {
     "entitlement_id": "ENT075",
     "entitlement_name": "VPN_PRIVILEGED",
     "application": "VPN Gateway",
-    "owner": "Infrastructure IT"
+    "owner": "Infrastructure IT",
+    "description": "Lets someone connect remotely with elevated access to sensitive internal network areas."
   },
   {
     "entitlement_id": "ENT076",
     "entitlement_name": "RSA_GRC_ADMIN",
     "application": "RSA Archer",
-    "owner": "Risk IT"
+    "owner": "Risk IT",
+    "description": "Lets someone administer the RSA Archer risk and compliance system."
   },
   {
     "entitlement_id": "ENT077",
     "entitlement_name": "RISK_MODEL_LIBRARY",
     "application": "Risk Portal",
-    "owner": "Risk IT"
+    "owner": "Risk IT",
+    "description": "Lets someone access the library of risk models used for the company's risk analysis."
   },
   {
     "entitlement_id": "ENT078",
     "entitlement_name": "AUDIT_WORKPAPERS",
     "application": "Audit Platform",
-    "owner": "Audit IT"
+    "owner": "Audit IT",
+    "description": "Lets someone create and access audit workpapers, the detailed records that support audit findings."
   },
   {
     "entitlement_id": "ENT079",
     "entitlement_name": "AUDIT_ADMIN",
     "application": "Audit Platform",
-    "owner": "Audit IT"
+    "owner": "Audit IT",
+    "description": "Lets someone administer the audit platform and manage who can access it."
   },
   {
     "entitlement_id": "ENT080",
     "entitlement_name": "COMPLIANCE_CASE_MGMT",
     "application": "NICE Actimize",
-    "owner": "Compliance IT"
+    "owner": "Compliance IT",
+    "description": "Lets someone manage compliance investigation cases in NICE Actimize."
   },
   {
     "entitlement_id": "ENT081",
     "entitlement_name": "AML_SCREENING",
     "application": "NICE Actimize",
-    "owner": "Compliance IT"
+    "owner": "Compliance IT",
+    "description": "Lets someone screen customers and transactions for anti-money-laundering (AML) compliance."
   },
   {
     "entitlement_id": "ENT082",
     "entitlement_name": "SANCTIONS_OVERRIDE",
     "application": "NICE Actimize",
-    "owner": "Compliance IT"
+    "owner": "Compliance IT",
+    "description": "Lets someone override automated sanctions-screening alerts. This is a highly privileged, sensitive compliance control."
   },
   {
     "entitlement_id": "ENT083",
     "entitlement_name": "POLICY_REGISTER",
     "application": "Policy Hub",
-    "owner": "Compliance IT"
+    "owner": "Compliance IT",
+    "description": "Lets someone access and manage the company's official policy register."
   },
   {
     "entitlement_id": "ENT084",
     "entitlement_name": "POWERBI_HR",
     "application": "PowerBI",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone view HR dashboards and reports in PowerBI."
   },
   {
     "entitlement_id": "ENT085",
     "entitlement_name": "POWERBI_SALES",
     "application": "PowerBI",
-    "owner": "BI Team"
+    "owner": "BI Team",
+    "description": "Lets someone view sales dashboards and reports in PowerBI."
   },
   {
     "entitlement_id": "ENT086",
     "entitlement_name": "POWERBI_ADMIN",
     "application": "PowerBI",
-    "owner": "BI Team"
+    "owner": "BI Team",
+    "description": "Lets someone administer the PowerBI platform, including workspaces and who has access."
   },
   {
     "entitlement_id": "ENT087",
     "entitlement_name": "TABLEAU_VIEWER",
     "application": "Tableau",
-    "owner": "BI Team"
+    "owner": "BI Team",
+    "description": "Lets someone view dashboards and reports in Tableau."
   },
   {
     "entitlement_id": "ENT088",
     "entitlement_name": "TABLEAU_CREATOR",
     "application": "Tableau",
-    "owner": "BI Team"
+    "owner": "BI Team",
+    "description": "Lets someone build and publish new dashboards and reports in Tableau."
   },
   {
     "entitlement_id": "ENT089",
     "entitlement_name": "SNOWFLAKE_READ",
     "application": "Snowflake",
-    "owner": "Data Platform"
+    "owner": "Data Platform",
+    "description": "Lets someone view (read-only) data stored in the company's Snowflake data warehouse."
   },
   {
     "entitlement_id": "ENT090",
     "entitlement_name": "SNOWFLAKE_WRITE",
     "application": "Snowflake",
-    "owner": "Data Platform"
+    "owner": "Data Platform",
+    "description": "Lets someone add or change data in the Snowflake data warehouse."
   },
   {
     "entitlement_id": "ENT091",
     "entitlement_name": "SNOWFLAKE_ADMIN",
     "application": "Snowflake",
-    "owner": "Data Platform"
+    "owner": "Data Platform",
+    "description": "Gives full administrative control over the company's Snowflake data warehouse. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT092",
     "entitlement_name": "DATABRICKS_WORKSPACE",
     "application": "Databricks",
-    "owner": "Data Platform"
+    "owner": "Data Platform",
+    "description": "Lets someone access the Databricks workspace to build and run data analytics code."
   },
   {
     "entitlement_id": "ENT093",
     "entitlement_name": "DATA_LAKE_PII_READ",
     "application": "Snowflake",
-    "owner": "Data Platform"
+    "owner": "Data Platform",
+    "description": "Lets someone view sensitive personal information (such as names, IDs, or other personal data) stored in the data lake. This is a highly sensitive access."
   },
   {
     "entitlement_id": "ENT094",
     "entitlement_name": "WORKDAY_RECRUITER",
     "application": "Workday",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone manage job postings and candidates in Workday recruiting."
   },
   {
     "entitlement_id": "ENT095",
     "entitlement_name": "WORKDAY_COMP_ADMIN",
     "application": "Workday",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone view and manage employee compensation (salary) data in Workday. This is highly sensitive access."
   },
   {
     "entitlement_id": "ENT096",
     "entitlement_name": "WORKDAY_PAYROLL_RUN",
     "application": "Workday",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone process and run the company's payroll in Workday. This is a highly privileged, sensitive access."
   },
   {
     "entitlement_id": "ENT097",
     "entitlement_name": "SUCCESSFACTORS_LMS",
     "application": "SuccessFactors",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone access the learning management system to assign and track employee training."
   },
   {
     "entitlement_id": "ENT098",
     "entitlement_name": "SHAREPOINT_HR",
     "application": "SharePoint",
-    "owner": "HR IT"
+    "owner": "HR IT",
+    "description": "Lets someone access the HR team's shared documents and files on SharePoint."
   },
   {
     "entitlement_id": "ENT099",
     "entitlement_name": "LEGAL_MATTER_MGMT",
     "application": "Legal Tracker",
-    "owner": "Legal IT"
+    "owner": "Legal IT",
+    "description": "Lets someone track and manage legal matters and cases in the Legal Tracker system."
   },
   {
     "entitlement_id": "ENT100",
     "entitlement_name": "DOCUSIGN_SENDER",
     "application": "DocuSign",
-    "owner": "Legal IT"
+    "owner": "Legal IT",
+    "description": "Lets someone send documents out for electronic signature through DocuSign."
   },
   {
     "entitlement_id": "ENT101",
     "entitlement_name": "CONTRACT_ESIGN_ADMIN",
     "application": "DocuSign",
-    "owner": "Legal IT"
+    "owner": "Legal IT",
+    "description": "Lets someone administer the company's DocuSign e-signature system and contract templates."
   },
   {
     "entitlement_id": "ENT102",
     "entitlement_name": "SALESFORCE_USER",
     "application": "Salesforce",
-    "owner": "CRM Team"
+    "owner": "CRM Team",
+    "description": "Lets someone access customer and sales records in Salesforce."
   },
   {
     "entitlement_id": "ENT103",
     "entitlement_name": "SALESFORCE_PRICING_APPROVE",
     "application": "Salesforce",
-    "owner": "CRM Team"
+    "owner": "CRM Team",
+    "description": "Lets someone approve special customer pricing or discounts in Salesforce."
   },
   {
     "entitlement_id": "ENT104",
     "entitlement_name": "SALESFORCE_ADMIN",
     "application": "Salesforce",
-    "owner": "CRM Team"
+    "owner": "CRM Team",
+    "description": "Lets someone administer the Salesforce system, including users and configuration."
   },
   {
     "entitlement_id": "ENT105",
     "entitlement_name": "MARKETO_CAMPAIGN",
     "application": "Marketo",
-    "owner": "Marketing IT"
+    "owner": "Marketing IT",
+    "description": "Lets someone create and send marketing email campaigns in Marketo."
   },
   {
     "entitlement_id": "ENT106",
     "entitlement_name": "ZENDESK_AGENT",
     "application": "Zendesk",
-    "owner": "Support IT"
+    "owner": "Support IT",
+    "description": "Lets someone respond to customer support tickets in Zendesk."
   },
   {
     "entitlement_id": "ENT107",
     "entitlement_name": "ZENDESK_ADMIN",
     "application": "Zendesk",
-    "owner": "Support IT"
+    "owner": "Support IT",
+    "description": "Lets someone administer the Zendesk customer support system."
   },
   {
     "entitlement_id": "ENT108",
     "entitlement_name": "SERVICENOW_USER",
     "application": "ServiceNow",
-    "owner": "ITSM Team"
+    "owner": "ITSM Team",
+    "description": "Lets someone submit IT support requests and tickets in ServiceNow."
   },
   {
     "entitlement_id": "ENT109",
     "entitlement_name": "SERVICENOW_APPROVER",
     "application": "ServiceNow",
-    "owner": "ITSM Team"
+    "owner": "ITSM Team",
+    "description": "Lets someone approve IT service requests, such as access requests, in ServiceNow."
   },
   {
     "entitlement_id": "ENT110",
     "entitlement_name": "SERVICENOW_ADMIN",
     "application": "ServiceNow",
-    "owner": "ITSM Team"
+    "owner": "ITSM Team",
+    "description": "Lets someone administer the ServiceNow IT service management platform."
   },
   {
     "entitlement_id": "ENT111",
     "entitlement_name": "O365_STANDARD",
     "application": "Microsoft 365",
-    "owner": "Collaboration Team"
+    "owner": "Collaboration Team",
+    "description": "Gives standard access to Microsoft 365 tools such as Outlook email, Word, Excel, and Teams."
   },
   {
     "entitlement_id": "ENT112",
     "entitlement_name": "SLACK_USER",
     "application": "Slack",
-    "owner": "Collaboration Team"
+    "owner": "Collaboration Team",
+    "description": "Lets someone send and receive messages in the company's Slack workspace."
   }
 ]
