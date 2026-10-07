@@ -60,10 +60,14 @@ mcp = FastMCP(
     version="1.0.0",
     instructions=(
         "Access to the entitlement catalog and its risk scores. The catalog "
-        "lists each entitlement with its application and owning team, addressed by "
-        "entitlement_id (e.g. 'ENT001'). Risk scores rate each entitlement 0-100 "
+        "lists each entitlement with its application, owning team and a "
+        "plain-language description of what the access permits, addressed by "
+        "entitlement_id (e.g. 'ENT001'). Use that description to explain an "
+        "entitlement to someone rather than inferring the access from its name. "
+        "Risk scores rate each entitlement 0-100 "
         "with a category, addressed by entitlement_name (e.g. 'SAP_FIN_DISPLAY'). "
-        "The two join on entitlement_name."
+        "The two join on entitlement_name. A description says what the access "
+        "does, not how risky it is -- the risk score is the only source for that."
     ),
     lifespan=lifespan,
 )
@@ -164,6 +168,21 @@ DESTRUCTIVE = ToolAnnotations(
 
 EntitlementId = Annotated[str, Field(description="Catalog identifier, e.g. 'ENT001'")]
 EntitlementName = Annotated[str, Field(description="Entitlement name, e.g. 'SAP_FIN_DISPLAY'")]
+#: `min_length=1` matches the API, which rejects an empty description rather
+#: than storing a blank one -- failing here gives a usable message instead of a
+#: relayed 422.
+EntitlementDescription = Annotated[
+    str,
+    Field(
+        min_length=1,
+        description=(
+            "What the access permits, in plain language a non-technical reader "
+            "would understand, e.g. \"Lets someone retrieve privileged "
+            "passwords stored in a specific CyberArk safe they've been "
+            "assigned to.\" Describe the access, not its risk."
+        ),
+    ),
+]
 
 
 # --------------------------------------------------------------------------
@@ -175,7 +194,8 @@ EntitlementName = Annotated[str, Field(description="Entitlement name, e.g. 'SAP_
     annotations=READ_ONLY,
     title="List entitlements",
     description=(
-        "Look up catalog entitlements -- their application and owning team. "
+        "Look up catalog entitlements -- their application, owning team and a "
+        "plain-language description of what the access permits. "
         "Pass every value you need in ONE call -- do not call this once per value. Filters are "
         "repeatable lists: values inside one filter are ORed, separate filters are ANDed. Omit "
         "them all to get the whole table, which is small. The result is an envelope: `records` "
@@ -217,7 +237,9 @@ async def list_entitlements(
     annotations=READ_ONLY,
     title="Get an entitlement",
     description=(
-        "Fetch one catalog entitlement by entitlement_id. Errors if it does not "
+        "Fetch one catalog entitlement by entitlement_id -- its application, "
+        "owning team and a plain-language description of what the access "
+        "permits. Errors if it does not "
         "exist. For several entitlements use list_entitlements with a list of "
         "names -- one call, not one per entitlement."
     ),
@@ -239,6 +261,7 @@ async def create_entitlement(
     entitlement_name: EntitlementName,
     application: str,
     owner: str,
+    description: EntitlementDescription,
 ) -> dict[str, Any]:
     return await _request(
         "POST",
@@ -248,6 +271,7 @@ async def create_entitlement(
             "entitlement_name": entitlement_name,
             "application": application,
             "owner": owner,
+            "description": description,
         },
     )
 
@@ -265,9 +289,15 @@ async def update_entitlement(
     entitlement_name: str | None = None,
     application: str | None = None,
     owner: str | None = None,
+    description: Annotated[str | None, Field(min_length=1)] = None,
 ) -> dict[str, Any]:
     changes = _drop_none(
-        {"entitlement_name": entitlement_name, "application": application, "owner": owner}
+        {
+            "entitlement_name": entitlement_name,
+            "application": application,
+            "owner": owner,
+            "description": description,
+        }
     )
     if not changes:
         raise ToolError("Pass at least one field to change")
@@ -287,6 +317,7 @@ async def replace_entitlement(
     entitlement_name: EntitlementName,
     application: str,
     owner: str,
+    description: EntitlementDescription,
 ) -> dict[str, Any]:
     return await _request(
         "PUT",
@@ -295,6 +326,10 @@ async def replace_entitlement(
             "entitlement_name": entitlement_name,
             "application": application,
             "owner": owner,
+            # Required rather than optional: a PUT that omitted it would store a
+            # null over whatever description the row had, so there must be no
+            # way to erase one by simply not mentioning it.
+            "description": description,
         },
     )
 
